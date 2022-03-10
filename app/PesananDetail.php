@@ -1,19 +1,16 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PesananDetail extends Model
+class Pesanandetail extends Model
 {
-	public function produk()
-	{
-		return $this->belongsTo('App\Models\Produk', 'produk_id', 'id');
-	}
+    protected $keyType = 'string';
 
-	public function pemesanan()
-	{
-		return $this->belongsTo('App\Models\Pemesanan', 'pemesanan_id', 'id');
-	}
+    public $incrementing = false;
+
+    protected $guarded = [];
+
+    protected $table = 'pesanan_detail';
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProduksTable extends Migration
+class CreateProdukTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateProduksTable extends Migration
      */
     public function up()
     {
-        Schema::create('produks', function (Blueprint $table) {
-            $table->id();
+        Schema::create('produk', function (Blueprint $table) {
+            $table->uuid('id')->primary();
             $table->foreignId('umkm_id');
             $table->string('nama_produk', 100);
-            $table->string('slug')->unique();
+            $table->string('slug')->unique()->nullable();
             $table->string('foto_produk');
             $table->string('berat_unit', 50);
             $table->mediumInteger('harga_unit');
@@ -42,6 +42,6 @@ class CreateProduksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('produks');
+        Schema::dropIfExists('produk');
     }
 }

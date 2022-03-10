@@ -14,7 +14,7 @@
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item active" aria-current="page">Section About</li>
+                <li class="breadcrumb-item active" aria-current="page">Section umkm</li>
             </ol>
         </nav>
 
@@ -23,7 +23,7 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    Section About
+                    Section umkm
                 </div>
                 <div class="card-body">
                     @if (session('success'))
@@ -37,42 +37,41 @@
                             <strong>{{session('delete')}}</strong>
                         </div>
                     @endif
-                    @if (count($about) == 1)
-                        {{-- <a href="{{ route('about.create')}}" class="btn btn-primary mb-3">
-                            <i class="fas fa-plus text-white-100"></i>
-                            Tambah Data
-                        </a> --}}
-                    @else
-                        <a href="{{ route('about.create')}}" class="btn btn-primary mb-3">
+
+                        <a href="{{ route('umkm.create')}}" class="btn btn-primary mb-3">
                             <i class="fas fa-plus text-white-100"></i>
                             Tambah Data
                         </a>
-                    @endif
                     <div class="table-responsive">
                         <table class="table table-bordered" width="100%" cellspacing="0" cellpadding="0">
                             <thead>
                                 <tr>
-                                    <th>Judul</th>
-                                    <th>Deskripsi</th>
-                                    <th>link</th>
+
+                                    <th>NO</th>
+                                    <th>Nama UMKM</th>
+                                    <th>Nama Pemilik</th>
+                                    <th>No Telpon</th>
+                                    <th>Alamat</th>
                                     <th>Tanggal Upload</th>
                                     <th>Tanggal Update</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            @forelse ($about as $abouts)
+                            @forelse ($umkm as $umkms)
                                 <tr>
-                                    <td style="vertical-align: middle;">{{ $abouts->title}}</td>
-                                    <td style="vertical-align: middle;">{!! $abouts->body !!}</td>
-                                    <td style="vertical-align: middle;">{{$abouts->link}}</td>
-                                    <td style="vertical-align: middle;">{{ $abouts->created_at }}</td>
-                                    <td style="vertical-align: middle;">{{ $abouts->updated_at }}</td>
+                                    <td style="vertical-align: middle;"></td>
+                                    <td style="vertical-align: middle;">{{ $umkms->nama_UMKM}}</td>
+                                    <td style="vertical-align: middle;">{{ $umkms->nama_pemilik }}</td>
+                                    <td style="vertical-align: middle;">{{$umkms->no_hp}}</td>
+                                    <td style="vertical-align: middle;">{{$umkms->alamat_umkm}}</td>
+                                    <td style="vertical-align: middle;">{{ $umkms->created_at }}</td>
+                                    <td style="vertical-align: middle;">{{ $umkms->updated_at }}</td>
                                     <td class="text-center" style="vertical-align: middle;">
-                                        <a href="{{ route('about.edit', $abouts->id) }}" class="btn btn-warning btn-sm">
+                                        <a href="{{ route('umkm.edit', $umkms->id) }}" class="btn btn-warning btn-sm">
                                             <i class="fa fa-pencil-alt"></i>
                                         </a>
-                                        <form action="{{ route('about.destroy', $abouts->id) }}" method="post"
+                                        <form action="{{ route('umkm.destroy', $umkms->id) }}" method="post"
                                               class="d-inline">
                                             @csrf
                                             @method('delete')
@@ -84,7 +83,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="7" class="text-center">
+                                    <td colspan="10" class="text-center">
                                         Data Kosong
                                     </td>
                                 </tr>

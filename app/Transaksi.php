@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Bisnisumumlowongan extends Model
+class Transaksi extends Model
 {
     protected $keyType = 'string';
 
@@ -12,5 +12,5 @@ class Bisnisumumlowongan extends Model
 
     protected $guarded = [];
 
-    protected $table = 'bisnisumumlowongan';
+    protected $table = 'transaksi';
 }

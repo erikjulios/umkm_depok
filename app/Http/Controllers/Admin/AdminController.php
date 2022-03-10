@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\About;
+// use App\About;
 use Ramsey\Uuid\Uuid;
 
 class AdminController extends Controller
@@ -19,10 +19,10 @@ class AdminController extends Controller
         return view('pages.admin.dashboard');
     }
 
-        
+
 
     }
-    
+
 
 
 

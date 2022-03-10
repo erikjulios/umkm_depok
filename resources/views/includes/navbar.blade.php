@@ -42,7 +42,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">ADMIN</h6>
                         <a class="collapse-item" href="{{ route('produk.index') }}">Data Produk</a>
-                        <a class="collapse-item" href="{{asset('asset/register.html')}}">Data UMKM</a>
+                        <a class="collapse-item" href="{{route('umkm.index')}}">Data UMKM</a>
                         <a class="collapse-item" href="{{asset('asset/forgot-password.html')}}">Data Transaksi</a>
                         <a class="collapse-item" href="{{asset('asset/forgot-password.html')}}">Data User</a>
                         <a class="collapse-item" href="{{asset('asset/forgot-password.html')}}">Report</a>

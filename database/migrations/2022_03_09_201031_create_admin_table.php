@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUMKMSTable extends Migration
+class CreateAdminTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateUMKMSTable extends Migration
      */
     public function up()
     {
-        Schema::create('u_m_k_m_s', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama_UMKM', 100);
-            $table->string('slug')->unique();
-            $table->string('nama_pemilik', 100);
+        Schema::create('admin', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('nama_admin');
             $table->string('no_hp')->unique();
-            $table->string('alamat_umkm');
+            $table->string('email')->unique();
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateUMKMSTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('u_m_k_m_s');
+        Schema::dropIfExists('admin');
     }
 }

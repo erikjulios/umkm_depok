@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreatePesananDetailTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pesanan_details', function (Blueprint $table) {
-            $table->id();
+        Schema::create('pesanan_detail', function (Blueprint $table) {
+            $table->uuid('id')->primary();
             $table->integer('barang_id');
             $table->integer('pesanan_id');
             $table->integer('jumlah');
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pesanan_details');
+        Schema::dropIfExists('pesanan_detail');
     }
-};
+}

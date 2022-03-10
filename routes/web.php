@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 Route::resource('/dashboard','Dashboard\AdminController');
 Route::resource('/produk', 'Dashboard\AboutController');
+Route::resource('/umkm', 'Admin\UmkmController');
 
 Auth::routes();
 

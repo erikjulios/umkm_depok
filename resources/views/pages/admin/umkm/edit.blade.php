@@ -13,7 +13,7 @@
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('about.index') }}">Section about</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('umkm.index') }}">Section umkm</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Edit Data</li>
             </ol>
         </nav>
@@ -36,20 +36,25 @@
             Edit Data
         </div>
         <div class="card-body">
-            <form action="{{ route('about.update', $about->id)}}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('umkm.update', $umkm->id)}}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('put')
+
                 <div class="form-group">
-                    <label>Judul<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="title" placeholder="Masukkan title" value="{{$about->title}}" required>
+                    <label>Nama Umkm<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="nama_UMKM" placeholder="Masukkan Nama Umkm" value="{{$umkm->nama_UMKM}}" required>
                 </div>
                 <div class="form-group">
-                    <label>Deskripsi<span class="text-danger">*</span></label>
-                    <textarea id="summernote" class="form-control" name="body" value="{{ $about->body }}" required>{!! $about->body !!}</textarea>
+                    <label>Nama Pemilik<span class="text-danger">*</span></label>
+                    <input id="text" class="form-control" name="nama_pemilik" placeholder="Masukkan Nama Umkm" value="{{$umkm->nama_pemilik}}" required>
                 </div>
                 <div class="form-group">
-                    <label>Link<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="link" placeholder="Masukkan link" value="{{$about->link}}" required>
+                    <label>Nomor Telepon<span class="text-danger">*</span></label>
+                    <input type="number" class="form-control" name="no_hp" placeholder="Masukkan Nomor Telepon" value="{{$umkm->no_hp}}" required>
+                </div>
+                <div class="form-group">
+                    <label>Alamat Umkm<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="alamat_umkm" placeholder="Masukkan Alamat Umkm" value="{{$umkm->alamat_umkm}}" required>
                 </div>
                 <button class="btn btn-primary btn-block">
                     Simpan
