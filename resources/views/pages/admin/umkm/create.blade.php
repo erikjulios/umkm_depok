@@ -1,3 +1,4 @@
+
 @extends('layouts.admin')
 @prepend('add-style')
     <!-- include libraries(jQuery, bootstrap) -->

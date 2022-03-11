@@ -8,6 +8,7 @@ use Ramsey\Uuid\Uuid;
 use App\Umkm;
 
 class UmkmController extends Controller
+
 {
     /**
      * Display a listing of the resource.
