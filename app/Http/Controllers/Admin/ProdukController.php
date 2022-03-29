@@ -44,7 +44,7 @@ class ProdukController extends Controller
 
             'nama_produk'=>'required',
             'slug'=>'required',
-            'foto_produk'=>'required',
+            'foto_produk'=>'required|max:2048',
             'berat_unit'=>'required',
             'harga_unit'=>'required',
             'komposisi'=>'required',
@@ -62,7 +62,10 @@ class ProdukController extends Controller
         [
 'nama_produk'=>'Nama Produk Wajib Diisi',
 'slug'=>'Tittle Wajib Diisi',
-'foto_produk'=>'Foto Produk Wajib Diisi',
+// 'foto_produk'=>'Foto Produk Wajib Diisi',
+'foto_produk.required' => 'Gambar harus diisi!',
+'foto_produk.mimes' => 'Gambar harus berformat jpg,jpeg atau png',
+'foto_produk.max' => 'Ukuran gambar maksimal harus berukuran 2048',
 'berat_unit'=>'Berat Wajib Diisi',
 'harga_unit'=>'Harga Wajib Diisi',
 'komposisi'=>'Komposisi Wajib Diisi',
@@ -98,6 +101,16 @@ class ProdukController extends Controller
         $umkm->no_BPOM = $request->no_BPOM;
         $umkm->rating = $request->rating;
         $umkm->diskon = $request->diskon;
+
+        if($request->has('foto_produk'))
+        {
+            $file = $request->foto_produk;
+            $filename = 'upload/produk/' . rand() . '.' . $file->getClientOriginalExtension();
+            $file->move('upload/produk',$filename);
+            $event->foto_produk = $filename;
+        }
+
+
         $umkm->save();
         return redirect()->route('umkm.index')->with('success','Berhasil input data!');
     }
@@ -129,7 +142,7 @@ class ProdukController extends Controller
 
             'nama_produk'=>'required',
             'slug'=>'required',
-            'foto_produk'=>'required',
+            'foto_produk'=>'required|max:2048',
             'berat_unit'=>'required',
             'harga_unit'=>'required',
             'komposisi'=>'required',
@@ -147,7 +160,11 @@ class ProdukController extends Controller
         [
 'nama_produk'=>'Nama Produk Wajib Diisi',
 'slug'=>'Tittle Wajib Diisi',
-'foto_produk'=>'Foto Produk Wajib Diisi',
+// 'foto_produk'=>'Foto Produk Wajib Diisi',
+'foto_produk.required' => 'Gambar harus diisi!',
+'foto_produk.mimes' => 'Gambar harus berformat jpg,jpeg atau png',
+'foto_produk.max' => 'Ukuran gambar maksimal harus berukuran 2048',
+
 'berat_unit'=>'Berat Wajib Diisi',
 'harga_unit'=>'Harga Wajib Diisi',
 'komposisi'=>'Komposisi Wajib Diisi',
@@ -166,7 +183,7 @@ class ProdukController extends Controller
         $umkm = Umkm::findorfail($umkm->id);
         $umkm->nama_produk = $request->nama_produk;
         $umkm->slug = $request->slug;
-        $umkm->foto_produk = $request->foto_produk;
+        // $umkm->foto_produk = $request->foto_produk;
         $umkm->berat_unit = $request->berat_unit;
         $umkm->harga_unit = $request->harga_unit;
         $umkm->komposisi = $request->komposisi;
@@ -179,6 +196,21 @@ class ProdukController extends Controller
         $umkm->no_BPOM = $request->no_BPOM;
         $umkm->rating = $request->rating;
         $umkm->diskon = $request->diskon;
+        if (empty($request->file('foto_produk'))){
+
+            $produk->foto_produk = $produk->foto_produk;
+
+        } else {
+
+            unlink($produk->foto_produk); //menghapus file lama
+
+            $file = $request->foto_produk;
+            $filename = 'upload/produk/' . rand() . '.' . $file->getClientOriginalExtension();
+            $file->move('upload/produk',$filename);
+            $acara->foto_produk = $filename;
+
+        }
+
         $umkm->save();
         return redirect()->route('umkm.index')->with('success','Berhasil edit data!');
 
