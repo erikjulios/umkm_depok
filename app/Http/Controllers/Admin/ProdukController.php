@@ -80,38 +80,37 @@ class ProdukController extends Controller
 
 
 
-        $umkm = new Umkm();
-        $umkm->id = Uuid::uuid4()->getHex();
-
-        $umkm->nama_produk = $request->nama_produk;
-        $umkm->slug = $request->slug;
-        $umkm->foto_produk = $request->foto_produk;
-        $umkm->berat_unit = $request->berat_unit;
-        $umkm->harga_unit = $request->harga_unit;
-        $umkm->komposisi = $request->komposisi;
-        $umkm->stok_tersedia = $request->stok_tersedia;
-        $umkm->produk_terjual = $request->produk_terjual;
-        $umkm->deskripsi = $request->deskripsi;
-        $umkm->varian = $request->varian;
-        $umkm->varian_tersedia = $request->varian_tersedia;
-        $umkm->ketersediaan_produk = $request->ketersediaan_produk;
-        $umkm->no_BPOM = $request->no_BPOM;
-        $umkm->rating = $request->rating;
-        $umkm->diskon = $request->diskon;
-        $umkm->save();
-        return redirect()->route('umkm.index')->with('success','Berhasil input data!');
+        $produk = new Produk();
+        $produk->id = Uuid::uuid4()->getHex();
+        $produk->nama_produk = $request->nama_produk;
+        $produk->slug = $request->slug;
+        $produk->foto_produk = $request->foto_produk;
+        $produk->berat_unit = $request->berat_unit;
+        $produk->harga_unit = $request->harga_unit;
+        $produk->komposisi = $request->komposisi;
+        $produk->stok_tersedia = $request->stok_tersedia;
+        $produk->produk_terjual = $request->produk_terjual;
+        $produk->deskripsi = $request->deskripsi;
+        $produk->varian = $request->varian;
+        $produk->varian_tersedia = $request->varian_tersedia;
+        $produk->ketersediaan_produk = $request->ketersediaan_produk;
+        $produk->no_BPOM = $request->no_BPOM;
+        $produk->rating = $request->rating;
+        $produk->diskon = $request->diskon;
+        $produk->save();
+        return redirect()->route('produk.index')->with('success','Berhasil input data!');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Umkm  $umkm
+     * @param  \App\Produk  $produk
      * @return \Illuminate\Http\Response
      */
-    public function edit(Umkm $umkm)
+    public function edit(Produk $produk)
     {
 
-        return view('pages.admin.produk.edit', compact('umkm'));
+        return view('pages.admin.produk.edit', compact('produk'));
 
     }
 
@@ -119,10 +118,10 @@ class ProdukController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Umkm  $umkm
+     * @param  \App\Produk  $produk
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Umkm $umkm)
+    public function update(Request $request, Produk $produk)
     {
 
         $this->validate($request, [
@@ -163,53 +162,53 @@ class ProdukController extends Controller
 
         ]);
 
-        $umkm = Umkm::findorfail($umkm->id);
-        $umkm->nama_produk = $request->nama_produk;
-        $umkm->slug = $request->slug;
-        $umkm->foto_produk = $request->foto_produk;
-        $umkm->berat_unit = $request->berat_unit;
-        $umkm->harga_unit = $request->harga_unit;
-        $umkm->komposisi = $request->komposisi;
-        $umkm->stok_tersedia = $request->stok_tersedia;
-        $umkm->produk_terjual = $request->produk_terjual;
-        $umkm->deskripsi = $request->deskripsi;
-        $umkm->varian = $request->varian;
-        $umkm->varian_tersedia = $request->varian_tersedia;
-        $umkm->ketersediaan_produk = $request->ketersediaan_produk;
-        $umkm->no_BPOM = $request->no_BPOM;
-        $umkm->rating = $request->rating;
-        $umkm->diskon = $request->diskon;
-        $umkm->save();
-        return redirect()->route('umkm.index')->with('success','Berhasil edit data!');
+        $produk = Produk::findorfail($produk->id);
+        $produk->nama_produk = $request->nama_produk;
+        $produk->slug = $request->slug;
+        $produk->foto_produk = $request->foto_produk;
+        $produk->berat_unit = $request->berat_unit;
+        $produk->harga_unit = $request->harga_unit;
+        $produk->komposisi = $request->komposisi;
+        $produk->stok_tersedia = $request->stok_tersedia;
+        $produk->produk_terjual = $request->produk_terjual;
+        $produk->deskripsi = $request->deskripsi;
+        $produk->varian = $request->varian;
+        $produk->varian_tersedia = $request->varian_tersedia;
+        $produk->ketersediaan_produk = $request->ketersediaan_produk;
+        $produk->no_BPOM = $request->no_BPOM;
+        $produk->rating = $request->rating;
+        $produk->diskon = $request->diskon;
+        $produk->save();
+        return redirect()->route('produk.index')->with('success','Berhasil edit data!');
 
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Umkm  $umkm
+     * @param  \App\Produk  $produk
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Umkm $umkm)
+    public function destroy(Produk $produk)
     {
 
-        $umkm = Umkm::findOrfail($umkm->id);
+        $produk = Produk::findOrfail($produk->id);
 
         // Delete from directory
-        // unlink($umkm->image);
+        // unlink($produk->image);
 
-        $umkm->delete();
+        $produk->delete();
 
-        return redirect()->route('umkm.index')->with('delete','Berhasil hapus data!');
+        return redirect()->route('produk.index')->with('delete','Berhasil hapus data!');
 
     }
 
     public function makePublish($id)
     {
 
-        $umkm = Umkm::findorfail($id);
+        $produk = Produk::findorfail($id);
 
-        if ($umkm->is_publish == 0)
+        if ($produk->is_publish == 0)
         {
 
             $publish = 1;
@@ -222,10 +221,10 @@ class ProdukController extends Controller
 
         }
 
-        $umkm->is_publish = $publish;
-        $umkm->save();
+        $produk->is_publish = $publish;
+        $produk->save();
 
-        return redirect()->route('umkm.index')->with('success',$message);
+        return redirect()->route('produk.index')->with('success',$message);
 
     }
 

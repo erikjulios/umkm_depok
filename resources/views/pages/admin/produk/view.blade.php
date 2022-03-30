@@ -49,27 +49,47 @@
                         <table class="table table-bordered" width="100%" cellspacing="0" cellpadding="0">
                             <thead>
                                 <tr>
-                                    <th>Judul</th>
+                                    <th>Nama Produk</th>
+                                    <th>Judul Produk</th>
+                                    <th>Foto Produk</th>
+                                    <th>Berat Unit</th>
+                                    <th>Harga Unit</th>
+                                    <th>Komposisi</th>
+                                    <th>Stock Tersedia</th>
+                                    <th>Produk Terjual</th>
                                     <th>Deskripsi</th>
-                                    <th>link</th>
-                                    <th>Tanggal Upload</th>
-                                    <th>Tanggal Update</th>
-                                    <th>Aksi</th>
+                                    <th>Varian</th>
+                                    <th>Varian Tersedia</th>
+                                    <th>Ketersedaan Produk</th>
+                                    <th>No BPOM</th>
+                                    <th>Rating</th>
+                                    <th>Diskon</th>
+                                    <th>Aksi    </th>
                                 </tr>
                             </thead>
                             <tbody>
-                            @forelse ($about as $abouts)
+                            @forelse ($produk as $produk)
                                 <tr>
-                                    <td style="vertical-align: middle;">{{ $abouts->title}}</td>
-                                    <td style="vertical-align: middle;">{!! $abouts->body !!}</td>
-                                    <td style="vertical-align: middle;">{{$abouts->link}}</td>
-                                    <td style="vertical-align: middle;">{{ $abouts->created_at }}</td>
-                                    <td style="vertical-align: middle;">{{ $abouts->updated_at }}</td>
+                                    <td style="vertical-align: middle;">{{ $produk->nama_produk}}</td>
+                                    <td style="vertical-align: middle;">{{ $produk->slug }}</td>
+                                    <td style="vertical-align: middle;">{{$produk->foto_produk }}</td>
+                                    <td style="vertical-align: middle;">{{ $produk->berat_unit }}</td>
+                                    <td style="vertical-align: middle;">{{ $produk->harga_unit }}</td>
+                                    <td style="vertical-align: middle;">{{ $produk->komposisi }}</td>
+                                    <td style="vertical-align: middle;">{{ $produk->stok_tersedia }}</td>
+                                    <td style="vertical-align: middle;">{{ $produk->produk_terjual }}</td>
+                                    <td style="vertical-align: middle;">{{ $produk->deskripsi }}</td>
+                                    <td style="vertical-align: middle;">{{ $produk->varian }}</td>
+                                    <td style="vertical-align: middle;">{{ $produk->varian_tersedia }}</td>
+                                    <td style="vertical-align: middle;">{{ $produk->ketersediaan_produk }}</td>
+                                    <td style="vertical-align: middle;">{{ $produk->no_BPOM }}</td>
+                                    <td style="vertical-align: middle;">{{ $produk->rating }}</td>
+                                    <td style="vertical-align: middle;">{{ $produk->diskon }}</td>
                                     <td class="text-center" style="vertical-align: middle;">
-                                        <a href="{{ route('produk.edit', $abouts->id) }}" class="btn btn-warning btn-sm">
+                                        <a href="{{ route('produk.edit', $produk->id) }}" class="btn btn-warning btn-sm">
                                             <i class="fa fa-pencil-alt"></i>
                                         </a>
-                                        <form action="{{ route('produk.destroy', $abouts->id) }}" method="post"
+                                        <form action="{{ route('produk.destroy', $produk->id) }}" method="post"
                                               class="d-inline">
                                             @csrf
                                             @method('delete')
@@ -81,7 +101,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="7" class="text-center">
+                                    <td colspan="20" class="text-center">
                                         Data Kosong
                                     </td>
                                 </tr>
