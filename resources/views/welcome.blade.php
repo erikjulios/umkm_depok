@@ -29,30 +29,38 @@
     </div>
 
     <!-- Header Section Begin -->
-    <header class="header-section">
-        <div class="header-top">
+    <header class="header-section" >
+        <div class="header-top" style="background: #325288">
             <div class="container">
-                <div class="ht-left">
+                <div class="ht-left" >
+                    <strong>
                     <div class="mail-service">
                         <i class=" fa fa-envelope"></i> iwapi@gmail.com
                     </div>
                     <div class="phone-service">
                         <i class=" fa fa-phone"></i> +628 12345
                     </div>
+                    </strong>
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="container" >
             <div class="inner-header">
                 <div class="row">
                     <div class="col-lg-2 col-md-2">
                         <div class="logo">
-                            <a href="./index.html">
+                            <center>
+                            <a href="#">
                                 <img src="img/iwapi_logo.jpg" alt="" width="80" height="80" />
                             </a>
+                            </center>
                         </div>
-                    </div>
-                    <div class="col-lg-7 col-md-7"></div>
+                        </div>
+                            <div class="col-md-8 mx-auto" >
+                                <center>
+                                <h2><strong> Iwapi Depok Store</strong></h2>
+                                </center>
+                        </div>
                 </div>
             </div>
         </div>
@@ -66,12 +74,12 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-5">
-                            <span>Bag,kids</span>
+                            <span>Contoh</span>
                             <h1>Black friday</h1>
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
                             </p>
-                            <a href="{{ route('login') }}" class="primary-btn">Shop Now</a>
+                            <a href="{{ route('login') }}" class="primary-btn">Belanja Sekarang</a>
                         </div>
                     </div>
                 </div>
@@ -85,7 +93,7 @@
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
                             </p>
-                            <a href="{{ route('login') }}" class="primary-btn">Shop Now</a>
+                            <a href="{{ route('login') }}" class="primary-btn">Belanja Sekarang</a>
                         </div>
                     </div>
                 </div>
@@ -105,7 +113,7 @@
                                 <img src="img/biji ketapang.jpg" alt="" />
                             </div>
                             <div class="pi-text">
-                                <div class="catagory-name">Snack</div>
+                                <div class="catagory-name">Cemilan</div>
                                 <a href="#">
                                     <h5>Biji Ketapang</h5>
                                 </a>
@@ -120,7 +128,7 @@
                                 <img src="img/Dapur Salsa (Coklat Keju) (2).jpg" alt="" />
                             </div>
                             <div class="pi-text">
-                                <div class="catagory-name">Cake</div>
+                                <div class="catagory-name">Kue</div>
                                 <a href="#">
                                     <h5>Bolu</h5>
                                 </a>
@@ -134,7 +142,7 @@
                                 <img src="img/Daffiz147 (Lemon Jahe).jpg" alt="" />
                             </div>
                             <div class="pi-text">
-                                <div class="catagory-name">Drink</div>
+                                <div class="catagory-name">Minuman</div>
                                 <a href="#">
                                     <h5>Lemon Jahe</h5>
                                 </a>
@@ -148,7 +156,7 @@
                                 <img src="img/Daffiz147 (Leci Jelly).jpg" alt="" />
                             </div>
                             <div class="pi-text">
-                                <div class="catagory-name">Drink</div>
+                                <div class="catagory-name">Minuman</div>
                                 <a href="#">
                                     <h5>Leci Jelly</h5>
                                 </a>
@@ -240,7 +248,7 @@
     <!-- Partner Logo Section End -->
 
     <!-- Footer Section Begin -->
-    <footer class="footer-section">
+    <footer class="footer-section" style="background: #325288">
         <div class="container">
             <div class="row">
                 <div class="col-lg-5">
@@ -249,8 +257,8 @@
                             <a href="#"><img src="img/iwapi_logo.jpg" alt="" /></a>
                         </div>
                         <ul>
-                            <li>Address: Depok</li>
-                            <li>Phone: +628 12345</li>
+                            <li>Alamat: Depok</li>
+                            <li>No.telp: +628 12345</li>
                             <li>Email: email@gmail.com</li>
                         </ul>
                         <div class="footer-social">
@@ -263,20 +271,20 @@
                 </div>
                 <div class="col-lg-3 offset-lg-1">
                     <div class="footer-widget">
-                        <h5>Information</h5>
+                        <h5>Informasi</h5>
                         <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Tentang</a></li>
+                            <li><a href="#">Kontak</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="footer-widget">
-                        <h5>My Account</h5>
+                        <h5>Akun</h5>
                         <ul>
                             <li><a href="{{ route('login') }}">My Account</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Shop</a></li>
+                            <li><a href="#">Kontak</a></li>
+                            <li><a href="{{ route('login') }}">Belanja</a></li>
                         </ul>
                     </div>
                 </div>
@@ -291,7 +299,7 @@
                             <script>
                                 document.write(new Date().getFullYear());
                             </script>
-                            All rights reserved | Iwapi Depok Store
+                            Hak Cipta | Iwapi Depok Store
                         </div>
                     </div>
                 </div>

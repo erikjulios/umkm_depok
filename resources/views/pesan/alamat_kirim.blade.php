@@ -11,8 +11,9 @@
         <div class="col-md-12 mt-2">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ url('home') }}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('check-out') }}">Checkout</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('home') }}">Beranda</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('check-out') }}">Keranjang</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('konfirmasi_co') }}">Checkout</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Alamat Kirim</li>
                 </ol>
             </nav>

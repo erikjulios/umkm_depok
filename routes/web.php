@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\OngkosKirim;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,11 +34,14 @@ Route::post('/konfirmasi_co/', 'konfirmasi_co@index')->name('konfirmasi_co');
 Route::get('/alamat', 'konfirmasi_co@alamat')->name('alamat');
 Route::get('/tambah_alamat', 'konfirmasi_co@halaman_tambah_alamat');
 Route::post('/alamat/', 'konfirmasi_co@tambah_alamat');
-Route::get('/ongkir1', 'konfirmasi_co@halaman_ongkir')->name('ongkir1');
+Route::get('/ongkir', 'konfirmasi_co@halaman_ongkir')->name('ongkir');
 
 Route::post('/alamat_terpilih/', 'konfirmasi_co@alamat_terpilih')->name('alamat_terpilih');
 
 Route::post('/pilih_co/', 'PesanController@pilih_co')->name('pilih_co');
+
+Route::post('/ongkir_terpilih/', 'konfirmasi_co@ongkir_terpilih')->name('ongkir_terpilih');
+
 
 //kota berdasar prov error
 // Route::post('/provdankota/', 'konfirmasi_co@halaman_tambah_alamat')->name('provdankota');
@@ -48,4 +52,9 @@ Route::post('/pilih_co/', 'PesanController@pilih_co')->name('pilih_co');
 
 
 //livewire
-Route::get('/ongkir','\App\Http\Livewire\Ongkir@getOngkir')->name('ongkir');
+// Route::get('/ongkos-kirim','\App\Http\Livewire\Ongkir@getOngkir')->name('ongkos-kirim');
+// Route::get('/ongkos_kirim','\App\Http\Livewire\OngkosKirim@render')->name('ongkos_kirim');
+// Route::get('/ongkos_kirim',OngkosKirim::class);
+// Route::get('/ongkos-kirim', function () {
+//     return view('livewire.ongkos-kirim');
+// });

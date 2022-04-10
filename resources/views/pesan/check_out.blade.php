@@ -10,8 +10,8 @@
         <div class="col-md-12 mt-2">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ url('home')}}">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Check Out</li>
+                    <li class="breadcrumb-item"><a href="{{ url('home')}}">Beranda</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Keranjang</li>
                 </ol>
             </nav>
         </div>

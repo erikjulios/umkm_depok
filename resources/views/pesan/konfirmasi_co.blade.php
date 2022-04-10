@@ -9,12 +9,15 @@
         <div class="col-md-12 mt-2">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ url('home')}}">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"><a href="{{ url('check-out')}}">Check Out</a></li>
-                     <li class="breadcrumb-item active" aria-current="page">Pengiriman</li>
+                    <li class="breadcrumb-item"><a href="{{ url('home')}}">Beranda</a></li>
+                    <li class="breadcrumb-item"><a href="{{ url('check-out')}}">Keranjang</a></li>
+                     <li class="breadcrumb-item active" aria-current="page">Checkout</li>
                 </ol>
             </nav>
         </div>
+
+        <!-- Alamat kirim  -->
+
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
@@ -30,6 +33,9 @@
                         </tr>                      
                 </div>
             </div>
+
+            <!-- produk -->
+
             <div class="card">
                 <div class="card-body">
                     <h5><b>Produk</b></h5>
@@ -50,13 +56,31 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                   
-                <a href="{{route('ongkir')}}" >
+
+                <!-- ongkir -->
+
+                <a href="{{url('ongkir')}}" >
                     <h5><b>Tambahkan Jasa Kirim</b></h5>
                 </a>
+                @if(empty($ongkir_terpilih))
+                @else
+                    @foreach ($ongkir_terpilih as $key )
+                    <tr>
+                        <td><b>{{ $key['nama_jasa'] }}</b><br>
+                            {{ $key['deskripsi'] }}<br>
+                            Rp.{{ $key['biaya'] }}<br>
+                            Estimasi pengiriman {{ $key['estimasi'] }}(hari)
+                        </td>
+
+                    </tr>
+                    @endforeach  
+                @endif 
     
                 </div>
             </div>
+
+            <!-- pembayaran  -->
+
             <div class="card">
                 <div class="card-body">
                         <a href="">
