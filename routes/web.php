@@ -18,9 +18,10 @@ Route::get('/', function () {
     return view('pages.halaman.welcome');
 });
 
-Route::resource('/dashboard','Dashboard\AdminController');
-Route::resource('/produk', 'Dashboard\AboutController');
+Route::resource('/dashboard','Admin\AdminController');
+Route::resource('/produk', 'Admin\ProdukController');
 Route::resource('/umkm', 'Admin\UmkmController');
+
 
 Auth::routes();
 

@@ -39,16 +39,64 @@
             <form action="{{ route('produk.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
+                    <label>Nama Produk<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="nama_produk" placeholder="Masukkan Nama Produk" value="{{old('nama_produk')}}" required>
+                </div>
+                <div class="form-group">
                     <label>Judul<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="title" placeholder="Masukkan title" value="{{old('title')}}" required>
+                    <input type="text" class="form-control" name="slug" placeholder="Masukkan Judul" value="{{old('slug')}}" required>
+                </div>
+                <div class="form-group">
+                    <label>Foto Produk<span class="text-danger">*</span></label>
+                    <input type="file" class="form-control" name="foto_produk" placeholder="Masukkan Foto Produk" value="{{old('foto_produk')}}" required>
+                </div>
+                <div class="form-group">
+                    <label>Berat Unit<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="berat_unit" placeholder="Masukkan Berat Unit" value="{{old('berat_unit')}}" required>
+                </div>
+                <div class="form-group">
+                    <label>Harga Unit<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="harga_unit" placeholder="Masukkan Harga Unit" value="{{old('harga_unit')}}" required>
+                </div>
+                <div class="form-group">
+                    <label>Komposisi Produk<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="komposisi" placeholder="Masukkan Komposisi" value="{{old('komposisi')}}" required>
+                </div>
+                <div class="form-group">
+                    <label>Stock Tersedia<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="stok_tersedia" placeholder="Masukkan Stock Tersedia" value="{{old('stok_tersedia')}}" required>
+                </div>
+                <div class="form-group">
+                    <label>Produk Terjual<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="produk_terjual" placeholder="Masukkan Produk Terjual" value="{{old('produk_terjual')}}" required>
                 </div>
                 <div class="form-group">
                     <label>Deskripsi<span class="text-danger">*</span></label>
-                    <textarea id="summernote" class="form-control" name="body" value="{{old('body')}}" required>{{old('body')}}</textarea>
+                    <textarea id="summernote" class="form-control" name="deskripsi" value="{{old('deskripsi')}}" required></textarea>
                 </div>
                 <div class="form-group">
-                    <label>link<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="link" placeholder="Masukkan link" value="{{old('link')}}" required>
+                    <label>varian<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="varian" placeholder="Masukkan Varian" value="{{old('varian')}}" required>
+                </div>
+                <div class="form-group">
+                    <label>varian_tersedia<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="varian_tersedia" placeholder="Masukkan Varian Tersedia" value="{{old('varian_tersedia')}}" required>
+                </div>
+                <div class="form-group">
+                    <label>Ketersediaan Produk<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="ketersediaan_produk" placeholder="Masukkan Ketersediaan Produk" value="{{old('ketersediaan_produk')}}" required>
+                </div>
+                <div class="form-group">
+                    <label>No BPOM<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="no_BPOM" placeholder="Masukkan No BPOM" value="{{old('no_BPOM')}}" required>
+                </div>
+                <div class="form-group">
+                    <label>Rating<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="rating" placeholder="Masukkan Rating" value="{{old('rating')}}" required>
+                </div>
+                <div class="form-group">
+                    <label>Diskon<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="diskon" placeholder="Masukkan Diskon" value="{{old('diskon')}}" required>
                 </div>
 
                 <button class="btn btn-primary btn-block">

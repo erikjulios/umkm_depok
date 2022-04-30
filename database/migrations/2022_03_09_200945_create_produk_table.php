@@ -15,7 +15,7 @@ class CreateProdukTable extends Migration
     {
         Schema::create('produk', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignId('umkm_id');
+            // $table->foreignId('umkm_id');
             $table->string('nama_produk', 100);
             $table->string('slug')->unique()->nullable();
             $table->string('foto_produk');
@@ -27,9 +27,9 @@ class CreateProdukTable extends Migration
             $table->text('deskripsi')->nullable();
             $table->string('varian');
             $table->string('varian_tersedia')->nullable();
-            $table->boolean('ketersediaan_produk')->nullable();
+            $table->string('ketersediaan_produk')->nullable();
             $table->string('no_BPOM', 20)->unique();
-            $table->float('rating', 2, 2)->nullable();
+            $table->string('rating')->nullable();
             $table->string('diskon')->nullable();
             $table->timestamps();
         });
