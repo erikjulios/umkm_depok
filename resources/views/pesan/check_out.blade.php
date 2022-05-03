@@ -23,6 +23,7 @@
                     <p align="right">Tanggal Pesan : {{ $pesanan->tanggal }}</p>
                     <table class="table table-striped">
                         <tr>
+                            <td></td>
                             <td>Gambar</td>
                             <td>Nama barang</td>
                             <td>Jumlah</td>
@@ -35,7 +36,7 @@
                         <tr>
                             <form name="myform" method="POST" action="{{ url('pilih_pesanan') }}">
                                 @csrf
-                                <td><input type="checkbox" name="checkbox[]" value="{{$pesanan_detail->id}}"></td>
+                                <td><input type="checkbox" name="checkbox[]" id="checkbox" value="{{$pesanan_detail->id}}"></td>
                             </form>
                             <td><img src="{{url('img')}}/{{ $pesanan_detail->produk->foto_produk }}" width="150" height="150"></td>
                             <td>{{ $pesanan_detail->produk->nama_barang }}</td>
@@ -74,6 +75,7 @@
      $(document).ready(function(){  
          $.ajaxSetup({
              headers: {
+                // 'Content-Type':'application/json',
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
@@ -86,9 +88,11 @@
              });
 
              console.log(data1);
+             // alert(JSON.stringify(data1));
+
             $.ajax({  
                     url:"{{route('pilih_co')}}",  
-                    method:"POST",  
+                    method:"POST", 
                     data:{id : data1},
                     success: function(data) {
                         alert(data);

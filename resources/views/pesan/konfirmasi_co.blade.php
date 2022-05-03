@@ -83,7 +83,7 @@
 
             <div class="card">
                 <div class="card-body">
-                        <a href="">
+                        <a href="{{url('payment')}}">
                             <td><h5><b>Metode Pembayaran</b></h5></td> 
                         </a>
                 </div>
