@@ -14,10 +14,13 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <!--     template angga -->
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -25,7 +28,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="stylesheet" type="text/css" href="https://select2.github.io/select2-bootstrap-theme/css/select2-bootstrap.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet"/>
-    <!-- Css Styles -->
+    <!--     template angga -->
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
     <link rel="stylesheet" href="css/themify-icons.css" type="text/css" />
@@ -35,7 +38,6 @@
     <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css" />
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css" />
     <link rel="stylesheet" href="css/style.css" type="text/css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 <!--     slect2 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js" defer></script>
@@ -51,9 +53,11 @@
    
     @include('sweetalert::alert')
     
-
+    
+    <div id="app">
+        <nav class="navbar ">
         <div class="container">
-            <div class="navbar">
+            <div class="navbar ">
         <div class="logo">
         <img src="{{ url('img/iwapi_logo.jpg')}}" width="50" height="50" alt="">
         </div>
@@ -130,80 +134,15 @@
         </div>
     </div>
     @endguest
-</div>
-  
- 
-    <div id="app">
-       
+</div>  
+        </nav>
+        
+
         <main class="py-4">
             @yield('content')
         </main>
     </div>
-    <!-- Partner Logo Section End -->
-
-<!-- Footer Section Begin 
-<footer class="footer-section" style="background: #325288">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-5">
-                <div class="footer-left">
-                    <div class="footer-logo">
-                        <a href="#"><img src="img/iwapi_logo.jpg" alt="" /></a>
-                    </div>
-                    <ul>
-                        <li>Alamat: Depok</li>
-                        <li>No.telp: +628 12345</li>
-                        <li>Email: email@gmail.com</li>
-                    </ul>
-                    <div class="footer-social">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-instagram"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-pinterest"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 offset-lg-1">
-                <div class="footer-widget">
-                    <h5>Informasi</h5>
-                    <ul>
-                        <li><a href="#">Tentang</a></li>
-                        <li><a href="#">Kontak</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="footer-widget">
-                    <h5>Akun</h5>
-                    <ul>
-                        <li><a href="{{ route('login') }}">My Account</a></li>
-                        <li><a href="#">Kontak</a></li>
-                        <li><a href="{{ route('login') }}">Belanja</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="copyright-reserved ">
-        <div class="container">
-            <div class="row " >
-                <div class="col-lg-12">
-                    <div class="copyright-text ">
-                        Copyright &copy;
-                        <script>
-                            document.write(new Date().getFullYear());
-                        </script>
-                        Hak Cipta | Iwapi Depok Store
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer> 
-Footer Section End -->
      
-
-                        
 
 
        <!--  <script>
@@ -234,6 +173,6 @@ Footer Section End -->
             });
         </script> -->
      @livewireScripts
-    
+
 </body>
 </html>

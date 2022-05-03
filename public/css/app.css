@@ -1,5 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);
-@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.6.1 (https://getbootstrap.com/)
@@ -4457,7 +4456,7 @@ input[type=button].btn-block {
 }
 
 .nav-link.disabled {
-  color: #000000;
+  color: #6c757d;
   pointer-events: none;
   cursor: default;
 }
@@ -4550,7 +4549,6 @@ input[type=button].btn-block {
 }
 
 .navbar-brand {
-  float:right;
   display: inline-block;
   padding-top: 0.32rem;
   padding-bottom: 0.32rem;
@@ -4571,14 +4569,10 @@ input[type=button].btn-block {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+  float: right;
 }
 
 .navbar-nav .nav-link {
-  padding-right: 0;
-  padding-left: 0;
-}
-
-.navbar-nav .nav-item {
   padding-right: 0;
   padding-left: 0;
 }
@@ -5001,11 +4995,11 @@ input[type=button].btn-block {
   display: flex;
   flex-direction: column;
   min-width: 0;
-  width: 100%;
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
 }
 
 .card > hr {
@@ -5242,38 +5236,34 @@ input[type=button].btn-block {
 .breadcrumb {
   display: flex;
   flex-wrap: wrap;
-  padding: 2rem 2rem 2rem 2rem ;
+  padding: 0.75rem 1rem;
   margin-bottom: 1rem;
   list-style: none;
-  background-color: #dce0e3;
+  background-color: #e9ecef;
   border-radius: 0.25rem;
 }
 
-.breadcrumb li {
-  padding: 0.5rem 0.3rem 0.5rem 1rem ;
+.breadcrumb-item + .breadcrumb-item {
+  padding-left: 0.5rem;
 }
 
-
-.breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+.breadcrumb-item + .breadcrumb-item::before {
   float: left;
   padding-right: 0.5rem;
   color: #6c757d;
   content: "/";
 }
 
-
-.breadcrumb .breadcrumb-item a {
-  text-decoration: none;
-  color: #325288;
+.breadcrumb-item + .breadcrumb-item:hover::before {
+  text-decoration: underline;
 }
 
-.breadcrumb .breadcrumb-item a:hover {
+.breadcrumb-item + .breadcrumb-item:hover::before {
   text-decoration: none;
-  color: #24A19C;
 }
 
-.breadcrumb .breadcrumb-item.active {
-  color: #000000;
+.breadcrumb-item.active {
+  color: #6c757d;
 }
 
 .pagination {

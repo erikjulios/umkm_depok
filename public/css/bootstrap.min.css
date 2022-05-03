@@ -4447,9 +4447,6 @@ input[type="submit"].btn-block {
     color: #fff;
 }
 .card {
-    margin-top: 10rem;
-    margin-left: 10rem;
-    margin-right: 8rem;
     position: relative;
     display: -ms-flexbox;
     display: flex;
@@ -4460,6 +4457,7 @@ input[type="submit"].btn-block {
     background-color: #fff;
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
 }
 .card > hr {
     margin-right: 0;
@@ -4586,8 +4584,7 @@ input[type="submit"].btn-block {
         margin-bottom: 0;
     }
     .card-group > .card + .card {
-        margin-left: 8rem;
-        margin-right: 8rem;
+        margin-left: 0;
         border-left: 0;
     }
     .card-group > .card:not(:last-child) {

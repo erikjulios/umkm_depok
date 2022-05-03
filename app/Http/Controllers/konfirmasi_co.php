@@ -35,6 +35,7 @@ class konfirmasi_co extends Controller
 
       $status = Alamat_kirim::where('user_id', Auth::user()->id)->where('status', 1)->first();
 
+     
       if (empty($this->ongkir_terpilih)) {
         return view('pesan.konfirmasi_co', compact( 'pesanan_details','user','status') );//,'hasil_kota','hasil_biaya'
        
@@ -101,6 +102,7 @@ class konfirmasi_co extends Controller
       $produk = Produk::where('id', $key->produk_id)->get();
       foreach ($produk as $value) {
         $this->berat = $this->berat + $value->berat_unit;
+        
       }
 
     }
