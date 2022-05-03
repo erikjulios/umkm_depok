@@ -37,6 +37,7 @@ class konfirmasi_co extends Controller
 
       if (empty($this->ongkir_terpilih)) {
         return view('pesan.konfirmasi_co', compact( 'pesanan_details','user','status') );//,'hasil_kota','hasil_biaya'
+       
       }
       else{
         $ongkir_terpilih = $this->ongkir_terpilih;
@@ -172,71 +173,5 @@ class konfirmasi_co extends Controller
 
       return $this->index();
       
-    }
-
-    // protected function payment(){
-    //   // Set your Merchant Server Key
-    // \Midtrans\Config::$serverKey = env('MIDTRANS_SERVER_KEY');
-    // // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-    // \Midtrans\Config::$isProduction = false;
-    // // Set sanitization on (default)
-    // \Midtrans\Config::$isSanitized = true;
-    // // Set 3DS transaction for credit card to true
-    // \Midtrans\Config::$is3ds = true;
-    // }
-
-    // private function generate_token(){
-    //   $this->payment();
-    //   $user = User::where('id', Auth::user()->id)->first();
-    //   $pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status', 0)->first();
-    //   $pesanan_details = DetailPemesanan::where('pesanan_id', $pesanan->id)->get();
-
-    //   $cust_detail =[
-    //       'nama' => $user->name,
-    //       'email' => $user->email,
-    //       'nohp' => $user->nohp
-    //   ];
-
-    //   $params = 
-    // }
-
-    public function payment()
-    {
-      // Set your Merchant Server Key
-      \Midtrans\Config::$serverKey = env('MIDTRANS_SERVER_KEY');
-      // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-      \Midtrans\Config::$isProduction = false;
-      // Set sanitization on (default)
-      \Midtrans\Config::$isSanitized = true;
-      // Set 3DS transaction for credit card to true
-      \Midtrans\Config::$is3ds = true;
-
-      $user = User::where('id', Auth::user()->id)->first();
-      $pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status', 0)->first();
-      $pesanan_details = DetailPemesanan::where('pesanan_id', $pesanan->id)->get();
-       
-      $params = array(
-          'transaction_details' => array(
-              'order_id' => rand('100000','999999'),
-              'gross_amount' => $pesanan->jumlah_harga,
-          ),
-          // 'item_details' => array(
-          //   [
-          //     'id' => "ma1",
-          //     'price' => "200000",
-          //     'quantity' => "3",
-          //     'name' => "mangga"
-          //   ]
-          // ),
-
-          'customer_details' => array(
-              'first_name' => $user->name,
-              'email' => $user->email,
-              'phone' => $user->nohp,
-          ),
-      );
-       
-      $snapToken = \Midtrans\Snap::getSnapToken($params);
-      return view('pesan/payment', compact('snapToken'));
     }
 }

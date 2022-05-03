@@ -6,7 +6,7 @@
     <meta name="keywords" content="Shayna, unica, creative, html" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Umkm Depok 1</title>
+    <title>Umkm Depok</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet" />
@@ -74,8 +74,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-5">
-                            <span>Contoh</span>
-                            <h1>Black friday</h1>
+                            <span>Official</span>
+                            <h1>Iwapi Depok</h1>
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
                             </p>
