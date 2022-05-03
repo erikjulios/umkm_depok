@@ -16,7 +16,7 @@
         </div>
 
         <div class="row">      
-            <div class="col-lg-10">
+            <div class="col-lg-12">
                 <!-- produk -->
     
                 <div class="card konfir-co">
@@ -53,42 +53,58 @@
                             <a href="{{url('alamat')}}" >
                               Tambahkan Alamat Pengiriman
                             </a>
-                            <tr>
-                                <td><b>{{ $status->nama }}</b><br>
-                                {{ $status->nohp }}<br>
-                                {{ $status->detail }}<br>
-                                {{ $status->kota }},{{ $status->provinsi }}</td>
-    
-                            </tr>                      
+                            <div class="row justify-content-center">
+                            <div class="col-lg-10 daftar-produk">
+                            <div class="row produks">
+                                                                    
+                                <div class="col">
+                                    <ul>
+                                <li>{{ $status->nama }}</li>
+                                <li>{{ $status->nohp }}</li>
+                                <li>{{ $status->detail }}</li>
+                                <li>{{ $status->kota }},{{ $status->provinsi }}</li>
+                            </ul>
+
+                                </div>
+                                
+                            </div>
+                            
+                            </div>              
                     </div>
                 </div>
-    
-                
-                <div class="card konfir-co">
-                    <div class="card-body">
-    
+                </div>
+
                     <!-- ongkir -->
+                    <div class="card konfir-co">
+                        <div class="card-body">
+                                <a href="{{url('ongkir')}}" >
+                                    Tambahkan Jasa Kirim
+                                </a>
+                                @if(empty($ongkir_terpilih))
+                                @else
+                                @foreach ($ongkir_terpilih as $key )
+                                <div class="row justify-content-center">
+                                <div class="col-lg-10 daftar-produk">
+                                <div class="row produks">
+                                                                        
+                                    <div class="col">
+                                        <ul>
+                                    <li>{{ $key['nama_jasa'] }}</li>
+                                    <li>{{ $key['deskripsi'] }}</li>
+                                    <li>Rp.{{ $key['biaya'] }}</li>
+                                    <li>Estimasi pengiriman {{ $key['estimasi'] }}(hari)</li>
+                                </ul>
     
-                    <a href="{{url('ongkir')}}" >
-                        Tambahkan Jasa Kirim
-                    </a>
-                    @if(empty($ongkir_terpilih))
-                    @else
-                        @foreach ($ongkir_terpilih as $key )
-                        <tr>
-                            <td><b>{{ $key['nama_jasa'] }}</b><br>
-                                {{ $key['deskripsi'] }}<br>
-                                Rp.{{ $key['biaya'] }}<br>
-                                Estimasi pengiriman {{ $key['estimasi'] }}(hari)
-                            </td>
-    
-                        </tr>
+                                    </div>
+                                    
+                                </div>
+                                
+                                </div>              
+                        </div>
                         @endforeach  
-                    @endif 
-        
+                        @endif 
                     </div>
-                </div>
-    
+                    </div>
                 <!-- pembayaran  -->
     
                 <div class="card konfir-co">

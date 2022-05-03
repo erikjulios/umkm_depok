@@ -3,25 +3,25 @@
  @include('sweetalert::alert')
      <meta name="csrf-token" content="{{ csrf_token() }}">
 
+     <div class="breacrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text product-more">
+                        <a href="{{ url('home')}}"><i class="fa fa-home"></i> Beranda</a>
+                        <a href="{{ url('check-out')}}"> Keranjang</a>
+                        <a href="{{ url('konfirmasi_co') }}"> Check Out</a>
+                        <span>Alamat Kirim</span>
+                    </div>
+                </div>
+            </div>
 <div class="container">
     <div class="row">
+       
         <div class="col-md-12">
-            <a href="{{ url('konfirmasi_co') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
-        </div>
-        <div class="col-md-12 mt-2">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ url('home') }}">Beranda</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('check-out') }}">Keranjang</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('konfirmasi_co') }}">Checkout</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Alamat Kirim</li>
-                </ol>
-            </nav>
-        </div>
-        <div class="col-md-12">
-            <div class="card">
+            <div class="card tambah-alamat">
                 <div class="card-header">
-                    <h4><i class="fa fa-user"></i> Pilih Alamat</h4> 
+                    <h4><i class="bi bi-geo-fill"></i> Pilih Alamat</h4> 
                 </div> 
                 <div class="card-body">
                     <table class="table table-striped">

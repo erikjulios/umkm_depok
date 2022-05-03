@@ -84,7 +84,7 @@
 }
 
 
-.navbar .menu li.cart-icon .cart-hover {
+.navbar .collapse .navbar-nav li.cart-icon .cart-hover {
     position: absolute;
     right: -50px;
     top: 100px;
@@ -263,6 +263,62 @@
 }
 .card.konfir-co .card-body .daftar-produk .produks {
     border-bottom: 1px solid rgb(128, 127, 127);
+}
+
+.card.konfir-co .card-body .daftar-produk .produks .col ul li {
+    list-style: none;
+}
+
+
+/* Halaman Alamat Kirim */
+
+.card.tambah-alamat {
+    margin-top: 2rem;
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #24A19C;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card.tambah-alamat .card-body a{
+    text-decoration: none;
+    color: #FAEEE7;
+    font-size: 1.1rem;
+}
+.card.tambah-alamat .card-body h5{
+    text-decoration: none;
+    color: #FAEEE7;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.card.tambah-alamat .card-body a:hover {
+    color: #313232;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.card.tambah-alamat .card-body .daftar-produk .produks {
+    border-bottom: 1px solid rgb(128, 127, 127);
+}
+
+/* Halaman Pilih Ongkir */
+.card.ongkir{
+    margin-top: 4rem;
+}
+.card.ongkir .card-header.ongkir-header{
+    background: #24A19C;
+    text-align: center;
+}
+
+.card.ongkir .card-header.ongkir-header .card-body  .card-subtitle .row .col form{
+    background-color: #24A19C;
 }
 
 html,

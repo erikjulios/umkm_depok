@@ -55,89 +55,73 @@
     
     
     <div id="app">
-        <nav class="navbar ">
-        <div class="container">
-            <div class="navbar ">
-        <div class="logo">
-        <img src="{{ url('img/iwapi_logo.jpg')}}" width="50" height="50" alt="">
-        </div>
-        <div class="menu">
-         
-            <!-- Authentication Links -->
-                        <ul>
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    <img src="{{ url('img/iwapi_logo.jpg')}}" width="50" height="50" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav me-auto">
+
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto" >
+                        <!-- Authentication Links -->
                         @guest
-                        <li>
-                            <a  href="{{ route('login') }}">{{ __('Masuk') }}</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Masuk') }}</a>
                         </li>
                         @if (Route::has('register'))
-                        <li >
-                            <a  href="{{ route('register') }}">{{ __('Daftar') }}</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Daftar') }}</a>
                         </li>
                         @endif
                         @else
-                    </ul>
-
-                    <ul class="nav-right">
-                            <li class="cart-icon">
-                                <?php
+                        <li class="nav-item">
+                            <?php
                                  $pesanan_utama = \App\Pesanan::where('user_id', Auth::user()->id)->where('status',0)->first();
                                  if(!empty($pesanan_utama))
                                     {
                                      $notif = \App\DetailPemesanan::where('pesanan_id', $pesanan_utama->id)->count(); 
                                     }
                                 ?>
-                                <a  href="{{ url('check-out') }}">
-                                <i class="icon_bag_alt"></i>
+                            <a class="nav-link" href="{{ url('check-out') }}">
+                                <i class="fa fa-shopping-cart"></i>
                                 @if(!empty($notif))
-                                <span >{{ $notif }}</span>
+                                <span class="badge alert-danger">{{ $notif }}</span>
                                 @endif
                             </a>
-                            </li>
-                            <li class="cart-icon">
-                                    <a>{{ Auth::user()->name }} &nbsp;</a>
-                                
-                                <div class="cart-hover">
-                                    <div class="select-items">
-                                        <table>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="si-text">
-                                                        <div class="product-selected">
-                                                            <a href="{{ url('profile') }}">Profile</a>
-                                                
-                                                        </div>
-                                                    </td>
-                                                    
-                                                   
-                                                </tr>
-                                                <tr>
-                                                    <td class="si-text">
-                                                        <div class="product-selected">
-                                                           
-                                                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                        document.getElementById('logout-form').submit();">
-                                                        {{ __('Logout') }}
-                                                    </a>
-                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                                        @csrf
-                                                    </form>
-                                                        </div>
-                                                    </td>
-                                                    </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    
-                                </div>
-                            </li>
-                        </ul>
-        </div>
-    </div>
-    @endguest
-</div>  
-        </nav>
-        
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
 
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ url('profile') }}">
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                        @endguest
+                    </ul>
+                </div>
+            </div>
+        </nav>
         <main class="py-4">
             @yield('content')
         </main>
