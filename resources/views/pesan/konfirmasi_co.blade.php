@@ -99,7 +99,7 @@
 
             <div class="card konfir-co">
                 <div class="card-body">
-                        <a href="">
+                        <a href="{{url('payment')}}">
                             Metode Pembayaran
                         </a>
                 </div>
