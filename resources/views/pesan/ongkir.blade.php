@@ -36,7 +36,7 @@
                     <input type="hidden" name="deskripsi" value="{{$key['description'] }}">
                     <input type="hidden" name="biaya" value="{{$key['biaya'] }}">
                     <input type="hidden" name="estimasi" value="{{$key['etd'] }}">
-                    <input type="submit" value="Pilih"  class="btn btn-primary">
+                    <input type="submit" value="Pilih"  class="btn btn-ongkir">
                     </form>
                 </div>
             </div>
@@ -48,7 +48,7 @@
 
     </div>
 </div>
-
+@include('layouts.footer')
 @endsection
 
 

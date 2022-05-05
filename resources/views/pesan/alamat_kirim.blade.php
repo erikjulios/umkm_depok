@@ -15,6 +15,8 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 <div class="container">
     <div class="row">
        
@@ -24,7 +26,7 @@
                     <h4><i class="bi bi-geo-fill"></i> Pilih Alamat</h4> 
                 </div> 
                 <div class="card-body">
-                    <table class="table table-striped">
+                    <table class="table">
                      
                         @foreach($alamatk as $x)
                         <tr>
@@ -36,7 +38,7 @@
                         </tr>
                         @endforeach
                     </table>
-                    <a class="btn btn-primary" href="{{ url ('tambah_alamat') }}">Tambah Alamat</a>
+                    <a class="btn " href="{{ url ('tambah_alamat') }}">Tambah Alamat</a>
                 </div>
             </div>
         </div>
@@ -87,5 +89,5 @@
             });  
          });  
         </script>  
-
+@include('layouts.footer')
 @endsection

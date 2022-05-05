@@ -56,7 +56,7 @@
                                                 <form action="{{ url('check-out') }}/{{ $pesanan_detail->id }}" method="post">
                                                     @csrf
                                                     {{ method_field('DELETE') }}
-                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Anda yakin akan menghapus data ?');"><i class="fa fa-trash"></i></button>
+                                                    <button type="submit" class="btn btn-sm btn-hapus" onclick="return confirm('Anda yakin akan menghapus data ?');"><i class="fa fa-trash"></i></button>
                                                 </form>
                                               </i></a></td>
                                         </tr>
@@ -108,4 +108,6 @@
         });  
      });  
 </script>  
+@include('layouts.footer')
 @endsection
+

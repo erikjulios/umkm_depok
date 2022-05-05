@@ -27,15 +27,15 @@
                                 @foreach($pesanan_details as $pesanan_detail)
                                 <div class="row produks">
                                     
-                                    <div class="col-lg ">
+                                    <div class="col ">
                                         <img src="{{ url('img/iwapi_logo.jpg')}}" alt="foto-produk" >
                                         
                                     </div>
-                                    <div class="col-lg">
-                                        <h4>{{ $pesanan_detail->produk->nama_barang }}</h4>
+                                    <div class="col ket-produk">
+                                        <p><span>{{ $pesanan_detail->produk->nama_barang }}</span></p>
                                         <p>Jumlah : {{ $pesanan_detail->jumlah_produk}} produk</p>
                                         <p>Harga Satuan : Rp.{{ number_format($pesanan_detail->produk->harga) }}</p>
-                                        <p>Total harga : Rp.{{ number_format($pesanan_detail->total_pembayaran) }}</p>
+                                        <p>Total harga : <span>Rp.{{ number_format($pesanan_detail->total_pembayaran) }}</span> </p>
     
                                     </div>
                                     
@@ -123,9 +123,7 @@
 </div>
 
 <!-- Breadcrumb Section end -->
-
-    
-
+@include('layouts.footer')
 @endsection
 
 

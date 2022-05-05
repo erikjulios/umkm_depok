@@ -3,25 +3,29 @@
  <meta name="csrf-token" content="{{ csrf_token() }}">
 <link href="select2/dist/css/select2.min.css" rel="stylesheet" />
     <script src="select2/dist/js/select2.min.js"></script>
-<div class="container">
+   
+    <div class="breacrumb-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-text product-more">
+                        <a href="{{ url('home')}}"><i class="fa fa-home"></i> Beranda</a>
+                        <a href="{{ url('check-out')}}"> Keranjang</a>
+                        <a href="{{ url('konfirmasi_co') }}"> Check Out</a>
+                        <a href="{{ url('alamat') }}"> Alamat Anda</a>
+                        <span>Tambah Alamat</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+
+    <div class="container">
     <div class="row">
-        <div class="col-md-12">
-            <a href="{{ url('alamat') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
-        </div>
         <div class="col-md-12 mt-2">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ url('home') }}">Beranda</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('check-out') }}">Keranjang</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('konfirmasi_co') }}">Checkout</a></li>
-                    <li class="breadcrumb-item"><a href="{{ url('alamat') }}">Alamat Kirim</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Tambah Alamat</li>
-                </ol>
-            </nav>
-        </div>
-        <div class="col-md-12 mt-2">
-            <div class="card">
-                <div class="card-body">
+           
                     <h4><i class="fa fa-pencil-alt"></i> Tambah Alamat</h4>
                     <form method="POST" action="{{ url('alamat') }}">
                         @csrf
@@ -51,7 +55,7 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>
+                        </div>                                              
 
                         <div class="form-group row">
                             <label for="provinsi" class="col-md-2 col-form-label text-md-right">Provinsi</label>
@@ -99,15 +103,17 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-2">
-                                <button type="submit" class="btn btn-primary">
-                                    Save
+                                <button type="submit" class="btn btn-simpan">
+                                    Simpan
                                 </button>
 <!--                                 <div id="aa"></div>
  -->                            </div>
                         </div>
-                    </form>                
+                    </form>       
+        </div>
     </div>
-</div>
+    </div>         
+
 <!-- <script>
     function cari(id){
         const xmlhttp = new XMLHttpRequest();
@@ -188,5 +194,5 @@
             }); 
          });  
         </script>   -->
-
+        @include('layouts.footer')
 @endsection

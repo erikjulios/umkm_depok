@@ -42,49 +42,40 @@
     height: 80px;
 
 }
-.navbar .logo{
-    position: absolute;
-}
-.navbar .menu{
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 24px 25px 0  5px;
 
-    
-}
-.navbar .menu p{
-    display: inline-block;
-}
-.navbar .menu ul li{
+.navbar ul li.cart-icon{
     list-style: none;
     display: inline-block;
 }
 
-.navbar .menu ul li a{
+.navbar  ul li.cart-icon a{
     text-decoration: none;
-    color: #000;
-    font-size: 18px;
+    color: rgb(63, 63, 63);
+    font-size: 1.13rem;
     cursor: pointer;
-    margin: 5px 5px 0 5px;
+    margin: 0 8px 0 8px;
+    position: relative;
+    display: inline-block;
 }
 
-.navbar .menu ul li a:hover{
+.navbar  ul li.cart-icon a:hover{
     font-weight: 500;
+    color: #325288;
 }
 
-.navbar .menu li.cart-icon {
+.navbar  ul li.cart-icon {
     position: relative;
 }
 
-.navbar .menu li.cart-icon:hover .cart-hover {
+.navbar ul li.cart-icon:hover .cart-hover {
     opacity: 1;
     visibility: visible;
     top: 60px;
 }
 
 
-.navbar .collapse .navbar-nav li.cart-icon .cart-hover {
+
+.navbar  ul li.cart-icon .cart-hover {
     position: absolute;
     right: -50px;
     top: 100px;
@@ -102,53 +93,22 @@
     transition: all 0.3s;
 }
 
-.navbar .menu li.cart-icon .cart-hover .select-items table {
-    width: 50%;
-}
-
-.navbar .menu li.cart-icon .cart-hover .select-items table tr td {
-    padding-bottom: 10px;
-}
-
-
-
-.navbar .menu li.cart-icon .cart-hover .select-items table tr td.si-text .product-selected a {
-    color: #000000;
-    line-height: 10px;
-    margin-bottom: 2px;
-    font-size: 15px;
-}
-.navbar .menu li.cart-icon .cart-hover .select-items table tr td.si-text .product-selected a:hover {
-    color: #325288;
-
-}
-
-.navbar .menu li.cart-icon a span {
+.navbar li.cart-icon a span {
     position: absolute;
     right: -8px;
     top: -1px;
     height: 15px;
     width: 15px;
     background: #325288;
-    color: #ffffff;
+    color: #FAEEE7;
     border-radius: 50%;
     font-size: 11px;
     font-weight: 700;
     text-align: center;
     line-height: 15px;
+    /* margin: 0 3px 0 0; */
 }
 
-
-.navbar .menu li.cart-icon .cart-hover .select-button .view-card {
-    font-size: 12px;
-    letter-spacing: 2px;
-    display: block;
-    text-align: center;
-    background: #191919;
-    color: #ffffff;
-    padding: 15px 30px 12px;
-    margin-bottom: 10px;
-}
 
 /*  halaman checkout */
 .table{
@@ -163,7 +123,7 @@
 }
 .table th{
     background-color: aqua;
-    color: black;
+    color: rgb(11, 9, 9);
 }
 
 @media(max-width: 500px){
@@ -207,7 +167,7 @@
     color: #325288;
 
 }
-.check-out .btn-checkout{
+.check-out a.btn-checkout{
     display: inline-block;
     width: 6rem;
     height: 2rem;
@@ -217,9 +177,10 @@
     float: right;
     text-decoration: none;
     color: #fff;
-    padding: 1px;
+    padding: 1.5px;
     font-weight: 600;
     font-size: 1rem;
+    margin: 8px 0 0 0;
 }
 
 /* Halaman Konfirmasi Check Out */
@@ -232,7 +193,7 @@
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #24A19C;
+    background-color: #325288;
     background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.125);
 }
@@ -261,12 +222,26 @@
     height: 100px;
     margin: 20px 0;
 }
+.card.konfir-co .card-body .ket-produk{
+    margin: 20px 0 0 0;
+}
+
+.card.konfir-co .card-body .ket-produk p{  
+    color: #000000;
+    font-size: 0.98rem;
+    line-height: 0.6rem;
+}
+.card.konfir-co .card-body .ket-produk span{
+    color: #FAEEE7;
+    font-weight: 800;
+}
 .card.konfir-co .card-body .daftar-produk .produks {
-    border-bottom: 1px solid rgb(128, 127, 127);
+    border-bottom: 1px solid rgb(176, 176, 176);
 }
 
 .card.konfir-co .card-body .daftar-produk .produks .col ul li {
     list-style: none;
+    color: #000;
 }
 
 
@@ -281,16 +256,27 @@
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #24A19C;
+    /* background-color: #ffffff; */
     background-clip: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.125);
+    border: 1px solid #325288;
+}
+.card.tambah-alamat .card-header h4{
+    
+    color: #FAEEE7;
+    font-weight: 600;
 }
 
-.card.tambah-alamat .card-body a{
-    text-decoration: none;
-    color: #FAEEE7;
-    font-size: 1.1rem;
+.card.tambah-alamat .card-header {
+    background-color: #325288 ;
 }
+.card.tambah-alamat .card-body .table tr td{
+    border: none;
+}
+.card.tambah-alamat .card-body .table {
+    border-bottom: 1px solid #325288;
+}
+
+
 .card.tambah-alamat .card-body h5{
     text-decoration: none;
     color: #FAEEE7;
@@ -298,8 +284,13 @@
     font-weight: 600;
 }
 
+.card.tambah-alamat .card-body a{
+    float: right;
+    background-color: #325288;
+    color: #FAEEE7;
+}
 .card.tambah-alamat .card-body a:hover {
-    color: #313232;
+    color: #FAEEE7;
     font-weight: 600;
     font-size: 1.2rem;
 }
@@ -313,12 +304,24 @@
     margin-top: 4rem;
 }
 .card.ongkir .card-header.ongkir-header{
-    background: #24A19C;
+    background: #325288;
     text-align: center;
+    color: #FAEEE7;
 }
 
-.card.ongkir .card-header.ongkir-header .card-body  .card-subtitle .row .col form{
-    background-color: #24A19C;
+
+
+.card.ongkir  .card-body form .btn-ongkir {
+    margin-top: 1rem;
+    background-color: #325288;
+    color: #FAEEE7;
+}
+
+/* Halaman Tambah Alamat */
+form button.btn-simpan{
+    background-color: #325288;
+    float: right;
+    color: #FAEEE7;
 }
 
 html,
@@ -327,6 +330,7 @@ body {
     font-family: "Muli", sans-serif;
     -webkit-font-smoothing: antialiased;
     font-smoothing: antialiased;
+   
 }
 
 
@@ -1495,8 +1499,9 @@ ol {
 -----------------------*/
 
 .footer-section {
-    background: #191919;
+    background: #325288;
     padding-top: 75px;
+    margin: 5rem 0 0 0;
 }
 
 .footer-left {
@@ -1712,7 +1717,8 @@ ol {
 
 .breadcrumb-text span {
     display: inline-block;
-    color: #b2b2b2;
+    color: #325288;
+    font-weight: 700;
 }
 
 
@@ -2670,7 +2676,8 @@ ol {
 }
 .cart-table table tr th {
     font-size: 16px;
-    color: #252525;
+    color: #FAEEE7;
+    background-color: #325288;
     font-weight: 700;
     border-bottom: 1px solid #ebebeb;
     text-align: center;
@@ -2688,6 +2695,11 @@ ol {
     padding-bottom: 15px;
 }
 
+.cart-table table form .btn-hapus {
+    color: #325288;
+    height: 2rem;
+    width: 2rem;
+}
 
 
 .cart-table table tr td.qua-col {

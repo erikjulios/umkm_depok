@@ -60,30 +60,23 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ url('img/iwapi_logo.jpg')}}" width="50" height="50" alt="">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent" >
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
+                <div >
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto" >
                         <!-- Authentication Links -->
                         @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Masuk') }}</a>
+                        <li class="nav-item cart-icon">
+                            <a  href="{{ route('login') }}">{{ __('Masuk') }}</a>
                         </li>
                         @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Daftar') }}</a>
+                        <li class="nav-item cart-icon">
+                            <a  href="{{ route('register') }}">{{ __('Daftar') }}</a>
                         </li>
                         @endif
                         @else
-                        <li class="nav-item">
+                        <li class="nav-item cart-icon">
                             <?php
                                  $pesanan_utama = \App\Pesanan::where('user_id', Auth::user()->id)->where('status',0)->first();
                                  if(!empty($pesanan_utama))
@@ -91,23 +84,23 @@
                                      $notif = \App\DetailPemesanan::where('pesanan_id', $pesanan_utama->id)->count(); 
                                     }
                                 ?>
-                            <a class="nav-link" href="{{ url('check-out') }}">
-                                <i class="fa fa-shopping-cart"></i>
+                            <a href="{{ url('check-out') }}">
+                                <i class="bi bi-cart-check"></i>
                                 @if(!empty($notif))
-                                <span class="badge alert-danger">{{ $notif }}</span>
+                                <span >{{ $notif }}</span>
                                 @endif
                             </a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <li class="nav-item cart-icon">
+                            <a>
                                 {{ Auth::user()->name }}
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ url('profile') }}">
+                            <div class="cart-hover" >
+                                <a  href="{{ url('profile') }}">
                                     Profile
                                 </a>
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                <a  href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>

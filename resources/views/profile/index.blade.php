@@ -2,7 +2,7 @@
 @section('content')
 
     <!-- Breadcrumb Section Begin -->
-    <div class="breacrumb-section">
+    <div class="">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -25,7 +25,7 @@
                      
                         <div class="col-lg-8">
                             <h4 class="mb-4">
-                                Informasi Pembeli:
+                                Informasi Pembeli :
                             </h4>
                             <div class="user-checkout">
                                 <form method="POST" action="{{ url('profile') }}">
@@ -84,8 +84,8 @@
                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary">
-                                            Save
+                                        <button type="submit" class="btn btn-simpan">
+                                            Simpan
                                         </button>
                                     </div>
                                 </form>
@@ -97,6 +97,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="proceed-checkout">
+                                <h4>Data Anda : </h4>
                                 <ul>
                                     <li class="subtotal">Nama<span>{{ $user->name }}</span></li>
                                     <li class="subtotal mt-3">Email <span>{{ $user->email }}</span></li>
@@ -113,5 +114,5 @@
         </div>
     </section>
     <!-- Shopping Cart Section End -->
-
+    @include('layouts.footer')
 @endsection
