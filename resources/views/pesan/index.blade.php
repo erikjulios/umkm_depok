@@ -1,36 +1,22 @@
 @extends('layouts.app')
-
 @section('content')
-<!-- Breadcrumb Section Begin -->
-<div class="breacrumb-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="breadcrumb-text product-more">
-                    <a href="./home.html"><i class="fa fa-home"></i> Beranda</a>
-                    <span>Detail</span>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+            <!-- Breadcrumb Section Begin -->
+            <div class="breacrumb-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="breadcrumb-text product-more">
+                                <a href="{{ url('home')}}"><i class="fa fa-home"></i> Beranda</a>
+                                <span>{{$produk -> nama_barang}}</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-<!-- Breadcrumb Section Begin -->
-
-
-
+        <!-- Breadcrumb Section Begin -->
     <div class="row">
-        <div class="col-md-12">
-            <a href="{{ url('home')}}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
-        </div>
-        <div class="col-md-12 mt-2">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    
-                    <li class="breadcrumb-item"><a href="{{ url('home')}}">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">{{$produk -> nama_barang}}</li>
-                </ol>
-            </nav>
-        </div>
+
         <div class="col-md-12">
             <div class="card">
 
@@ -71,7 +57,7 @@
                                             {{ csrf_field() }}
                                             <input type="text" name="jumlah_pesan" class="form-control" placeholder="Masukan jumlah pesanan">
                                             <button type="submit" class="btn btn-primary mt-4" value="submit">
-                                                <i class="fa fa-shopping-cart"></i> Masukan keranjang</button>
+                                                <i class="bi bi-cart-check"></i> Masukan keranjang</button>
                                         </form></td>
                                 </tr>
                             </table>
@@ -81,6 +67,6 @@
             </div>
         </div>
     </div>
-</div>
-@include('layouts.footer')
-@endsection
+
+    @include('layouts.footer')
+    @endsection

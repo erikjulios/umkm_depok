@@ -12,18 +12,21 @@
                 <img src="img/biji ketapang.jpg" class="card-img-top" style="wi" alt="{{ $item -> nama_barang}}">
                 <ul>
                     <li class="w-icon active">
-                        <a href="{{ url('pesan') }}/{{ $item -> id}}"><i class="icon_bag_alt"></i></a>
+                        <a href="{{ url('pesan') }}/{{ $item -> id}}"><i class="bi bi-cart-check"></i></a>
                     </li>
-                    <li class="quick-view"><a href="#">Lihat Produk</a></li>
+                    <li class="quick-view"><a href="{{ url('pesan') }}/{{ $item -> id}}">Lihat Produk</a></li>
                 </ul>
             </div>
             <div class="pi-text">
                 <div class="catagory-name">Kategory Produk</div>
-                <a href="#">
+                <a href="{{ url('pesan') }}/{{ $item -> id}}">
                     <h5>{{ $item -> nama_barang}}</h5>
                 </a>
                 <div class="product-price">
                     Rp.{{number_format($item -> harga)}}/pcs
+                </div>
+                <div class="product-terjual">
+                    {{$item -> produk_terjual}} terjual
                 </div>
             </div>   
             </div>
