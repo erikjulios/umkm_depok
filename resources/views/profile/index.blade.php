@@ -25,7 +25,7 @@
                      
                         <div class="col-lg-8">
                             <h4 class="mb-4">
-                                Informasi Pembeli :
+                                Informasi Akun :
                             </h4>
                             <div class="user-checkout">
                                 <form method="POST" action="{{ url('profile') }}">

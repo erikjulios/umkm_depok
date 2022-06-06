@@ -59,10 +59,13 @@
                                                                     
                                 <div class="col">
                                     <ul>
+                                @if(empty($status))
+                                @else
                                 <li>{{ $status->nama }}</li>
                                 <li>{{ $status->nohp }}</li>
                                 <li>{{ $status->detail }}</li>
                                 <li>{{ $status->kota }},{{ $status->provinsi }}</li>
+                                @endif
                             </ul>
 
                                 </div>

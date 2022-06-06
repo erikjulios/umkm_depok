@@ -20,7 +20,7 @@ class konfirmasi_co extends Controller
     }
 
     private $apiKey = 'b8174b5dc662dbe51325e6689182628f';
-    public $provinsi,$kota,$jasa, $berat, $result = [], $ongkir = [], $ongkir_terpilih=[];
+    public $name_provkot=[],$provinsi,$provkot=[],$jasa, $berat, $result = [], $ongkir = [], $ongkir_terpilih=[];
     public function mount($id){
 
 
@@ -50,9 +50,38 @@ class konfirmasi_co extends Controller
     }
 
     public function alamat(){
-      
-      $alamatk = Alamat_kirim::where('user_id', Auth::user()->id)->get();      
-      return view('pesan/alamat_kirim', compact('alamatk'));
+      $rajaOngkir = new RajaOngkir($this->apiKey);
+// $daftarProvinsi = $rajaOngkir->kota()->find(80);
+      $alamatk = Alamat_kirim::where('user_id', Auth::user()->id)->get(); 
+      foreach ($alamatk as $key => $value ) {
+
+          $this->provkot[] = array(
+            'provinsi' => $value->provinsi,
+            'kota' => $value->kota,
+            'id' => $value->id,
+            'status' => $value->status,
+            'nama' => $value->nama,
+            'nohp' => $value->nohp,
+            'detail' => $value->detail,
+           );
+       } 
+       foreach ($this->provkot as $key => $value) {
+          // $this->kota =  $rajaOngkir->kota()->find($value['kota']);
+          $this->name_provkot[] = array(
+            'kota' => $rajaOngkir->kota()->find($value['kota'])['city_name'],
+            'provinsi' => $rajaOngkir->provinsi()->find($value['provinsi'])['province'],
+            'id' => $value['id'],
+            'status' => $value['status'],
+            'nama' => $value['nama'],
+            'nohp' => $value['nohp'],
+            'detail' => $value['detail'],
+           );
+
+
+          // $this->provinsi =  $rajaOngkir->provinsi()->find($value['provinsi']);
+       }
+      $nama_pk = $this->name_provkot;
+      return view('pesan/alamat_kirim', compact('alamatk','nama_pk'));
 
     }
 
@@ -242,4 +271,5 @@ class konfirmasi_co extends Controller
       $snapToken = \Midtrans\Snap::getSnapToken($params);
       return view('pesan/payment', compact('snapToken'));
     }
+
 }

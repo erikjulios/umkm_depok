@@ -27,18 +27,22 @@
                 </div> 
                 <div class="card-body">
                     <table class="table">
-                     
-                        @foreach($alamatk as $x)
+                     @if(empty($alamatk))
+                     @else
+                        @foreach($nama_pk as $x)
                         <tr>
-                            <td><b>{{ $x->nama }}</b><br>
-                            {{ $x->nohp }}<br>
-                            {{ $x->detail }}<br>
-                            {{ $x->kota }},{{ $x->provinsi }}</td>
-                            <td style="padding-top: 50px;"><input type="radio" id="alamat_terpilih" name="alamat_terpilih" value="{{$x->id}}" <?php if($x->status == 1) echo 'checked'?> ></td>
+                            <td><b>{{ $x['nama'] }}</b><br>
+                            {{ $x['nohp'] }}<br>
+                            {{ $x['detail'] }}<br>
+                   
+                            {{ $x['kota']}},{{ $x['provinsi'] }}</td>
+                            <td style="padding-top: 50px;"><input type="radio" id="alamat_terpilih" name="alamat_terpilih" value="{{$x['id']}}" <?php if($x['status'] == 1) echo 'checked'?> ></td>
                         </tr>
                         @endforeach
+                        @endif
                     </table>
                     <a class="btn " href="{{ url ('tambah_alamat') }}">Tambah Alamat</a>
+                    <a class="btn " style="margin-right: 20px" href="{{ url ('konfirmasi_co') }}">Back</a>
                 </div>
             </div>
         </div>
