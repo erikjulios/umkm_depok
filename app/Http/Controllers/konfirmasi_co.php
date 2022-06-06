@@ -20,7 +20,7 @@ class konfirmasi_co extends Controller
     }
 
     private $apiKey = 'b8174b5dc662dbe51325e6689182628f';
-    public $provinsi,$kota,$jasa, $berat, $result = [], $ongkir = [], $ongkir_terpilih=[];
+    public $name_provkot=[],$provinsi,$provkot=[],$jasa, $berat, $result = [], $ongkir = [], $ongkir_terpilih=[],$pilih_alamat, $biayaongkir;
     public function mount($id){
 
 
@@ -33,26 +33,86 @@ class konfirmasi_co extends Controller
     	$pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status', 0)->first();
       $pesanan_details = DetailPemesanan::where('pesanan_id', $pesanan->id)->get();
 
-      $status = Alamat_kirim::where('user_id', Auth::user()->id)->where('status', 1)->first();
+      $status = Alamat_kirim::where('user_id', Auth::user()->id)->where('status', 1)->get();
+      $status1 = Alamat_kirim::where('user_id', Auth::user()->id)->where('status', 1)->first();
+      $rajaOngkir = new RajaOngkir($this->apiKey);
+
+      //tampilkan nama kota dan prov pada konfirmasi co blade
+      foreach ($status as $key => $value ) {
+
+          $this->provkot[] = array(
+            'provinsi' => $value->provinsi,
+            'kota' => $value->kota,
+            'nama' => $value->nama,
+            'nohp' => $value->nohp,
+            'detail' => $value->detail,
+           );
+       } 
+       foreach ($this->provkot as $key => $value) {
+          $this->name_provkot[] = array(
+            'kota' => $rajaOngkir->kota()->find($value['kota'])['city_name'],
+            'provinsi' => $rajaOngkir->provinsi()->find($value['provinsi'])['province'],
+            'nama' => $value['nama'],
+            'nohp' => $value['nohp'],
+            'detail' => $value['detail'],
+           );
+       }
+      $nama_pk = $this->name_provkot;
+
+
+
 
      
       if (empty($this->ongkir_terpilih)) {
-        return view('pesan.konfirmasi_co', compact( 'pesanan_details','user','status') );//,'hasil_kota','hasil_biaya'
+        return view('pesan.konfirmasi_co', compact( 'pesanan_details','user','status', 'nama_pk') );//,'hasil_kota','hasil_biaya'
        
       }
       else{
         $ongkir_terpilih = $this->ongkir_terpilih;
-        return view('pesan.konfirmasi_co', compact( 'pesanan_details','user','status','ongkir_terpilih') );//,'hasil_kota','hasil_biaya'
+        return view('pesan.konfirmasi_co', compact( 'pesanan_details','user','status','ongkir_terpilih', 'nama_pk') );//,'hasil_kota','hasil_biaya'
       }
+          if ($this->pilih_alamat = 1) {
+        return view('pesan.konfirmasi_co', compact( 'pesanan_details','user','status', 'nama_pk'));
+      }
+
 
     	
 
     }
 
     public function alamat(){
-      
-      $alamatk = Alamat_kirim::where('user_id', Auth::user()->id)->get();      
-      return view('pesan/alamat_kirim', compact('alamatk'));
+      $rajaOngkir = new RajaOngkir($this->apiKey);
+// $daftarProvinsi = $rajaOngkir->kota()->find(80);
+      $alamatk = Alamat_kirim::where('user_id', Auth::user()->id)->get(); 
+      foreach ($alamatk as $key => $value ) {
+
+          $this->provkot[] = array(
+            'provinsi' => $value->provinsi,
+            'kota' => $value->kota,
+            'id' => $value->id,
+            'status' => $value->status,
+            'nama' => $value->nama,
+            'nohp' => $value->nohp,
+            'detail' => $value->detail,
+           );
+       } 
+       foreach ($this->provkot as $key => $value) {
+          // $this->kota =  $rajaOngkir->kota()->find($value['kota']);
+          $this->name_provkot[] = array(
+            'kota' => $rajaOngkir->kota()->find($value['kota'])['city_name'],
+            'provinsi' => $rajaOngkir->provinsi()->find($value['provinsi'])['province'],
+            'id' => $value['id'],
+            'status' => $value['status'],
+            'nama' => $value['nama'],
+            'nohp' => $value['nohp'],
+            'detail' => $value['detail'],
+           );
+
+
+          // $this->provinsi =  $rajaOngkir->provinsi()->find($value['provinsi']);
+       }
+      $nama_pk = $this->name_provkot;
+      return view('pesan/alamat_kirim', compact('alamatk','nama_pk'));
 
     }
 
@@ -172,7 +232,6 @@ class konfirmasi_co extends Controller
           'biaya' => $request->biaya,
           'estimasi' => $request->estimasi
       );
-
       return $this->index();
       
     }
@@ -205,6 +264,12 @@ class konfirmasi_co extends Controller
 
     public function payment()
     {
+      $cek_status = Alamat_kirim::where('user_id', Auth::user()->id)->where('status', 1)->first();
+      if (empty($cek_status)) {
+        $this->pilih_alamat = 1;
+        return $this->index();
+      }
+
       // Set your Merchant Server Key
       \Midtrans\Config::$serverKey = env('MIDTRANS_SERVER_KEY');
       // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
@@ -217,11 +282,10 @@ class konfirmasi_co extends Controller
       $user = User::where('id', Auth::user()->id)->first();
       $pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status', 0)->first();
       $pesanan_details = DetailPemesanan::where('pesanan_id', $pesanan->id)->get();
-       
       $params = array(
           'transaction_details' => array(
               'order_id' => rand('100000','999999'),
-              'gross_amount' => $pesanan->jumlah_harga,
+              'gross_amount' => $pesanan->jumlah_harga+ $this->biayaongkir,
           ),
           // 'item_details' => array(
           //   [
@@ -242,4 +306,5 @@ class konfirmasi_co extends Controller
       $snapToken = \Midtrans\Snap::getSnapToken($params);
       return view('pesan/payment', compact('snapToken'));
     }
+
 }

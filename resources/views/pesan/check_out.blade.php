@@ -21,7 +21,6 @@
 
     <section class="shopping-cart spad">
         <div class="container">
-            <p align="right">Tanggal Pesan : {{ $pesanan->tanggal }}</p>
             <div class="row">
                 <div class="col">
                     <div class="row">

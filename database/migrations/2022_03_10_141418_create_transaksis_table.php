@@ -15,11 +15,14 @@ class CreateTransaksisTable extends Migration
     {
         Schema::create('transaksis', function (Blueprint $table) {
             $table->id();
+            $table->string('transaksi_id');
+            $table->string('order_id');
             $table->bigInteger('nominal_transaksi');
-            $table->string('kode_VA');
-            $table->string('no_rekening');
             $table->dateTime('waktu_pembayaran');
-            $table->boolean('status_validasi');
+            $table->string('status');
+            $table->string('payment_code')->nullable();
+            $table->string('payment_type');
+            $table->string('pdf_link');
             $table->timestamps();
         });
     }
