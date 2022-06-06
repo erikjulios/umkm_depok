@@ -61,10 +61,12 @@
                                     <ul>
                                 @if(empty($status))
                                 @else
-                                <li>{{ $status->nama }}</li>
-                                <li>{{ $status->nohp }}</li>
-                                <li>{{ $status->detail }}</li>
-                                <li>{{ $status->kota }},{{ $status->provinsi }}</li>
+                                @foreach($nama_pk as $x)
+                                <li>{{ $x['nama'] }}</li>
+                                <li>{{ $x['nohp'] }}</li>
+                                <li>{{ $x['detail'] }}</li>
+                                <li>{{ $x['kota'] }},{{ $x['provinsi'] }}</li>
+                                @endforeach
                                 @endif
                             </ul>
 

@@ -44,6 +44,7 @@ Route::post('/ongkir_terpilih/', 'konfirmasi_co@ongkir_terpilih')->name('ongkir_
 
 Route::get('payment/', 'konfirmasi_co@payment')->name('payment');
 Route::post('payment/', 'paymentController@payment_post')->name('payment_post');
+Route::post('biayaongkir/', 'konfirmasi_co@payment');
 
 //kota berdasar prov error
 // Route::post('/provdankota/', 'konfirmasi_co@halaman_tambah_alamat')->name('provdankota');
