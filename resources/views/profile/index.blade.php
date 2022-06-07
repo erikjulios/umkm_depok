@@ -25,13 +25,13 @@
                      
                         <div class="col-lg-8">
                             <h4 class="mb-4">
-                                Informasi Akun :
+                                Ubah Data Akun :
                             </h4>
                             <div class="user-checkout">
                                 <form method="POST" action="{{ url('profile') }}">
                                     @csrf
                                     <div class="form-group">
-                                        <label for="name">{{ __('Nama Lengkap') }}</label>
+                                        <label for="name">{{ __('Nama Lengkap') }} <span>*</span></label>
                                         <input input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $user->name }}" required autocomplete="name" autofocus placeholder="Masukan Nama">
 
                                         @error('name')
@@ -41,7 +41,7 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="email">{{ __('Alamat E-mail') }}</label>
+                                        <label for="email">{{ __('Alamat E-mail') }} <span>*</span> </label>
                                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $user->email }}" required autocomplete="email" placeholder="Masukan Email">
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -50,7 +50,7 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="nohp">No. HP</label>
+                                        <label for="nohp">No. HP <span>*</span> </label>
                                         <input id="nohp" type="text" class="form-control @error('nohp') is-invalid @enderror" name="nohp" value="{{ $user->nohp }}" required autocomplete="nohp" autofocus placeholder="Masukan No. HP">
                                        
                                         @error('nohp')
@@ -60,7 +60,7 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="alamat">Alamat Lengkap</label>
+                                        <label for="alamat">Alamat Lengkap <span>*</span> </label>
                                         <textarea name="alamat" class="form-control @error('alamat') is-invalid @enderror" required="" rows="3">{{ $user->alamat }}</textarea>
                                     
                                         @error('alamat')
@@ -69,6 +69,9 @@
                                         </span>
                                         @enderror
                                     </div>
+                                    <h4 class="mb-4">
+                                        Ubah Password:
+                                    </h4>
                                     <div class="form-group">
                                         <label for="password">{{ __('Password') }}</label>
                                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password">
@@ -97,7 +100,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="proceed-checkout">
-                                <h4>Data Anda : </h4>
+                                <h4>Informasi Akun : </h4>
                                 <ul>
                                     <li class="subtotal">Nama<span>{{ $user->name }}</span></li>
                                     <li class="subtotal mt-3">Email <span>{{ $user->email }}</span></li>

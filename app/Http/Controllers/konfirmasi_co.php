@@ -33,6 +33,7 @@ class konfirmasi_co extends Controller
     	$pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status', 0)->first();
       $pesanan_details = DetailPemesanan::where('pesanan_id', $pesanan->id)->get();
 
+
       $status = Alamat_kirim::where('user_id', Auth::user()->id)->where('status', 1)->get();
       $status1 = Alamat_kirim::where('user_id', Auth::user()->id)->where('status', 1)->first();
       $rajaOngkir = new RajaOngkir($this->apiKey);

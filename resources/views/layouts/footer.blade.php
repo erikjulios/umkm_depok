@@ -33,7 +33,7 @@
                 <div class="footer-widget">
                     <h5>Akun</h5>
                     <ul>
-                        <li><a href="{{ route('login') }}">My Account</a></li>
+                        <li><a href="{{ route('login') }}">Akun Saya</a></li>
                         <li><a href="#">Kontak</a></li>
                         <li><a href="{{ route('login') }}">Belanja</a></li>
                     </ul>

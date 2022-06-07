@@ -22,27 +22,41 @@
                 <div class="card konfir-co">
                     <div class="card-body">
                         <h5>Produk</h5>
-                        <div class="row justify-content-center">
-                            <div class="col-lg-10 daftar-produk">
-                                @foreach($pesanan_details as $pesanan_detail)
-                                <div class="row produks">
-                                    
-                                    <div class="col ">
-                                        <img src="{{ url('img/iwapi_logo.jpg')}}" alt="foto-produk" >
+                        <div class="cart-table-co">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th></th>
+                                        <th>Harga Satuan</th>
+                                        <th>Jumlah</th>
+                                        <th>Subtotal Produk</th>
                                         
-                                    </div>
-                                    <div class="col ket-produk">
-                                        <p><span>{{ $pesanan_detail->produk->nama_barang }}</span></p>
-                                        <p>Jumlah : {{ $pesanan_detail->jumlah_produk}} produk</p>
-                                        <p>Harga Satuan : Rp.{{ number_format($pesanan_detail->produk->harga) }}</p>
-                                        <p>Total harga : <span>Rp.{{ number_format($pesanan_detail->total_pembayaran) }}</span> </p>
-    
-                                    </div>
+                                    </tr>
+                                </thead>
+                                <tbody>
                                     
-                                </div>
-                                @endforeach
-                            </div>
-                        </div>    
+                                    <?php $no = 1; ?>
+                                    @foreach($pesanan_details as $pesanan_detail)
+                                    <tr>
+                                        <td class="cart-pic first-row">
+                                            <img src="{{ url('img/iwapi_logo.jpg')}}" />
+                                        </td>
+                                        <td class="cart-title first-row ">
+                                            {{ $pesanan_detail->produk->nama_barang }}
+                                        </td>
+                                        <td class="p-price first-row">Rp.{{ number_format($pesanan_detail->produk->harga) }}</td>
+                                        <td class="p-jumlah first-row">{{ $pesanan_detail->jumlah_produk}}</td>
+                                        <td class="p-total first-row">{{ number_format($pesanan_detail->total_pembayaran) }}</td>
+                                        
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                               
+                            </table>
+                            {{-- <h5>Total Pesananan : Rp. {{ number_format($pesanan->jumlah_harga) }}</h5> --}}
+                        </div>
+                        
                     </div>
                 </div>
     
@@ -112,11 +126,14 @@
                     </div>
                 <!-- pembayaran  -->
     
-                <div class="card konfir-co">
-                    <div class="card-body">
-                            <a href="{{url('payment')}}">
+                <div class="check-out">
+                    
+                        <button type="submit" class="btn btn-primary mt-4" value="submit"> 
+                            <a href="{{url('payment')}}" class="btn-checkout">Bayar</a>
+                        </button>
+                            {{-- <a href="{{url('payment')}}">
                                 Metode Pembayaran
-                            </a>
+                            </a> --}}
                     </div>
                 </div>
             </div>

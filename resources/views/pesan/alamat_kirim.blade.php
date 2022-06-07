@@ -42,7 +42,7 @@
                         @endif
                     </table>
                     <a class="btn " href="{{ url ('tambah_alamat') }}">Tambah Alamat</a>
-                    <a class="btn " style="margin-right: 20px" href="{{ url ('konfirmasi_co') }}">Back</a>
+                    <a class="btn " style="margin-right: 20px" href="{{ url ('konfirmasi_co') }}">Kembali</a>
                 </div>
             </div>
         </div>

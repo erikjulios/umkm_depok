@@ -57,11 +57,30 @@
     position: relative;
     display: inline-block;
 }
+.navbar  ul li.cart-icon p{
+    text-decoration: none;
+    color: rgb(63, 63, 63);
+    font-size: 1.13rem;
+    cursor: pointer;
+    margin: 0 8px 0 8px;
+    position: relative;
+    display: inline-block;
+}
 
+.navbar  ul li.cart-icon a.sub-menu{
+    text-decoration: none;
+    color: rgb(133, 133, 133);
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 0 0 0 15px;
+    position: relative;
+    display: inline-block;
+}
 .navbar  ul li.cart-icon a:hover{
     font-weight: 500;
     color: #325288;
 }
+
 
 .navbar  ul li.cart-icon {
     position: relative;
@@ -156,7 +175,6 @@
 .check-out{
     margin-top: 1rem;
     float: right;
-
 }
 .check-out h5 {
     font-size: 1.2rem;
@@ -167,20 +185,23 @@
     color: #325288;
 
 }
+.check-out button{
+    float: right;
+}
 .check-out a.btn-checkout{
     display: inline-block;
-    width: 6rem;
-    height: 2rem;
     text-align: center;
-    border-radius: 5px;
     background-color: #325288;
-    float: right;
     text-decoration: none;
     color: #fff;
-    padding: 1.5px;
     font-weight: 600;
     font-size: 1rem;
-    margin: 8px 0 0 0;
+    
+}
+
+.check-out a.btn-checkout:hover{
+    font-size: 1.1rem;
+    
 }
 
 /* Halaman Konfirmasi Check Out */
@@ -211,7 +232,7 @@
 }
 
 .card.konfir-co .card-body a:hover {
-    color: #313232;
+    color: #FAEEE7;
     font-weight: 600;
     font-size: 1.2rem;
 }
@@ -227,7 +248,7 @@
 }
 
 .card.konfir-co .card-body .ket-produk p{  
-    color: #000000;
+    color: #aeabab;
     font-size: 0.98rem;
     line-height: 0.6rem;
 }
@@ -235,15 +256,67 @@
     color: #FAEEE7;
     font-weight: 800;
 }
-.card.konfir-co .card-body .daftar-produk .produks {
-    border-bottom: 1px solid rgb(176, 176, 176);
-}
+
 
 .card.konfir-co .card-body .daftar-produk .produks .col ul li {
     list-style: none;
-    color: #000;
+    color: #FAEEE7;
 }
 
+.cart-table-co table {
+    width: 100%;
+    border-collapse: collapse;
+    /* border: 1px solid #ebebeb; */
+}
+.cart-table-co table tr th {
+    font-size: 0.9rem;
+    color: #FAEEE7;
+    background-color: #325288;
+    font-weight: 700;
+    border-bottom: 1px solid #a3a3a3;
+    text-align: center;
+    padding: 18px 0 19px;
+}
+
+.cart-table-co table tr td.cart-pic {
+    width: 20%;
+    padding-left: 20px;
+}
+
+.cart-table-co table tr td {
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: #FAEEE7;
+}
+.cart-table-co h5 {
+    font-size: 1.13rem;
+    font-weight: 900;
+    color: #FAEEE7;
+    float: right;
+}
+
+/* Halaman Tracking Pesanan */
+.track-main{
+    justify-content: center;
+    height: 200px;
+    display: flex;
+}
+.track-icon{
+    display: inline-block;
+    padding: 2.5rem;
+    text-align: center;
+}
+.track-icon a{
+    font-size: 3rem;
+    color: #325288;
+    
+}
+.track-icon a:hover{
+    font-size: 3rem;
+    color: #325288;
+    
+}
 
 /* Halaman Alamat Kirim */
 
@@ -324,6 +397,11 @@ form button.btn-simpan{
     color: #FAEEE7;
 }
 
+form button.btn-simpan:hover{
+    background-color: #325288;
+    font-size: 1.1rem;
+    color: #FAEEE7;
+}
 html,
 body {
     height: 100%;
@@ -1520,7 +1598,7 @@ ol {
 
 .footer-left ul li {
     list-style: none;
-    color: #b2b2b2;
+    color: #FAEEE7;
     font-size: 16px;
     line-height: 30px;
 }
@@ -1553,7 +1631,7 @@ ol {
     top: 0;
     height: 100%;
     width: 100%;
-    background: #e7ab3c;
+    background: #325288;
     content: "";
     border-radius: 50%;
     opacity: 0;
@@ -1581,7 +1659,7 @@ ol {
 .footer-widget ul li a {
     line-height: 36px;
     font-size: 16px;
-    color: #b2b2b2;
+    color: #FAEEE7;
 }
 
 .newslatter-item h5 {
@@ -1653,7 +1731,7 @@ ol {
 .copyright-reserved .copyright-text {
     float: left;
     font-size: 16px;
-    color: #b2b2b2;
+    color: #FAEEE7;
 }
 
 .copyright-reserved .copyright-text a {
@@ -2761,7 +2839,7 @@ ol {
 
 .proceed-checkout ul {
     border: 2px solid #ebebeb;
-    background: #f3f3f3;
+    background: #325288;
     padding-left: 25px;
     padding-right: 25px;
     padding-top: 16px;
@@ -2772,7 +2850,7 @@ ol {
     list-style: none;
     font-size: 16px;
     font-weight: 700;
-    color: #252525;
+    color: #FAEEE7;
     text-transform: uppercase;
     overflow: hidden;
 }

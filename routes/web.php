@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/tracking-pesanan', function () {
+    return view('pesan/pesanan');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home')->name('home');;

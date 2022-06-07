@@ -2059,6 +2059,9 @@ textarea.form-control {
 .form-group {
     margin-bottom: 1rem;
 }
+.form-group label span{
+    color: rgb(208, 3, 3);
+}
 .form-text {
     display: block;
     margin-top: 0.25rem;

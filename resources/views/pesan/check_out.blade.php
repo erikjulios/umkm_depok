@@ -9,7 +9,7 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb-text product-more">
                         <a href="{{ url('home')}}"><i class="fa fa-home"></i> Beranda</a>
-                        <span>Check out</span>
+                        <span>Keranjang</span>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                                     <thead>
                                         <tr>
                                             <th>Foto Produk</th>
-                                            <th >Product Name</th>
+                                            <th>Produk</th>
                                             <th>Harga</th>
                                             <th>Jumlah</th>
                                             <th>Total</th>
@@ -70,7 +70,10 @@
             </div>
             <div class="check-out">
                 <h5>Total Harga : <span>Rp. {{ number_format($pesanan->jumlah_harga) }}</span></h1>
-                    <a href="{{ url('konfirmasi-check-out') }}" class="btn-checkout">Check Out</a>
+                    <button type="submit" class="btn btn-primary mt-4" value="submit"> 
+                        <a href="{{ url('konfirmasi-check-out') }}" class="btn-checkout">Check Out</a>
+                    </button>
+                   
                                      
                </div>
                 
