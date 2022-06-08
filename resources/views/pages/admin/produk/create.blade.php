@@ -56,7 +56,7 @@
                 </div>
                 <div class="form-group">
                     <label>Harga Unit<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="harga_unit" placeholder="Masukkan Harga Unit" value="{{old('harga_unit')}}" required>
+                    <input type="number" class="form-control" name="harga_unit" placeholder="Masukkan Harga Unit" value="{{old('harga_unit')}}" required>
                 </div>
                 <div class="form-group">
                     <label>Komposisi Produk<span class="text-danger">*</span></label>
@@ -64,7 +64,7 @@
                 </div>
                 <div class="form-group">
                     <label>Stock Tersedia<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="stok_tersedia" placeholder="Masukkan Stock Tersedia" value="{{old('stok_tersedia')}}" required>
+                    <input type="number" class="form-control" name="stok_tersedia" placeholder="Masukkan Stock Tersedia" value="{{old('stok_tersedia')}}" required>
                 </div>
                 <div class="form-group">
                     <label>Produk Terjual<span class="text-danger">*</span></label>
@@ -72,7 +72,8 @@
                 </div>
                 <div class="form-group">
                     <label>Deskripsi<span class="text-danger">*</span></label>
-                    <textarea id="summernote" class="form-control" name="deskripsi" value="{{old('deskripsi')}}" required></textarea>
+                    <textarea class="form-control" name="deskripsi" placeholder="Masukkan Deskripsi Produk" value="{{old('deskripsi')}}" required>
+                        {{old('deskripsi')}}</textarea>
                 </div>
                 <div class="form-group">
                     <label>varian<span class="text-danger">*</span></label>

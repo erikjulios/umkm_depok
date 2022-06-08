@@ -72,7 +72,13 @@
                                 <tr>
                                     <td style="vertical-align: middle;">{{ $produk->nama_produk}}</td>
                                     <td style="vertical-align: middle;">{{ $produk->slug }}</td>
-                                    <td style="vertical-align: middle;">{{$produk->foto_produk }}</td>
+                                    <td class="w-25">
+                                        @if(empty($produk->foto_produk))
+                                            <img src="http://via.placeholder.com/100x100" width="100%" >
+                                        @else
+                                            <img src="{{url($produk->foto_produk)}}" width="100%">
+                                        @endif
+                                    </td>
                                     <td style="vertical-align: middle;">{{ $produk->berat_unit }}</td>
                                     <td style="vertical-align: middle;">{{ $produk->harga_unit }}</td>
                                     <td style="vertical-align: middle;">{{ $produk->komposisi }}</td>
