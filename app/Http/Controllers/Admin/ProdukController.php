@@ -83,36 +83,36 @@ class ProdukController extends Controller
 
 
 
-        $umkm = new Umkm();
-        $umkm->id = Uuid::uuid4()->getHex();
+        $produk = new Produk();
+        $produk->id = Uuid::uuid4()->getHex();
 
-        $umkm->nama_produk = $request->nama_produk;
-        $umkm->slug = $request->slug;
-        $umkm->foto_produk = $request->foto_produk;
-        $umkm->berat_unit = $request->berat_unit;
-        $umkm->harga_unit = $request->harga_unit;
-        $umkm->komposisi = $request->komposisi;
-        $umkm->stok_tersedia = $request->stok_tersedia;
-        $umkm->produk_terjual = $request->produk_terjual;
-        $umkm->deskripsi = $request->deskripsi;
-        $umkm->varian = $request->varian;
-        $umkm->varian_tersedia = $request->varian_tersedia;
-        $umkm->ketersediaan_produk = $request->ketersediaan_produk;
-        $umkm->no_BPOM = $request->no_BPOM;
-        $umkm->rating = $request->rating;
-        $umkm->diskon = $request->diskon;
+        $produk->nama_produk = $request->nama_produk;
+        $produk->slug = $request->slug;
+        $produk->foto_produk = $request->foto_produk;
+        $produk->berat_unit = $request->berat_unit;
+        $produk->harga_unit = $request->harga_unit;
+        $produk->komposisi = $request->komposisi;
+        $produk->stok_tersedia = $request->stok_tersedia;
+        $produk->produk_terjual = $request->produk_terjual;
+        $produk->deskripsi = $request->deskripsi;
+        $produk->varian = $request->varian;
+        $produk->varian_tersedia = $request->varian_tersedia;
+        $produk->ketersediaan_produk = $request->ketersediaan_produk;
+        $produk->no_BPOM = $request->no_BPOM;
+        $produk->rating = $request->rating;
+        $produk->diskon = $request->diskon;
 
         if($request->has('foto_produk'))
         {
             $file = $request->foto_produk;
             $filename = 'upload/produk/' . rand() . '.' . $file->getClientOriginalExtension();
             $file->move('upload/produk',$filename);
-            $event->foto_produk = $filename;
+            $produk->foto_produk = $filename;
         }
 
 
-        $umkm->save();
-        return redirect()->route('umkm.index')->with('success','Berhasil input data!');
+        $produk->save();
+        return redirect()->route('produk.index')->with('success','Berhasil input data!');
     }
 
     /**
@@ -142,7 +142,7 @@ class ProdukController extends Controller
 
             'nama_produk'=>'required',
             'slug'=>'required',
-            'foto_produk'=>'required|max:2048',
+            'foto_produk'=>'max:10240',
             'berat_unit'=>'required',
             'harga_unit'=>'required',
             'komposisi'=>'required',
@@ -161,9 +161,9 @@ class ProdukController extends Controller
 'nama_produk'=>'Nama Produk Wajib Diisi',
 'slug'=>'Tittle Wajib Diisi',
 // 'foto_produk'=>'Foto Produk Wajib Diisi',
-'foto_produk.required' => 'Gambar harus diisi!',
+// 'foto_produk.required' => 'Gambar harus diisi!',
 'foto_produk.mimes' => 'Gambar harus berformat jpg,jpeg atau png',
-'foto_produk.max' => 'Ukuran gambar maksimal harus berukuran 2048',
+'foto_produk.max' => 'Ukuran gambar maksimal harus berukuran 10240',
 
 'berat_unit'=>'Berat Wajib Diisi',
 'harga_unit'=>'Harga Wajib Diisi',
@@ -180,22 +180,22 @@ class ProdukController extends Controller
 
         ]);
 
-        $umkm = Umkm::findorfail($umkm->id);
-        $umkm->nama_produk = $request->nama_produk;
-        $umkm->slug = $request->slug;
-        // $umkm->foto_produk = $request->foto_produk;
-        $umkm->berat_unit = $request->berat_unit;
-        $umkm->harga_unit = $request->harga_unit;
-        $umkm->komposisi = $request->komposisi;
-        $umkm->stok_tersedia = $request->stok_tersedia;
-        $umkm->produk_terjual = $request->produk_terjual;
-        $umkm->deskripsi = $request->deskripsi;
-        $umkm->varian = $request->varian;
-        $umkm->varian_tersedia = $request->varian_tersedia;
-        $umkm->ketersediaan_produk = $request->ketersediaan_produk;
-        $umkm->no_BPOM = $request->no_BPOM;
-        $umkm->rating = $request->rating;
-        $umkm->diskon = $request->diskon;
+        $produk = Produk::findorfail($produk->id);
+        $produk->nama_produk = $request->nama_produk;
+        $produk->slug = $request->slug;
+        // $produk->foto_produk = $request->foto_produk;
+        $produk->berat_unit = $request->berat_unit;
+        $produk->harga_unit = $request->harga_unit;
+        $produk->komposisi = $request->komposisi;
+        $produk->stok_tersedia = $request->stok_tersedia;
+        $produk->produk_terjual = $request->produk_terjual;
+        $produk->deskripsi = $request->deskripsi;
+        $produk->varian = $request->varian;
+        $produk->varian_tersedia = $request->varian_tersedia;
+        $produk->ketersediaan_produk = $request->ketersediaan_produk;
+        $produk->no_BPOM = $request->no_BPOM;
+        $produk->rating = $request->rating;
+        $produk->diskon = $request->diskon;
         if (empty($request->file('foto_produk'))){
 
             $produk->foto_produk = $produk->foto_produk;
@@ -207,12 +207,12 @@ class ProdukController extends Controller
             $file = $request->foto_produk;
             $filename = 'upload/produk/' . rand() . '.' . $file->getClientOriginalExtension();
             $file->move('upload/produk',$filename);
-            $acara->foto_produk = $filename;
+            $produk->foto_produk = $filename;
 
         }
 
-        $umkm->save();
-        return redirect()->route('umkm.index')->with('success','Berhasil edit data!');
+        $produk->save();
+        return redirect()->route('produk.index')->with('success','Berhasil edit data!');
 
     }
 
@@ -228,7 +228,7 @@ class ProdukController extends Controller
         $produk = Produk::findOrfail($produk->id);
 
         // Delete from directory
-        // unlink($produk->image);
+        unlink($produk->foto_produk);
 
         $produk->delete();
 
