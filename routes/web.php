@@ -50,6 +50,10 @@ Route::get('payment/', 'konfirmasi_co@payment')->name('payment');
 Route::post('payment/', 'paymentController@payment_post')->name('payment_post');
 Route::post('biayaongkir/', 'konfirmasi_co@payment');
 
+Route::get('biayaongkir/', 'konfirmasi_co@payment');
+Route::get('tracking_pending', 'paymentController@pending');
+Route::get('tracking_dikemas', 'paymentController@dikemas');
+
 //kota berdasar prov error
 // Route::post('/provdankota/', 'konfirmasi_co@halaman_tambah_alamat')->name('provdankota');
 

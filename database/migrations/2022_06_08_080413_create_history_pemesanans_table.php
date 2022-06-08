@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDetailPemesanansTable extends Migration
+class CreateHistoryPemesanansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateDetailPemesanansTable extends Migration
      */
     public function up()
     {
-        Schema::create('detail_pemesanans', function (Blueprint $table) {
+        Schema::create('history_pemesanans', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('produk_id');
             $table->bigInteger('pesanan_id');
+            $table->bigInteger('user_id');
+            $table->bigInteger('produk_id');
             $table->integer('jumlah_produk');
             $table->timestamp('tanggal_pembelian');
             $table->string('total_pembayaran');
@@ -31,6 +32,6 @@ class CreateDetailPemesanansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detail_pemesanans');
+        Schema::dropIfExists('history_pemesanans');
     }
 }

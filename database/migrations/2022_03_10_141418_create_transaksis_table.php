@@ -17,12 +17,13 @@ class CreateTransaksisTable extends Migration
             $table->id();
             $table->string('transaksi_id');
             $table->string('order_id');
+            $table->bigInteger('user_id');
             $table->bigInteger('nominal_transaksi');
             $table->dateTime('waktu_pembayaran');
             $table->string('status');
             $table->string('payment_code')->nullable();
             $table->string('payment_type');
-            $table->string('pdf_link');
+            $table->string('pdf_link')->nullable();
             $table->timestamps();
         });
     }
