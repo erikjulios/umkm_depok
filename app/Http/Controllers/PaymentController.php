@@ -32,7 +32,7 @@ class PaymentController extends Controller
     }
 
     public function payment_post(Request $request){
-
+      $json = json_decode($request->json);
       //menambah data pesanan pada transaksi dan migrasi pesanan yang sudah di checkout ke history 
       $pesanan = Pesanan::where('user_id', Auth::user()->id)->first();
       $pesanan_detail = DetailPemesanan::where('pesanan_id', $pesanan->id)->get();
@@ -42,9 +42,10 @@ class PaymentController extends Controller
         $history->user_id = $pesanan->user_id;
         $history->produk_id = $key->produk_id;
         $history->jumlah_produk = $key->jumlah_produk;
+        $history->jasa_kirim = $request->data_ongkir;
         //tanggal pesanan atau detail
         $history->tanggal_pembelian = $key->tanggal_pembelian;
-        $history->total_pembayaran = $key->total_pembayaran;
+        $history->total_pembayaran = $json->gross_amount;
         $history->pesanan_id = $pesanan->id;
         $history->save();
         
@@ -53,15 +54,12 @@ class PaymentController extends Controller
         $pesanan_detail2 = DetailPemesanan::where('pesanan_id', $pesanan->id)->first();
         $pesanan_detail2->delete();
       }
-
-
       
-
-      $json = json_decode($request->json);
       $transaksi = new Transaksi;
 
       $transaksi->transaksi_id = $json->transaction_id;
       $transaksi->order_id = $json->order_id;
+      $transaksi->jasa_kirim = $request->data_ongkir;
       $transaksi->nominal_transaksi = $json->gross_amount;
       $transaksi->waktu_pembayaran = $json->transaction_time;
       $transaksi->status = $json->transaction_status;
@@ -75,7 +73,6 @@ class PaymentController extends Controller
 
       return redirect('home')->with('success', 'Order ditambahkan!');
     }
-
 
     public function pending(){
 

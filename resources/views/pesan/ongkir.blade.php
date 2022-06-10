@@ -18,7 +18,12 @@
   </div>
   <div class="container">
     <div class="row">
-
+@if(empty($hasil))
+<script type="text/javascript">
+    alert('silahkan pilih alamat kirim terlebih dahulu');
+    window.location=history.go(-1);
+</script>
+@endif
  @foreach ($hasil as $key)
 <div class="col-md-4">
     <div class="card ongkir">

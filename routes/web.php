@@ -39,17 +39,17 @@ Route::get('/alamat', 'konfirmasi_co@alamat')->name('alamat');
 Route::get('/tambah_alamat', 'konfirmasi_co@halaman_tambah_alamat');
 Route::post('/alamat/', 'konfirmasi_co@tambah_alamat');
 Route::get('/ongkir', 'konfirmasi_co@halaman_ongkir')->name('ongkir');
-
 Route::post('/alamat_terpilih/', 'konfirmasi_co@alamat_terpilih')->name('alamat_terpilih');
-
 Route::post('/pilih_co/', 'PesanController@pilih_co')->name('pilih_co');
-
 Route::post('/ongkir_terpilih/', 'konfirmasi_co@ongkir_terpilih')->name('ongkir_terpilih');
-
 Route::get('payment/', 'konfirmasi_co@payment')->name('payment');
+
+
+Route::post('payment_totalharga', 'konfirmasi_co@payment')->name('payment_totalharga');
+
+
 Route::post('payment/', 'paymentController@payment_post')->name('payment_post');
 Route::post('biayaongkir/', 'konfirmasi_co@payment');
-
 Route::get('biayaongkir/', 'konfirmasi_co@payment');
 Route::get('tracking_pending', 'paymentController@pending');
 Route::get('tracking_dikemas', 'paymentController@dikemas');

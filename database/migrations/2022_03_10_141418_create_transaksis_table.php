@@ -19,6 +19,7 @@ class CreateTransaksisTable extends Migration
             $table->string('order_id');
             $table->bigInteger('user_id');
             $table->bigInteger('nominal_transaksi');
+            $table->string('jasa_kirim');
             $table->dateTime('waktu_pembayaran');
             $table->string('status');
             $table->string('payment_code')->nullable();
