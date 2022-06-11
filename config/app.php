@@ -165,7 +165,11 @@ return [
         /*
          * Package Service Providers...
          */
+<<<<<<< HEAD
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+=======
+
+>>>>>>> d69de96a46a4894b104237985f664b382e6f2418
         /*
          * Application Service Providers...
          */
@@ -226,7 +230,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+<<<<<<< HEAD
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+=======
+>>>>>>> d69de96a46a4894b104237985f664b382e6f2418
 
     ],
 

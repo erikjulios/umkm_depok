@@ -14,8 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+<<<<<<< HEAD
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
 Route::post('/payment-handler','tangkap_request_sandbox@payment_handler');
+=======
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
+>>>>>>> d69de96a46a4894b104237985f664b382e6f2418
