@@ -50,6 +50,12 @@ Route::get('payment/', 'konfirmasi_co@payment')->name('payment');
 Route::post('payment/', 'paymentController@payment_post')->name('payment_post');
 Route::post('biayaongkir/', 'konfirmasi_co@payment');
 
+//admin
+Route::resource('/dashboard','Admin\AdminController');
+Route::resource('/produk', 'Admin\ProdukController');
+Route::resource('/umkm', 'Admin\UmkmController');
+Route::resource('/transaksi', 'Admin\TransaksiController');
+
 //kota berdasar prov error
 // Route::post('/provdankota/', 'konfirmasi_co@halaman_tambah_alamat')->name('provdankota');
 
