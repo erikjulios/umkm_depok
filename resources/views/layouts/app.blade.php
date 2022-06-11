@@ -98,7 +98,7 @@
                             <div class="cart-hover" >
                                 <p>Akun</p>                                  
                                 <a class="sub-menu" href="{{ url('profile') }}">Profil</a>
-                                <a class="sub-menu" href="#">Pesanan</a>
+                                <a class="sub-menu" href="{{ url('/tracking-pesanan')}}">Pesanan</a>
                                 <a  href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}

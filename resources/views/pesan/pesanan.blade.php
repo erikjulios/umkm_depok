@@ -13,11 +13,11 @@
         </div>
         <div class="track-main">
         <div class="track-icon">
-            <a href="#"><i class="bi bi-wallet2"></i></a>
+            <a href="{{url('tracking_pending')}}"><i class="bi bi-wallet2"></i></a>
             <p>Belum Bayar</p>
         </div>
         <div class="track-icon">
-            <a href="#"><i class="bi bi-box2"></i></a>
+            <a href="{{url('tracking_dikemas')}}"><i class="bi bi-box2"></i></a>
             <p>Dikemas</p>
         </div>
         <div class="track-icon">

@@ -153,6 +153,11 @@ class konfirmasi_co extends Controller
     $rajaOngkir = new RajaOngkir($this->apiKey);
     $alamat = Alamat_kirim::where('user_id', Auth::user()->id)->where('status',1)->first();
 
+
+    //pilih alamat kirim dulu baru ongkir
+    if (!empty($alamat)) {
+
+   
     $prov_asal = $alamat->provinsi ;
     $kota_tujuan = $alamat->kota;
 
@@ -193,7 +198,10 @@ class konfirmasi_co extends Controller
 
     }
     $hasil = $this->result;
-
+  }
+  else{
+    $hasil = [];
+  }
 
     return view('pesan/ongkir',compact('hasil'));
 
@@ -227,7 +235,6 @@ class konfirmasi_co extends Controller
 
     public function ongkir_terpilih(Request $request){
       $this->ongkir_terpilih[] = array(
-
           'nama_jasa' => $request->nama_jasa,
           'deskripsi' => $request->deskripsi,
           'biaya' => $request->biaya,
@@ -263,8 +270,9 @@ class konfirmasi_co extends Controller
     //   $params = 
     // }
 
-    public function payment()
+    public function payment(Request $request)
     {
+      $data_ongkir = $request->jasa.",". $request->desk.",".$request->estimasi."(hari)";
       $cek_status = Alamat_kirim::where('user_id', Auth::user()->id)->where('status', 1)->first();
       if (empty($cek_status)) {
         $this->pilih_alamat = 1;
@@ -283,10 +291,11 @@ class konfirmasi_co extends Controller
       $user = User::where('id', Auth::user()->id)->first();
       $pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status', 0)->first();
       $pesanan_details = DetailPemesanan::where('pesanan_id', $pesanan->id)->get();
+      $total_pembayaran = (int) $request->total_pembayaran;
       $params = array(
           'transaction_details' => array(
               'order_id' => rand('100000','999999'),
-              'gross_amount' => $pesanan->jumlah_harga+ $this->biayaongkir,
+              'gross_amount' => $total_pembayaran ,
           ),
           // 'item_details' => array(
           //   [
@@ -305,7 +314,7 @@ class konfirmasi_co extends Controller
       );
        
       $snapToken = \Midtrans\Snap::getSnapToken($params);
-      return view('pesan/payment', compact('snapToken'));
+      return view('pesan/payment', compact('snapToken', 'data_ongkir'));
     }
 
 }

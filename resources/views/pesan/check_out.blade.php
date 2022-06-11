@@ -26,6 +26,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="cart-table">
+                                 @if(!empty($pesanan))
                                 <table>
                                     <thead>
                                         <tr>
@@ -38,7 +39,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if(!empty($pesanan))
+                                       
                                         <?php $no = 1; ?>
                                         @foreach($pesanan_details as $pesanan_detail)
                                         <tr>
@@ -61,7 +62,10 @@
                                         </tr>
                                         @endforeach
                                     </tbody>
+                                    @else
+                                    <p style="font-weight: bold; font-size: 30px">Maaf, keranjang anda kosong</p>
                                     @endif
+
                                 </table>
                             </div>
                         </div>
@@ -69,11 +73,12 @@
                 </div>
             </div>
             <div class="check-out">
+                 @if(!empty($pesanan))
                 <h5>Total Harga : <span>Rp. {{ number_format($pesanan->jumlah_harga) }}</span></h1>
                     <button type="submit" class="btn btn-primary mt-4" value="submit"> 
                         <a href="{{ url('konfirmasi-check-out') }}" class="btn-checkout">Check Out</a>
                     </button>
-                   
+                @endif
                                      
                </div>
                 

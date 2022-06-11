@@ -16,11 +16,13 @@
  
   <body> 
    
-    <form action="" id="submit_form" method="POST">
+    <form action="{{url('payment')}}" id="submit_form" method="POST">
        @csrf
         <input type="hidden" name="json" id="json_callback">
+        <input type="hidden" id="test" name="data_ongkir" value="{{$data_ongkir}}">
     </form>
   <script>
+    
         function init() {
                 window.snap.pay('{{$snapToken}}', {
           onSuccess: function(result){
@@ -30,7 +32,6 @@
           },
           onPending: function(result){
             /* You may add your own implementation here */
-            console.log(result);
             send_response_to_form(result)
           },
           onError: function(result){
@@ -40,14 +41,13 @@
           },
           onClose: function(){
             /* You may add your own implementation here */
-            alert('you closed the popup without finishing the payment');
+            alert('Anda berhenti saat transaksi belum diselesaikan');
             window.history.back();
           }
         })
         }
         init();
-
-        function send_response_to_form(result){
+         function send_response_to_form(result){
             document.getElementById('json_callback').value = JSON.stringify(result);
             $('#submit_form').submit();
         }
