@@ -1,10 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-<<<<<<< HEAD
 use App\Http\Livewire\OngkosKirim;
-=======
->>>>>>> d69de96a46a4894b104237985f664b382e6f2418
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +14,6 @@ use App\Http\Livewire\OngkosKirim;
 |
 */
 
-<<<<<<< HEAD
 Route::get('/', function () {
     return view('welcome');
 });
@@ -69,28 +65,3 @@ Route::post('biayaongkir/', 'konfirmasi_co@payment');
 // Route::get('/ongkos-kirim', function () {
 //     return view('livewire.ongkos-kirim');
 // });
-=======
-
-Route::get('/', function () {
-    return view('pages.halaman.welcome');
-});
-
-Route::resource('/dashboard','Admin\AdminController');
-Route::resource('/produk', 'Admin\ProdukController');
-Route::resource('/umkm', 'Admin\UmkmController');
-
-
-Auth::routes();
-
-// Route::get('/', 'HomeController@index')->name('home');
-
-Route::get('/login', 'AuthController@showFormLogin')->name('login');
-Route::get('login', 'AuthController@showFormLogin')->name('login');
-Route::post('login', 'AuthController@login');
-Route::get('register', 'AuthController@showFormRegister')->name('register');
-Route::post('register', 'AuthController@register');
-Route::group(['middleware' => 'auth'], function () {
-Route::resource('dashboard', 'Admin\AdminController');
-Route::get('logout', 'AuthController@logout')->name('logout');
-});
->>>>>>> d69de96a46a4894b104237985f664b382e6f2418

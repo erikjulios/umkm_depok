@@ -16,7 +16,6 @@ class CreateUMKMSTable extends Migration
         Schema::create('u_m_k_m_s', function (Blueprint $table) {
             $table->id();
             $table->string('nama_UMKM', 100);
-            $table->string('slug')->unique();
             $table->string('nama_pemilik', 100);
             $table->string('no_hp')->unique();
             $table->string('alamat_umkm');

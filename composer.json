@@ -12,18 +12,12 @@
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^6.3.1|^7.0.1",
-<<<<<<< HEAD
         "kavist/rajaongkir": "^1.1",
         "laravel/framework": "^7.29",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^2.4",
         "livewire/livewire": "^2.10",
         "realrashid/sweet-alert": "^5.0"
-=======
-        "laravel/framework": "^7.29",
-        "laravel/tinker": "^2.5",
-        "laravel/ui": "^2.4"
->>>>>>> d69de96a46a4894b104237985f664b382e6f2418
     },
     "require-dev": {
         "facade/ignition": "^2.0",
