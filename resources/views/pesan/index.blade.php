@@ -23,7 +23,11 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <img src="{{url('img')}}/{{$produk->foto_produk}}" class="rounded mx-auto d-block" width="400" height="400">
+                        @if(empty($produk->foto_produk))
+                            <img src="http://via.placeholder.com/100x100" width="100%" >
+                        @else
+                            <img src="{{url($produk->foto_produk)}}" width="100%" alt="{{ $produk -> nama_barang}}">
+                        @endif
                         </div>
                         <div class="col-md-6 mt-4   ">
                             <h2>{{$produk -> nama_barang}}</h2>

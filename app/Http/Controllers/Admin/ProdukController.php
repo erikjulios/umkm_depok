@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Ramsey\Uuid\Uuid;
+// use Ramsey\Uuid\Uuid;
 use App\Produk;
+use App\UMKM;
 
 class ProdukController extends Controller
 {
@@ -18,6 +19,7 @@ class ProdukController extends Controller
     public function index()
     {
         $produk = Produk::all();
+            
         return view('pages.admin.produk.view', compact('produk'));
     }
 
@@ -28,7 +30,13 @@ class ProdukController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.produk.create');
+        return view('pages.admin.produk.create', [
+            
+            "umkms" => UMKM::all()
+        ]);
+        //return view('pages.admin.produk.create');
+        // $produk = Produk::where('id', $id)->first();
+        //$umkms = UMKM::where('id', $id)->first();
     }
 
     /**
@@ -43,26 +51,20 @@ class ProdukController extends Controller
         $this->validate($request, [
 
             'nama_barang'=>'required',
-            // 'slug'=>'required',
+            'umkm_id' => 'required',
             'foto_produk'=>'required|max:2048',
             'berat_unit'=>'required',
             'harga'=>'required',
             'komposisi'=>'required',
-            'stok'=>'required',
-            'produk_terjual'=>'required',
+            'stok'=>'required',            
             'deskripsi'=>'required',
-            'varian'=>'required',
-            'varian_tersedia'=>'required',
-            'ketersediaan_produk'=>'required',
+            'varian'=>'required',            
             'no_BPOM'=>'required',
-            'rating'=>'required',
-            'diskon'=>'required',
+           
 
         ],
         [
 'nama_barang'=>'Nama Produk Wajib Diisi',
-// 'slug'=>'Tittle Wajib Diisi',
-// 'foto_produk'=>'Foto Produk Wajib Diisi',
 'foto_produk.required' => 'Gambar harus diisi!',
 'foto_produk.mimes' => 'Gambar harus berformat jpg,jpeg atau png',
 'foto_produk.max' => 'Ukuran gambar maksimal harus berukuran 2048',
@@ -70,37 +72,34 @@ class ProdukController extends Controller
 'harga'=>'Harga Wajib Diisi',
 'komposisi'=>'Komposisi Wajib Diisi',
 'stok'=>'Stock Wajib Diisi',
-'produk_terjual'=>'Produk terjual Wajib Diisi',
 'deskripsi'=>'deskripsi Wajib Diisi',
 'varian'=>'varian Wajib Diisi',
-'varian_tersedia'=>'varian tersedia Wajib Diisi',
 'ketersediaan_produk'=>'ketersediaan Wajib Diisi',
 'no_BPOM'=>'No BPOM Wajib Diisi',
-'rating'=>'Rating Wajib Diisi',
-'diskon'=>'diskon harus Diisi',
 
         ]);
 
 
 
         $produk = new Produk();
-        $produk->id = Uuid::uuid4()->getHex();
+        // $produk->id = Uuid::uuid4()->getHex();
 
         $produk->nama_barang = $request->nama_barang;
-        // $produk->slug = $request->slug;
+      
+        $produk->umkm_id = $request->umkm_id;
         $produk->foto_produk = $request->foto_produk;
         $produk->berat_unit = $request->berat_unit;
         $produk->harga = $request->harga;
         $produk->komposisi = $request->komposisi;
         $produk->stok = $request->stok;
-        $produk->produk_terjual = $request->produk_terjual;
+        // $produk->produk_terjual = $request->produk_terjual;
         $produk->deskripsi = $request->deskripsi;
         $produk->varian = $request->varian;
-        $produk->varian_tersedia = $request->varian_tersedia;
-        $produk->ketersediaan_produk = $request->ketersediaan_produk;
+        // $produk->varian_tersedia = $request->varian_tersedia;
+        // $produk->ketersediaan_produk = $request->ketersediaan_produk;
         $produk->no_BPOM = $request->no_BPOM;
-        $produk->rating = $request->rating;
-        $produk->diskon = $request->diskon;
+        // $produk->rating = $request->rating;
+        // $produk->diskon = $request->diskon;
 
         if($request->has('foto_produk'))
         {

@@ -14,7 +14,7 @@ class CreateUmkmTable extends Migration
     public function up()
     {
         Schema::create('umkm', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->id();
             $table->string('nama_UMKM', 100);
             $table->string('nama_pemilik', 100);
             $table->string('no_hp')->unique();

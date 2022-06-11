@@ -49,9 +49,9 @@
                         <table class="table table-bordered" width="100%" cellspacing="0" cellpadding="0">
                             <thead>
                                 <tr>
-                                    <th>Nama Produk</th>
-                                    <th>Judul Produk</th>
                                     <th>Foto Produk</th>
+                                    <th>Nama Produk</th>
+                                    <th>UMKM</th>                                    
                                     <th>Berat Unit</th>
                                     <th>Harga Unit</th>
                                     <th>Komposisi</th>
@@ -59,32 +59,37 @@
                                     <th>Produk Terjual</th>
                                     <th>Deskripsi</th>
                                     <th>Varian</th>
-                                    <th>Varian Tersedia</th>
-                                    <th>Ketersedaan Produk</th>
+                                    {{-- <th>Varian Tersedia</th>
+                                    <th>Ketersedaan Produk</th> --}}
                                     <th>No BPOM</th>
-                                    <th>Rating</th>
-                                    <th>Diskon</th>
+                                    {{-- <th>Rating</th>
+                                    <th>Diskon</th> --}}
                                     <th>Aksi    </th>
                                 </tr>
                             </thead>
                             <tbody>
                             @forelse ($produk as $produk)
                                 <tr>
-                                    <td style="vertical-align: middle;">{{ $produk->nama_produk}}</td>
-                                    <td style="vertical-align: middle;">{{ $produk->slug }}</td>
-                                    <td style="vertical-align: middle;">{{$produk->foto_produk }}</td>
+                                    <td class="w-25">
+                                        @if(empty($produk->foto_produk))
+                                            <img src="http://via.placeholder.com/100x100" width="100%" >
+                                        @else
+                                            <img src="{{url($produk->foto_produk)}}" width="100%">
+                                        @endif
+                                    </td>
+                                    <td style="vertical-align: middle;">{{ $produk->nama_barang}}</td>
+                                    <td style="vertical-align: middle;">{{ optional($produk->umkms)->nama_UMKM }}</td>
+                                    
                                     <td style="vertical-align: middle;">{{ $produk->berat_unit }}</td>
-                                    <td style="vertical-align: middle;">{{ $produk->harga_unit }}</td>
+                                    <td style="vertical-align: middle;">{{ $produk->harga }}</td>
                                     <td style="vertical-align: middle;">{{ $produk->komposisi }}</td>
-                                    <td style="vertical-align: middle;">{{ $produk->stok_tersedia }}</td>
+                                    <td style="vertical-align: middle;">{{ $produk->stok}}</td>
                                     <td style="vertical-align: middle;">{{ $produk->produk_terjual }}</td>
                                     <td style="vertical-align: middle;">{{ $produk->deskripsi }}</td>
                                     <td style="vertical-align: middle;">{{ $produk->varian }}</td>
-                                    <td style="vertical-align: middle;">{{ $produk->varian_tersedia }}</td>
-                                    <td style="vertical-align: middle;">{{ $produk->ketersediaan_produk }}</td>
                                     <td style="vertical-align: middle;">{{ $produk->no_BPOM }}</td>
-                                    <td style="vertical-align: middle;">{{ $produk->rating }}</td>
-                                    <td style="vertical-align: middle;">{{ $produk->diskon }}</td>
+                                    
+                                    
                                     <td class="text-center" style="vertical-align: middle;">
                                         <a href="{{ route('produk.edit', $produk->id) }}" class="btn btn-warning btn-sm">
                                             <i class="fa fa-pencil-alt"></i>

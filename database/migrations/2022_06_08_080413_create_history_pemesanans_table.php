@@ -21,7 +21,8 @@ class CreateHistoryPemesanansTable extends Migration
             $table->integer('jumlah_produk');
             $table->timestamp('tanggal_pembelian');
             $table->string('jasa_kirim');
-            $table->string('total_pembayaran');
+            $table->string('total_pembayaran'); 
+            //  tambah tanggal pengiriman
             $table->timestamps();
         });
     }

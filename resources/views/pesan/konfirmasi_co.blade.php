@@ -40,7 +40,11 @@
                                     @foreach($pesanan_details as $pesanan_detail)
                                     <tr>
                                         <td class="cart-pic first-row">
-                                            <img src="{{ url('img/iwapi_logo.jpg')}}" />
+                                            @if(empty($pesanan_detail->produk->foto_produk))
+                                                    <img src="http://via.placeholder.com/100x100" width="100%" >
+                                                @else
+                                                    <img src="{{url($pesanan_detail->produk->foto_produk)}}" width="100%" alt="{{ $pesanan_detail->produk->foto_produk }}">
+                                                @endif
                                         </td>
                                         <td class="cart-title first-row ">
                                             {{ $pesanan_detail->produk->nama_barang }}

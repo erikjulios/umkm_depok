@@ -16,6 +16,7 @@ class CreateProduksTable extends Migration
         Schema::create('produks', function (Blueprint $table) {
             $table->id();
             $table->string('nama_barang');
+            $table->bigInteger('umkm_id');
             $table->integer('harga');
             $table->integer('stok');
             $table->string('foto_produk');
@@ -27,7 +28,7 @@ class CreateProduksTable extends Migration
             $table->string('varian_tersedia')->nullable();
             $table->boolean('ketersediaan_produk')->nullable();
             $table->string('no_BPOM', 20)->unique();
-            $table->float('rating', 2, 2)->nullable();
+            $table->integer('rating')->nullable();
             $table->string('diskon')->nullable();
             $table->timestamps();
         });

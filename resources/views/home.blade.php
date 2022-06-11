@@ -9,7 +9,12 @@
         <div class="col-lg-3 col-sm-6">
         <div class="product-item">
             <div class="pi-pic">
-                <img src="img/biji ketapang.jpg" class="card-img-top" style="wi" alt="{{ $item -> nama_barang}}">
+                @if(empty($item->foto_produk))
+                    <img src="http://via.placeholder.com/100x100" width="100%" >
+                @else
+                    <img src="{{url($item->foto_produk)}}" width="100%" alt="{{ $item -> nama_barang}}">
+                @endif
+                
                 <ul>
                     <li class="w-icon active">
                         <a href="{{ url('pesan') }}/{{ $item -> id}}"><i class="bi bi-cart-check"></i></a>

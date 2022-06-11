@@ -14,4 +14,10 @@ class Umkm extends Model
     protected $guarded = [];
 
     protected $table = 'umkm';
+   
+
+    public function produks()
+    {
+        return $this->hasMany('App\Produk', 'umkm_id', 'id');
+    }
 }

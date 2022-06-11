@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Ramsey\Uuid\Uuid;
+// use Ramsey\Uuid\Uuid;
 use App\Umkm;
 
 class UmkmController extends Controller
@@ -62,7 +62,7 @@ class UmkmController extends Controller
 
 
         $umkm = new Umkm();
-        $umkm->id = Uuid::uuid4()->getHex();
+        // $umkm->id = Uuid::uuid4()->getHex();
         $umkm->nama_UMKM=$request->nama_UMKM;
         // // $umkm->slug=$request->slug;
         $umkm->nama_pemilik=$request->nama_pemilik;
