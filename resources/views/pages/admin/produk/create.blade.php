@@ -40,12 +40,9 @@
                 @csrf
                 <div class="form-group">
                     <label>Nama Produk<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="nama_produk" placeholder="Masukkan Nama Produk" value="{{old('nama_produk')}}" required>
+                    <input type="text" class="form-control" name="nama_barang" placeholder="Masukkan Nama Produk" value="{{old('nama_produk')}}" required>
                 </div>
-                <div class="form-group">
-                    <label>Judul<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="slug" placeholder="Masukkan Judul" value="{{old('slug')}}" required>
-                </div>
+               
                 <div class="form-group">
                     <label>Foto Produk<span class="text-danger">*</span></label>
                     <input type="file" class="form-control" name="foto_produk" placeholder="Masukkan Foto Produk" value="{{old('foto_produk')}}" required>
@@ -56,7 +53,7 @@
                 </div>
                 <div class="form-group">
                     <label>Harga Unit<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="harga_unit" placeholder="Masukkan Harga Unit" value="{{old('harga_unit')}}" required>
+                    <input type="text" class="form-control" name="harga" placeholder="Masukkan Harga Unit" value="{{old('harga_unit')}}" required>
                 </div>
                 <div class="form-group">
                     <label>Komposisi Produk<span class="text-danger">*</span></label>
@@ -64,7 +61,7 @@
                 </div>
                 <div class="form-group">
                     <label>Stock Tersedia<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="stok_tersedia" placeholder="Masukkan Stock Tersedia" value="{{old('stok_tersedia')}}" required>
+                    <input type="text" class="form-control" name="stok" placeholder="Masukkan Stock Tersedia" value="{{old('stok_tersedia')}}" required>
                 </div>
                 <div class="form-group">
                     <label>Produk Terjual<span class="text-danger">*</span></label>

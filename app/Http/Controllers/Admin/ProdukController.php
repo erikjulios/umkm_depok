@@ -42,13 +42,13 @@ class ProdukController extends Controller
 
         $this->validate($request, [
 
-            'nama_produk'=>'required',
-            'slug'=>'required',
+            'nama_barang'=>'required',
+            // 'slug'=>'required',
             'foto_produk'=>'required|max:2048',
             'berat_unit'=>'required',
-            'harga_unit'=>'required',
+            'harga'=>'required',
             'komposisi'=>'required',
-            'stok_tersedia'=>'required',
+            'stok'=>'required',
             'produk_terjual'=>'required',
             'deskripsi'=>'required',
             'varian'=>'required',
@@ -60,16 +60,16 @@ class ProdukController extends Controller
 
         ],
         [
-'nama_produk'=>'Nama Produk Wajib Diisi',
-'slug'=>'Tittle Wajib Diisi',
+'nama_barang'=>'Nama Produk Wajib Diisi',
+// 'slug'=>'Tittle Wajib Diisi',
 // 'foto_produk'=>'Foto Produk Wajib Diisi',
 'foto_produk.required' => 'Gambar harus diisi!',
 'foto_produk.mimes' => 'Gambar harus berformat jpg,jpeg atau png',
 'foto_produk.max' => 'Ukuran gambar maksimal harus berukuran 2048',
 'berat_unit'=>'Berat Wajib Diisi',
-'harga_unit'=>'Harga Wajib Diisi',
+'harga'=>'Harga Wajib Diisi',
 'komposisi'=>'Komposisi Wajib Diisi',
-'stok_tersedia'=>'Stock Wajib Diisi',
+'stok'=>'Stock Wajib Diisi',
 'produk_terjual'=>'Produk terjual Wajib Diisi',
 'deskripsi'=>'deskripsi Wajib Diisi',
 'varian'=>'varian Wajib Diisi',
@@ -86,13 +86,13 @@ class ProdukController extends Controller
         $produk = new Produk();
         $produk->id = Uuid::uuid4()->getHex();
 
-        $produk->nama_produk = $request->nama_produk;
-        $produk->slug = $request->slug;
+        $produk->nama_barang = $request->nama_barang;
+        // $produk->slug = $request->slug;
         $produk->foto_produk = $request->foto_produk;
         $produk->berat_unit = $request->berat_unit;
-        $produk->harga_unit = $request->harga_unit;
+        $produk->harga = $request->harga;
         $produk->komposisi = $request->komposisi;
-        $produk->stok_tersedia = $request->stok_tersedia;
+        $produk->stok = $request->stok;
         $produk->produk_terjual = $request->produk_terjual;
         $produk->deskripsi = $request->deskripsi;
         $produk->varian = $request->varian;
@@ -140,13 +140,13 @@ class ProdukController extends Controller
 
         $this->validate($request, [
 
-            'nama_produk'=>'required',
-            'slug'=>'required',
+            'nama_barang'=>'required',
+            // 'slug'=>'required',
             'foto_produk'=>'max:10240',
             'berat_unit'=>'required',
-            'harga_unit'=>'required',
+            'harga'=>'required',
             'komposisi'=>'required',
-            'stok_tersedia'=>'required',
+            'stok'=>'required',
             'produk_terjual'=>'required',
             'deskripsi'=>'required',
             'varian'=>'required',
@@ -158,17 +158,17 @@ class ProdukController extends Controller
 
         ],
         [
-'nama_produk'=>'Nama Produk Wajib Diisi',
-'slug'=>'Tittle Wajib Diisi',
+'nama_barang'=>'Nama Produk Wajib Diisi',
+// 'slug'=>'Tittle Wajib Diisi',
 // 'foto_produk'=>'Foto Produk Wajib Diisi',
 // 'foto_produk.required' => 'Gambar harus diisi!',
 'foto_produk.mimes' => 'Gambar harus berformat jpg,jpeg atau png',
 'foto_produk.max' => 'Ukuran gambar maksimal harus berukuran 10240',
 
 'berat_unit'=>'Berat Wajib Diisi',
-'harga_unit'=>'Harga Wajib Diisi',
+'harga'=>'Harga Wajib Diisi',
 'komposisi'=>'Komposisi Wajib Diisi',
-'stok_tersedia'=>'Stock Wajib Diisi',
+'stok'=>'Stock Wajib Diisi',
 'produk_terjual'=>'Produk terjual Wajib Diisi',
 'deskripsi'=>'deskripsi Wajib Diisi',
 'varian'=>'varian Wajib Diisi',
@@ -181,13 +181,13 @@ class ProdukController extends Controller
         ]);
 
         $produk = Produk::findorfail($produk->id);
-        $produk->nama_produk = $request->nama_produk;
-        $produk->slug = $request->slug;
+        $produk->nama_barang = $request->nama_barang;
+        // $produk->slug = $request->slug;
         // $produk->foto_produk = $request->foto_produk;
         $produk->berat_unit = $request->berat_unit;
-        $produk->harga_unit = $request->harga_unit;
+        $produk->harga = $request->harga;
         $produk->komposisi = $request->komposisi;
-        $produk->stok_tersedia = $request->stok_tersedia;
+        $produk->stok = $request->stok;
         $produk->produk_terjual = $request->produk_terjual;
         $produk->deskripsi = $request->deskripsi;
         $produk->varian = $request->varian;
