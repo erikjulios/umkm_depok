@@ -59,11 +59,11 @@
                                     <th>Produk Terjual</th>
                                     <th>Deskripsi</th>
                                     <th>Varian</th>
-                                    {{-- <th>Varian Tersedia</th>
-                                    <th>Ketersedaan Produk</th> --}}
+                                    <th>Varian Tersedia</th>
+                                    {{-- <th>Ketersedaan Produk</th> --}}
                                     <th>No BPOM</th>
-                                    {{-- <th>Rating</th>
-                                    <th>Diskon</th> --}}
+                                    <th>Rating</th>
+                                    <th>Diskon</th> 
                                     <th>Aksi    </th>
                                 </tr>
                             </thead>
@@ -80,14 +80,17 @@
                                     <td style="vertical-align: middle;">{{ $produk->nama_barang}}</td>
                                     <td style="vertical-align: middle;">{{ optional($produk->umkms)->nama_UMKM }}</td>
                                     
-                                    <td style="vertical-align: middle;">{{ $produk->berat_unit }}</td>
-                                    <td style="vertical-align: middle;">{{ $produk->harga }}</td>
+                                    <td style="vertical-align: middle;">{{ $produk->berat_unit }} gram</td>
+                                    <td style="vertical-align: middle;">Rp.{{ number_format($produk->harga) }}</td>
                                     <td style="vertical-align: middle;">{{ $produk->komposisi }}</td>
                                     <td style="vertical-align: middle;">{{ $produk->stok}}</td>
                                     <td style="vertical-align: middle;">{{ $produk->produk_terjual }}</td>
                                     <td style="vertical-align: middle;">{{ $produk->deskripsi }}</td>
                                     <td style="vertical-align: middle;">{{ $produk->varian }}</td>
+                                    <td style="vertical-align: middle;">{{ $produk->varian_tersedia }}</td>
                                     <td style="vertical-align: middle;">{{ $produk->no_BPOM }}</td>
+                                    <td style="vertical-align: middle;">{{ $produk->rating }}</td>
+                                    <td style="vertical-align: middle;">{{ $produk->diskon }}</td>
                                     
                                     
                                     <td class="text-center" style="vertical-align: middle;">

@@ -39,18 +39,16 @@
             <form action="{{ route('produk.update', $produk->id)}}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('put')
+                
                 <div class="form-group">
 
                     <label>Nama Produk<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="nama_produk" placeholder="Masukkan Nama Produk" value="{{$produk->nama_produk}}" required>
+                    <input type="text" class="form-control" name="nama_barang" placeholder="Masukkan Nama Produk" value="{{$produk->nama_barang}}" required>
                 </div>
-                <div class="form-group">
-                    <label>Judul<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="slug" placeholder="Masukkan Judul" value="{{$produk->slug}}" required>
-                </div>
+                
                 <div class="form-group">
                     <label>Foto Produk<span class="text-danger">*</span></label>
-                    <input type="file" class="form-control" name="foto_produk" placeholder="Masukkan Foto Produk" value="{{$produk->foto_produk}}" required>
+                    <input type="file" class="form-control" name="foto_produk" placeholder="Masukkan Foto Produk" value="{{$produk->foto_produk}}" >
                 </div>
                 <div class="form-group">
                     <label>Berat Unit<span class="text-danger">*</span></label>
@@ -58,7 +56,7 @@
                 </div>
                 <div class="form-group">
                     <label>Harga Unit<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="harga_unit" placeholder="Masukkan Harga Unit" value="{{$produk->harga_unit}}" required>
+                    <input type="text" class="form-control" name="harga" placeholder="Masukkan Harga Unit" value="{{$produk->harga}}" required>
                 </div>
                 <div class="form-group">
                     <label>Komposisi Produk<span class="text-danger">*</span></label>
@@ -66,12 +64,9 @@
                 </div>
                 <div class="form-group">
                     <label>Stock Tersedia<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="stok_tersedia" placeholder="Masukkan Stock Tersedia" value="{{$produk->stok_tersedia}}" required>
+                    <input type="text" class="form-control" name="stok" placeholder="Masukkan Stock Tersedia" value="{{$produk->stok}}" required>
                 </div>
-                <div class="form-group">
-                    <label>Produk Terjual<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="produk_terjual" placeholder="Masukkan Produk Terjual" value="{{$produk->produk_terjual}}" required>
-                </div>
+                
                 <div class="form-group">
                     <label>Deskripsi<span class="text-danger">*</span></label>
                     <textarea id="summernote" class="form-control" name="deskripsi" value="{{$produk->deskripsi}}" required></textarea>
@@ -84,21 +79,15 @@
                     <label>varian_tersedia<span class="text-danger">*</span></label>
                     <input type="text" class="form-control" name="varian_tersedia" placeholder="Masukkan Varian Tersedia" value="{{$produk->varian_tersedia}}" required>
                 </div>
-                <div class="form-group">
-                    <label>Ketersediaan Produk<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="ketersediaan_produk" placeholder="Masukkan Ketersediaan Produk" value="{{$produk->ketersediaan_produk}}" required>
-                </div>
+                
                 <div class="form-group">
                     <label>No BPOM<span class="text-danger">*</span></label>
                     <input type="text" class="form-control" name="no_BPOM" placeholder="Masukkan No BPOM" value="{{$produk->no_BPOM}}" required>
                 </div>
+                
                 <div class="form-group">
-                    <label>Rating<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="rating" placeholder="Masukkan Rating" value="{{$produk->rating}}" required>
-                </div>
-                <div class="form-group">
-                    <label>Diskon<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="diskon" placeholder="Masukkan Diskon" value="{{$produk->diskon}}" required>
+                    <label>Diskon</label>
+                    <input type="text" class="form-control" name="diskon" placeholder="Masukkan Diskon" value="{{$produk->diskon}}" >
                 </div>
 
                 <button class="btn btn-primary btn-block">

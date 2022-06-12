@@ -64,18 +64,18 @@ class ProdukController extends Controller
 
         ],
         [
-'nama_barang'=>'Nama Produk Wajib Diisi',
-'foto_produk.required' => 'Gambar harus diisi!',
-'foto_produk.mimes' => 'Gambar harus berformat jpg,jpeg atau png',
-'foto_produk.max' => 'Ukuran gambar maksimal harus berukuran 2048',
-'berat_unit'=>'Berat Wajib Diisi',
-'harga'=>'Harga Wajib Diisi',
-'komposisi'=>'Komposisi Wajib Diisi',
-'stok'=>'Stock Wajib Diisi',
-'deskripsi'=>'deskripsi Wajib Diisi',
-'varian'=>'varian Wajib Diisi',
-'ketersediaan_produk'=>'ketersediaan Wajib Diisi',
-'no_BPOM'=>'No BPOM Wajib Diisi',
+// 'nama_barang'=>'Nama Produk Wajib Diisi',
+// 'foto_produk.required' => 'Gambar harus diisi!',
+// 'foto_produk.mimes' => 'Gambar harus berformat jpg,jpeg atau png',
+// 'foto_produk.max' => 'Ukuran gambar maksimal harus berukuran 2048',
+// 'berat_unit'=>'Berat Wajib Diisi',
+// 'harga'=>'Harga Wajib Diisi',
+// 'komposisi'=>'Komposisi Wajib Diisi',
+// 'stok'=>'Stock Wajib Diisi',
+// 'deskripsi'=>'deskripsi Wajib Diisi',
+// 'varian'=>'varian Wajib Diisi',
+// 'ketersediaan_produk'=>'ketersediaan Wajib Diisi',
+// 'no_BPOM'=>'No BPOM Wajib Diisi',
 
         ]);
 
@@ -139,49 +139,43 @@ class ProdukController extends Controller
 
         $this->validate($request, [
 
-            'nama_barang'=>'required',
-            // 'slug'=>'required',
-            'foto_produk'=>'max:10240',
+            'nama_barang'=>'required',            
+            'foto_produk'=>'max:2048',
             'berat_unit'=>'required',
             'harga'=>'required',
             'komposisi'=>'required',
-            'stok'=>'required',
-            'produk_terjual'=>'required',
+            'stok'=>'required',            
             'deskripsi'=>'required',
             'varian'=>'required',
-            'varian_tersedia'=>'required',
-            'ketersediaan_produk'=>'required',
+            'varian_tersedia'=>'required',            
             'no_BPOM'=>'required',
-            'rating'=>'required',
-            'diskon'=>'required',
-
+            
         ],
         [
-'nama_barang'=>'Nama Produk Wajib Diisi',
-// 'slug'=>'Tittle Wajib Diisi',
-// 'foto_produk'=>'Foto Produk Wajib Diisi',
-// 'foto_produk.required' => 'Gambar harus diisi!',
-'foto_produk.mimes' => 'Gambar harus berformat jpg,jpeg atau png',
-'foto_produk.max' => 'Ukuran gambar maksimal harus berukuran 10240',
+// 'nama_barang'=>'Nama Produk Wajib Diisi',
+// // 'slug'=>'Tittle Wajib Diisi',
+// // 'foto_produk'=>'Foto Produk Wajib Diisi',
+// // 'foto_produk.required' => 'Gambar harus diisi!',
+// 'foto_produk.mimes' => 'Gambar harus berformat jpg,jpeg atau png',
+// 'foto_produk.max' => 'Ukuran gambar maksimal harus berukuran 10240',
 
-'berat_unit'=>'Berat Wajib Diisi',
-'harga'=>'Harga Wajib Diisi',
-'komposisi'=>'Komposisi Wajib Diisi',
-'stok'=>'Stock Wajib Diisi',
-'produk_terjual'=>'Produk terjual Wajib Diisi',
-'deskripsi'=>'deskripsi Wajib Diisi',
-'varian'=>'varian Wajib Diisi',
-'varian_tersedia'=>'varian tersedia Wajib Diisi',
-'ketersediaan_produk'=>'ketersediaan Wajib Diisi',
-'no_BPOM'=>'No BPOM Wajib Diisi',
-'rating'=>'Rating Wajib Diisi',
-'diskon'=>'diskon harus Diisi',
+// 'berat_unit'=>'Berat Wajib Diisi',
+// 'harga'=>'Harga Wajib Diisi',
+// 'komposisi'=>'Komposisi Wajib Diisi',
+// 'stok'=>'Stock Wajib Diisi',
+// 'produk_terjual'=>'Produk terjual Wajib Diisi',
+// 'deskripsi'=>'deskripsi Wajib Diisi',
+// 'varian'=>'varian Wajib Diisi',
+// 'varian_tersedia'=>'varian tersedia Wajib Diisi',
+// 'ketersediaan_produk'=>'ketersediaan Wajib Diisi',
+// 'no_BPOM'=>'No BPOM Wajib Diisi',
+// 'rating'=>'Rating Wajib Diisi',
+// 'diskon'=>'diskon harus Diisi',
 
         ]);
 
         $produk = Produk::findorfail($produk->id);
-        $produk->nama_barang = $request->nama_barang;
-        // $produk->slug = $request->slug;
+        $produk->nama_barang = $request->nama_barang;    
         // $produk->foto_produk = $request->foto_produk;
         $produk->berat_unit = $request->berat_unit;
         $produk->harga = $request->harga;

@@ -20,7 +20,7 @@ class CreateProduksTable extends Migration
             $table->integer('harga');
             $table->integer('stok');
             $table->string('foto_produk');
-            $table->string('berat_unit', 50);
+            $table->integer('berat_unit');
             $table->text('komposisi');
             $table->integer('produk_terjual')->nullable();
             $table->text('deskripsi')->nullable();

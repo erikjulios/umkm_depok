@@ -72,26 +72,20 @@
                 </div> --}}
                 <div class="form-group">
                     <label for="berat_unit">Berat Unit<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control @error('berat_unit') is-invalid @enderror" id="berat_unit" placeholder="Masukan berat unit" name="berat_unit">
+                    <input type="text" class="form-control @error('berat_unit') is-invalid @enderror" id="berat_unit" placeholder="Masukan berat unit (dalam angka)" name="berat_unit">
                     @error('berat_unit')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
-                {{-- <div class="form-group">
-                    <label>Berat Unit<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="berat_unit" placeholder="Masukkan Berat Unit" value="{{old('berat_unit')}}" required>
-                </div> --}}
+               
                 <div class="form-group">
                     <label for="harga">Harga Unit<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control @error('harga') is-invalid @enderror" id="harga" placeholder="Masukan harga unit" name="harga">
+                    <input type="text" class="form-control @error('harga') is-invalid @enderror" id="harga" placeholder="Masukan harga unit (dalam angka)" name="harga">
                     @error('harga')
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
-                {{-- <div class="form-group">
-                    <label>Harga Unit<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="harga" placeholder="Masukkan Harga Unit" value="{{old('harga_unit')}}" required>
-                </div> --}}
+                
                 <div class="form-group">
                     <label for="komposisi">Komposisi<span class="text-danger">*</span></label>
                     <input type="text" class="form-control @error('komposisi') is-invalid @enderror" id="komposisi" placeholder="Masukan komposisi" name="komposisi">
@@ -99,10 +93,7 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
-                {{-- <div class="form-group">
-                    <label>Komposisi Produk<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="komposisi" placeholder="Masukkan Komposisi" value="{{old('komposisi')}}" required>
-                </div> --}}
+                
                 <div class="form-group">
                     <label for="stok">Stok Tersedia<span class="text-danger">*</span></label>
                     <input type="text" class="form-control @error('stok') is-invalid @enderror" id="stok" placeholder="Masukan stok tersedia" name="stok">
@@ -111,16 +102,7 @@
                     </div>
                     @enderror
                 </div>
-                {{-- <div class="form-group">
-                    <label>Stock Tersedia<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="stok" placeholder="Masukkan Stock Tersedia" value="{{old('stok_tersedia')}}" required>
-                </div> --}}
-
-                {{-- <div class="form-group">
-                    <label>Produk Terjual<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="produk_terjual" placeholder="Masukkan Produk Terjual" value="{{old('produk_terjual')}}" required>
-                </div> --}}
-
+                
                 <div class="form-group">
                     <label for="deskripsi">Deskripsi :</label>
                     <input type="text" class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" placeholder="Masukan deskripsi" name="deskripsi">
@@ -129,22 +111,10 @@
                     @enderror
                 </div> 
 
-                {{-- <div class="form-group">
-                    <label>Deskripsi<span class="text-danger">*</span></label>
-                    <textarea id="summernote" class="form-control" name="deskripsi" value="{{old('deskripsi')}}" required></textarea>
-                </div> --}}
                 <div class="form-group">
                     <label>varian<span class="text-danger">*</span></label>
                     <input type="text" class="form-control" name="varian" placeholder="Masukkan Varian" value="{{old('varian')}}" required>
-                </div>
-                {{-- <div class="form-group">
-                    <label>varian_tersedia<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="varian_tersedia" placeholder="Masukkan Varian Tersedia" value="{{old('varian_tersedia')}}" required>
-                </div> --}}
-                {{-- <div class="form-group">
-                    <label>Ketersediaan Produk<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="ketersediaan_produk" placeholder="Masukkan Ketersediaan Produk" value="{{old('ketersediaan_produk')}}" required>
-                </div> --}}
+                </div>              
 
                 <div class="form-group">
                     <label for="no_BPOM">No BPOM<span class="text-danger">*</span></label>
@@ -153,23 +123,6 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
-
-{{--                 
-                <div class="form-group">
-                    <label>Rating<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="rating" placeholder="Masukkan Rating" value="{{old('rating')}}" required>
-                </div> --}}
-                {{-- <div class="form-group">
-                    <label for="diskon">Diskon</label>
-                    <input type="text" class="form-control @error('diskon') is-invalid @enderror" id="diskon" placeholder="Masukan diskon" name="diskon">
-                    @error('diskon')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="form-group">
-                    <label>Diskon</label>
-                    <input type="text" class="form-control" name="diskon" placeholder="Masukkan Diskon" value="{{old('diskon')}}" required>
-                </div> --}}
 
                 <button class="btn btn-primary btn-block">
                     Tambah Produk
