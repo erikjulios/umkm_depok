@@ -36,10 +36,10 @@
                 <div class="ht-left" >
                     <strong>
                     <div class="mail-service">
-                        <i class=" fa fa-envelope"></i> iwapi@gmail.com
+                        <i class=" fa fa-envelope"></i> iwapidepok@yahoo.co.id
                     </div>
                     <div class="phone-service">
-                        <i class=" fa fa-phone"></i> +628 12345
+                        <i class=" fa fa-phone"></i> 021-7751901
                     </div>
                     </strong>
                 </div>
@@ -78,7 +78,7 @@
                             <span>Official</span>
                             <h1>Iwapi Depok</h1>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                                Ikatan Wanita Pengusaha Indonesia
                             </p>
                             <a href="{{ route('login') }}" class="primary-btn">Belanja Sekarang</a>
                         </div>
@@ -92,7 +92,7 @@
                             <span>Official</span>
                             <h1>Iwapi Depok Store</h1>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                                Ikatan Wanita Pengusaha Indonesia
                             </p>
                             <a href="{{ route('login') }}" class="primary-btn">Belanja Sekarang</a>
                         </div>

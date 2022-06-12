@@ -23,7 +23,7 @@
                 </ul>
             </div>
             <div class="pi-text">
-                <div class="catagory-name">Kategory Produk</div>
+                <div class="catagory-name">{{ optional($item->kategoris)->nama_kategori }}</div>
                 <a href="{{ url('pesan') }}/{{ $item -> id}}">
                     <h5>{{ $item -> nama_barang}}</h5>
                 </a>

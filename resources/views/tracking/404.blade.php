@@ -19,7 +19,7 @@
             <div class="col-lg-12">    
                   <!-- Pending  -->
  
-                <div class="card konfir-co" style="background: grey">
+                <div class="card konfir-co" style="background: #325288">
                     <div class="card-body">
                           
                         <div class="row justify-content-center">

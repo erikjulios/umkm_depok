@@ -22,7 +22,7 @@
                     <p style="font-weight: bold; font-size: 25px; padding-top: 100px">Pesanan kosong</p>
                 @else
                 @foreach($pending as $x)
-                <div class="card konfir-co" style="background: grey">
+                <div class="card konfir-co" style="background: #325288">
                     <div class="card-body">
                         <b>Pending  </b>
                         <div class="row justify-content-left">

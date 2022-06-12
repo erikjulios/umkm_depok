@@ -51,7 +51,8 @@
                                 <tr>
                                     <th>Foto Produk</th>
                                     <th>Nama Produk</th>
-                                    <th>UMKM</th>                                    
+                                    <th>UMKM</th>  
+                                    <th>Kategori Produk</th>                                   
                                     <th>Berat Unit</th>
                                     <th>Harga Unit</th>
                                     <th>Komposisi</th>
@@ -79,7 +80,7 @@
                                     </td>
                                     <td style="vertical-align: middle;">{{ $produk->nama_barang}}</td>
                                     <td style="vertical-align: middle;">{{ optional($produk->umkms)->nama_UMKM }}</td>
-                                    
+                                    <td style="vertical-align: middle;">{{ optional($produk->kategoris)->nama_kategori }}</td>
                                     <td style="vertical-align: middle;">{{ $produk->berat_unit }} gram</td>
                                     <td style="vertical-align: middle;">Rp.{{ number_format($produk->harga) }}</td>
                                     <td style="vertical-align: middle;">{{ $produk->komposisi }}</td>

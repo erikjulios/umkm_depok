@@ -45,16 +45,23 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
-                {{-- <div class="form-group">
-                    <label>Nama Produk<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="nama_barang" placeholder="Masukkan Nama Produk" value="{{old('nama_produk')}}" required>
-                </div> --}}
+
                 <div class="form-group">
-                    <label for="namaumkm">Nama UMKM :</label>
+                    <label for="namaumkm">Nama UMKM<span class="text-danger">*</span></label>
                     <select class="form-select" name="umkm_id">
-                        <option selected>Pilih UMKM</option>
+                        
                         @foreach($umkms as $umkm)
                         <option value="{{$umkm->id}}">{{ $umkm -> nama_UMKM }}</option>
+                        @endforeach
+                    </select>
+
+                </div>
+                <div class="form-group">
+                    <label for="kategori">Kategori<span class="text-danger">*</span></label>
+                    <select class="form-select" name="kategori_id">
+                        
+                        @foreach($kategoris as $kategori)
+                        <option value="{{$kategori->id}}">{{ $kategori -> nama_kategori }}</option>
                         @endforeach
                     </select>
 
@@ -66,10 +73,7 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
-                {{-- <div class="form-group">
-                    <label>Foto Produk<span class="text-danger">*</span></label>
-                    <input type="file" class="form-control" name="foto_produk" placeholder="Masukkan Foto Produk" value="{{old('foto_produk')}}" required>
-                </div> --}}
+
                 <div class="form-group">
                     <label for="berat_unit">Berat Unit<span class="text-danger">*</span></label>
                     <input type="text" class="form-control @error('berat_unit') is-invalid @enderror" id="berat_unit" placeholder="Masukan berat unit (dalam angka)" name="berat_unit">

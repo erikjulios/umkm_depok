@@ -17,12 +17,13 @@ class CreateProduksTable extends Migration
             $table->id();
             $table->string('nama_barang');
             $table->bigInteger('umkm_id');
+            $table->bigInteger('kategori_id');
             $table->integer('harga');
             $table->integer('stok');
             $table->string('foto_produk');
             $table->integer('berat_unit');
             $table->text('komposisi');
-            $table->integer('produk_terjual')->nullable();
+            $table->integer('produk_terjual')->nullable()->default(0);
             $table->text('deskripsi')->nullable();
             $table->string('varian');
             $table->string('varian_tersedia')->nullable();
