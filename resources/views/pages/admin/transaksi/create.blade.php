@@ -13,7 +13,7 @@
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ route('about.index') }}">Section About</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('transaksi.index') }}">Section transaksi</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Tambah Data</li>
             </ol>
         </nav>
@@ -36,21 +36,34 @@
             Tambah Data
         </div>
         <div class="card-body">
-            <form action="{{ route('about.store')}}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('transaksi.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
+
+
+
+
                 <div class="form-group">
-                    <label>Judul<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="title" placeholder="Masukkan title" value="{{old('title')}}" required>
+                    <label>Nominal Transaksi<span class="text-danger">*</span></label>
+                    <input type="number" class="form-control" name="nominal_transaksi" placeholder="Masukkan Nominal Transaksi" required>
                 </div>
                 <div class="form-group">
-                    <label>Deskripsi<span class="text-danger">*</span></label>
-                    <textarea id="summernote" class="form-control" name="body" value="{{old('body')}}" required>{{old('body')}}</textarea>
+                    <label>kode VA<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="kode_VA" placeholder="Masukkan Kode VA"  required>
                 </div>
                 <div class="form-group">
-                    <label>link<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="link" placeholder="Masukkan link" value="{{old('link')}}" required>
+                    <label>No Rekening<span class="text-danger">*</span></label>
+                    <input type="number" class="form-control" name="no_rekening" placeholder="Masukkan Nomor Rekening" required>
                 </div>
-                
+                <div class="form-group">
+                    <label>Waktu Pembayaran<span class="text-danger">*</span></label>
+                    <input type="date" class="form-control" name="waktu_pembayaran" placeholder="Masukkan Waktu Pembayaran" required>
+                </div>
+                <div class="form-group">
+                    <label>Status Validasi<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="status_validasi" placeholder="Masukkan Status Validasi" required>
+                </div>
+
+
                 <button class="btn btn-primary btn-block">
                     Simpan
                 </button>

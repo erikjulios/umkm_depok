@@ -45,10 +45,12 @@
                     <label>Nama Produk<span class="text-danger">*</span></label>
                     <input type="text" class="form-control" name="nama_barang" placeholder="Masukkan Nama Produk" value="{{$produk->nama_barang}}" required>
                 </div>
-                
+                <div style="width: 150px; padding: 20px 0;">
+                    <img src="{{ url($produk->foto_produk) }}" width="100%">
+                </div>
                 <div class="form-group">
-                    <label>Foto Produk<span class="text-danger">*</span></label>
-                    <input type="file" class="form-control" name="foto_produk" placeholder="Masukkan Foto Produk" value="{{$produk->foto_produk}}" >
+                    <label>Foto Produk</label>
+                    <input type="file" class="custom-file" name="foto_produk" placeholder="Masukkan Foto Produk">
                 </div>
                 <div class="form-group">
                     <label>Berat Unit<span class="text-danger">*</span></label>
@@ -69,7 +71,7 @@
                 
                 <div class="form-group">
                     <label>Deskripsi<span class="text-danger">*</span></label>
-                    <textarea id="summernote" class="form-control" name="deskripsi" value="{{$produk->deskripsi}}" required></textarea>
+                    <textarea class="form-control" name="deskripsi" value="{{$produk->deskripsi}}" required>{!!$produk->deskripsi!!}</textarea>
                 </div>
                 <div class="form-group">
                     <label>varian<span class="text-danger">*</span></label>
