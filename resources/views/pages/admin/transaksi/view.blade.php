@@ -43,19 +43,19 @@
                     Tambah Data
                     </a> --}}
                     {{-- @else --}}
-                    <a href="{{ route('transaksi.create')}}" class="btn btn-primary mb-3">
+                    {{-- <a href="{{ route('transaksi.create')}}" class="btn btn-primary mb-3">
                         <i class="fas fa-plus text-white-100"></i>
                         Tambah Data
-                    </a>
+                    </a> --}}
                     {{-- @endif --}}
                     <div class="table-responsive">
                         <table class="table table-bordered" width="100%" cellspacing="0" cellpadding="0">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Nominal Transaksi</th>
+                                    <th>No.</th>
+                                    <th>Order ID</th>
+                                    <th>Nominal Transaksi</th>                                    
                                     <th>Kode VA</th>
-                                    <th>No Rekening</th>
                                     <th>Waktu Pembayaran</th>
                                     <th>Status Validasi</th>
                                     <th>Tanggal Upload</th>
@@ -68,26 +68,24 @@
                                 @forelse ($transaksi as $row => $transaksis)
                                 <tr>
                                     <td style="vertical-align: middle;">{{ $row + 1 }}</td>
-                                    <td style="vertical-align: middle;">{{$transaksis->nominal_transaksi}}</td>
-                                    <td style="vertical-align: middle;">{{$transaksis->kode_VA}}</td>
-                                    <td style="vertical-align: middle;">{{$transaksis->no_rekening}}</td>
+                                    <td style="vertical-align: middle;">{{$transaksis->order_id}}</td>
+                                    <td style="vertical-align: middle;">{{$transaksis->nominal_transaksi}}</td>                                    
+                                    <td style="vertical-align: middle;">{{$transaksis->kode_VA}}</td>                                    
                                     <td style="vertical-align: middle;">{{$transaksis->waktu_pembayaran}}</td>
-                                    <td style="vertical-align: middle;">{{$transaksis->status_validasi}}</td>
+                                    <td style="vertical-align: middle;">{{$transaksis->status}}</td>
                                     <td style="vertical-align: middle;">{{ $transaksis->created_at }}</td>
                                     <td style="vertical-align: middle;">{{ $transaksis->updated_at }}</td>
                                     <td class="text-center" style="vertical-align: middle;">
-                                        <a href="{{ route('transaksi.edit', $transaksis->id) }}"
-                                            class="btn btn-warning btn-sm">
-                                            <i class="fa fa-pencil-alt"></i>
-                                        </a>
-                                        <form action="{{ route('transaksi.destroy', $transaksis->id) }}" method="post"
+                                       
+                                       
+                                         <form action="{{ route('transaksi.update', $transaksis->id) }}" method="post"
                                             class="d-inline">
                                             @csrf
-                                            @method('delete')
-                                            <button class="btn btn-danger btn-sm">
-                                                <i class="fa fa-trash"></i>
+                                            @method('put')
+                                            <button class="btn btn-warning btn-sm">
+                                                Konfirmasi Pembayaran
                                             </button>
-                                        </form>
+                                        </form> 
                                     </td>
                                 </tr>
                                 @empty

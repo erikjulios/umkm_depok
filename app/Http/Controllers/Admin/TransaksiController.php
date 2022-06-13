@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Ramsey\Uuid\Uuid;
+// use Ramsey\Uuid\Uuid;
 use App\Transaksi;
 
 class TransaksiController extends Controller
@@ -61,9 +61,9 @@ class TransaksiController extends Controller
 
 
         $transaksi = new Transaksi();
-        $transaksi->id = Uuid::uuid4()->getHex();
+        // $transaksi->id = Uuid::uuid4()->getHex();
         $transaksi->nominal_transaksi=$request->nominal_transaksi;
-        // // $transaksi->slug=$request->slug;
+        
         $transaksi->kode_VA=$request->kode_VA;
         $transaksi->no_rekening=$request->no_rekening;
         $transaksi->waktu_pembayaran=$request->waktu_pembayaran;
@@ -95,34 +95,15 @@ class TransaksiController extends Controller
      */
     public function update(Request $request, Transaksi $transaksi)
     {
-
-        $this->validate($request, [
-            'nominal_transaksi'=>'Required',
-            'kode_VA'=>'Required',
-            'no_rekening'=>'Required',
-            'waktu_pembayaran'=>'Required',
-            'status_validasi'=>'Required',
-         ],
-            [
-
-            'nominal_transaksi'=>'Nominal Transaksi Harus diisi',
-            'kode_VA'=>' Kode VA Harus diisi',
-            'no_rekening'=>'Nomor Rekening Harus diisi',
-            'waktu_pembayaran'=>'Waktu Pembayaran Harus diisi',
-            'status_validasi'=>'Status Harus diisi',
-
-        ]);
-
+        //$transaksi = Transaksi::where($transaksi->id)->first();
         $transaksi = Transaksi::findorfail($transaksi->id);
-        $transaksi->nominal_transaksi=$request->nominal_transaksi;
-        // // $transaksi->slug=$request->slug;
-        $transaksi->kode_VA=$request->kode_VA;
-        $transaksi->no_rekening=$request->no_rekening;
-        $transaksi->waktu_pembayaran=$request->waktu_pembayaran;
-        $transaksi->status_validasi=$request->status_validasi;
-        $transaksi->save();
-        return redirect()->route('transaksi.index')->with('success','Berhasil edit data!');
+       
 
+        $transaksi->status = 'settlement';
+        $transaksi->save();
+        return redirect()->route('transaksi.index')->with('success','Pesanan akan dikemas');
+
+        
     }
 
     /**

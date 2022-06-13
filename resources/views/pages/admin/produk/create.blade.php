@@ -45,7 +45,7 @@
                     <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
-
+                
                 <div class="form-group">
                     <label for="namaumkm">Nama UMKM<span class="text-danger">*</span></label>
                     <select class="form-select" name="umkm_id">
