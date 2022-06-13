@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
   <meta name="csrf-token" content="{{ csrf_token() }}">
-            <!-- Breadcrumb Section Begin -->
+            
             <div class="breacrumb-section">
                 <div class="container">
                     <div class="row">
@@ -14,7 +14,8 @@
                     </div>
                 </div>
             </div>
-        <!-- Breadcrumb Section Begin -->
+       
+<div class="container">
     <div class="row">
 
         <div class="col-md-12">
@@ -30,15 +31,17 @@
                         @endif
                         </div>
                         <div class="col-md-6 mt-4   ">
-                            <h2>{{$produk -> nama_barang}}</h2>
+                            <h2 style="font-weight: 600">{{$produk -> nama_barang}}</h2>
+                            <h4>UMKM {{ optional($produk->umkms)->nama_UMKM }}</h4>
                             <table >
+                                
                                 <tr>
                                     <td>Harga</td>
                                     <td>:</td>
                                     <td>Rp.{{number_format($produk -> harga)}}</td>
                                 </tr>
                                 <tr>
-                                    <td>Stock</td>
+                                    <td>Stok</td>
                                     <td>:</td>
                                     <td>{{$produk -> stok}}</td>
                                 </tr>
@@ -63,14 +66,18 @@
                                             <button type="submit" class="btn btn-primary mt-4" value="submit">
                                                 <i class="bi bi-cart-check"></i> Masukan keranjang</button>
                                         </form></td>
-                                </tr>
+                                        
+                                </tr>                                                             
+                                                                  
                             </table>
+                            
                         </div>
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+</div>
     @include('layouts.footer')
     @endsection

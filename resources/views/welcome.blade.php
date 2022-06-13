@@ -52,7 +52,7 @@
                         <div class="logo">
                             <center>
                             <a href="#">
-                                <img src="img/iwapi_logo.jpg" alt="" width="80" height="80" />
+                                <img src="img/iwapi_logo.png" alt="" width="80" height="80" />
                             </a>
                             </center>
                         </div>
@@ -255,7 +255,7 @@
                 <div class="col-lg-5">
                     <div class="footer-left">
                         <div class="footer-logo">
-                            <a href="#"><img src="img/iwapi_logo.jpg" alt="" /></a>
+                            <a href="#"><img src="img/iwapi_logo.png" alt="logo iwapi" /></a>
                         </div>
                         <ul>
                             <li>Alamat: Depok</li>

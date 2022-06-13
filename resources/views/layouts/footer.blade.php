@@ -5,7 +5,7 @@
             <div class="col-lg-5">
                 <div class="footer-left">
                     <div class="footer-logo">
-                        <a href="#"><img src="img/iwapi_logo.jpg" alt="" /></a>
+                        <a href="#"><img src="img/iwapi_logo.png" alt="" /></a>
                     </div>
                     <ul>
                         <li>Alamat: Depok</li>

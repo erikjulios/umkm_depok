@@ -57,7 +57,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ url('img/iwapi_logo.jpg')}}" width="50" height="50" alt="">
+                    <img src="{{ url('img/iwapi_logo.png')}}" width="50" height="50" alt="">
                 </a>
                 
 

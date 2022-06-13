@@ -1304,6 +1304,20 @@ ol {
     padding-top: 26px;
 }
 
+.product-item .pi-text .catagory-name a {
+    font-size: 10px;
+    color: #b2b2b2;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.product-item .pi-text .catagory-name a:hover {
+    color: #325288;
+  
+}
+
 .product-item .pi-text .catagory-name {
     font-size: 10px;
     color: #b2b2b2;
@@ -1761,6 +1775,7 @@ ol {
 .breadcrumb-text {
     border-bottom: 1px solid #ebebeb;
     padding: 15px 0;
+    margin-bottom: 1.5rem;
 }
 
 .breadcrumb-text.product-more a:nth-child(1):after {

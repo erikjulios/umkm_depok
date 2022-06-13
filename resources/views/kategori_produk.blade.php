@@ -2,9 +2,23 @@
 
 @section('content')
 
+<div class="breacrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-text product-more">
+                    <a href="{{ url('home')}}"><i class="fa fa-home"></i> Beranda</a>
+                    <span>{{ $kategori }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
         <div class="related-products spad">
             <div class="container">
                 <div class="row">
+                   
         @foreach ($produks as $item)
         <div class="col-lg-3 col-sm-6">
         <div class="product-item">
@@ -23,7 +37,7 @@
                 </ul>
             </div>
             <div class="pi-text">
-                <div class="catagory-name"><a href="{{ url('kategori') }}/{{ $item -> id}}">{{ optional($item->kategoris)->nama_kategori }}</a></div>
+                <div class="catagory-name">{{ optional($item->kategoris)->nama_kategori }}</div>
                 <a href="{{ url('pesan') }}/{{ $item -> id}}">
                     <h5>{{ $item -> nama_barang}}</h5>
                 </a>
@@ -37,22 +51,7 @@
             </div>
         </div>
 
-        {{-- <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" width="300" height="300" src="{{url('img')}}/{{$item->foto_produk}}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">{{ $item -> nama_barang}}</h5>
-                    <p class="card-text"><strong>Harga : Rp.{{number_format($item -> harga)}}</strong></p>
-                    <p class="card-text"><strong>Stock : {{$item -> stok}} pcs</strong></p>
-                    <p class="card-text"><strong>Berat : {{$item -> berat_unit}} kg</strong></p>
-                    <p class="card-text"><strong>Komposisi : {{$item -> komposisi}}</strong></p>
-                    <p class="card-text " style="color: red; text-align: right;"><strong>{{$item -> produk_terjual}} Produk terjual</strong></p>
-                    <hr>
-                    <strong>Deskripsi : <br> {{$item -> deskripsi}}</strong><br><br>
-                    <a href="{{ url('pesan') }}/{{ $item -> id}}" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Pesan</a>
-                </div>
-            </div>
-        </div> --}}
+       
         @endforeach
     </div>
 </div>

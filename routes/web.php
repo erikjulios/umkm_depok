@@ -24,7 +24,8 @@ Route::get('/tracking-pesanan', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home')->name('home');;
+Route::get('/home', 'HomeController@index')->name('home')->name('home');
+Route::get('/kategori/{kategori:id}', 'HomeController@produks');
 Route::get('/pesan/{id}', 'PesanController@index')->name('home');
 Route::post('/pesan/{id}', 'PesanController@pesan');
 Route::get('/check-out', 'PesanController@check_out');
