@@ -62,7 +62,7 @@ class ProdukController extends Controller
             'stok'=>'required',            
             'deskripsi'=>'required',
             'varian'=>'required',            
-            'no_BPOM'=>'required',
+            // 'no_BPOM'=>'required',
            
 
         ],
@@ -151,7 +151,7 @@ class ProdukController extends Controller
             'deskripsi'=>'required',
             'varian'=>'required',
             'varian_tersedia'=>'required',            
-            'no_BPOM'=>'required',
+            // 'no_BPOM'=>'required',
             
         ],
         [

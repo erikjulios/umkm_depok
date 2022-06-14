@@ -121,7 +121,7 @@
                 </div>              
 
                 <div class="form-group">
-                    <label for="no_BPOM">No BPOM<span class="text-danger">*</span></label>
+                    <label for="no_BPOM">No BPOM</label>
                     <input type="text" class="form-control @error('no_BPOM') is-invalid @enderror" id="no_BPOM" placeholder="Masukan No BPOM" name="no_BPOM">
                     @error('no_BPOM')
                     <div class="alert alert-danger">{{ $message }}</div>

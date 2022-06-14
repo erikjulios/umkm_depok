@@ -83,8 +83,8 @@
                 </div>
                 
                 <div class="form-group">
-                    <label>No BPOM<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="no_BPOM" placeholder="Masukkan No BPOM" value="{{$produk->no_BPOM}}" required>
+                    <label>No BPOM</label>
+                    <input type="text" class="form-control" name="no_BPOM" placeholder="Masukkan No BPOM" value="{{$produk->no_BPOM}}" >
                 </div>
                 
                 <div class="form-group">

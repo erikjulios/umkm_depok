@@ -28,7 +28,7 @@ class CreateProduksTable extends Migration
             $table->string('varian');
             $table->string('varian_tersedia')->nullable();
             $table->boolean('ketersediaan_produk')->nullable();
-            $table->string('no_BPOM', 20)->unique();
+            $table->string('no_BPOM', 20)->unique()->nullable();
             $table->integer('rating')->nullable();
             $table->string('diskon')->nullable();
             $table->timestamps();
