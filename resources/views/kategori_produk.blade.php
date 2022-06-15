@@ -26,12 +26,12 @@
                 @if(empty($item->foto_produk))
                     <img src="http://via.placeholder.com/100x100" width="100%" >
                 @else
-                    <img src="{{url($item->foto_produk)}}" width="100%" alt="{{ $item -> nama_barang}}">
+                    <img src="{{url($item->foto_produk)}}" width="100%" alt="{{ $item ->nama_barang}}">
                 @endif
                 
                 <ul>
                     <li class="w-icon active">
-                        <a href="{{ url('pesan') }}/{{ $item -> id}}"><i class="bi bi-cart-check"></i></a>
+                        <a href="{{ url('pesan') }}/{{ $item->id}}"><i class="bi bi-cart-check"></i></a>
                     </li>
                     <li class="quick-view"><a href="{{ url('pesan') }}/{{ $item -> id}}">Lihat Produk</a></li>
                 </ul>

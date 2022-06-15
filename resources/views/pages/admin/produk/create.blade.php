@@ -51,7 +51,7 @@
                     <select class="form-select" name="umkm_id">
                         
                         @foreach($umkms as $umkm)
-                        <option value="{{$umkm->id}}">{{ $umkm -> nama_UMKM }}</option>
+                        <option value="{{$umkm->id}}">{{ $umkm->nama_UMKM }}</option>
                         @endforeach
                     </select>
 
@@ -61,7 +61,7 @@
                     <select class="form-select" name="kategori_id">
                         
                         @foreach($kategoris as $kategori)
-                        <option value="{{$kategori->id}}">{{ $kategori -> nama_kategori }}</option>
+                        <option value="{{$kategori->id}}">{{ $kategori->nama_kategori }}</option>
                         @endforeach
                     </select>
 
