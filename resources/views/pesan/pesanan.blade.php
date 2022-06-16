@@ -21,7 +21,7 @@
             <p>Dikemas</p>
         </div>
         <div class="track-icon">
-            <a href="#"><i class="bi bi-truck"></i></a>
+            <a href="{{url('tracking_dikirim')}}"><i class="bi bi-truck"></i></a>
             <p>Dikirim</p>
         </div>
     </div>

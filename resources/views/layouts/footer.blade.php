@@ -24,8 +24,8 @@
                 <div class="footer-widget">
                     <h5>Informasi</h5>
                     <ul>
-                        <li><a href="#">Tentang</a></li>
-                        <li><a href="#">Kontak</a></li>
+                        <li><a href="#">Tentang Kami</a></li>
+                        
                     </ul>
                 </div>
             </div>
@@ -33,9 +33,9 @@
                 <div class="footer-widget">
                     <h5>Akun</h5>
                     <ul>
-                        <li><a href="{{ route('login') }}">Akun Saya</a></li>
-                        <li><a href="#">Kontak</a></li>
-                        <li><a href="{{ route('login') }}">Belanja</a></li>
+                        <li><a href="{{ url('profile') }}">Akun Saya</a></li>
+                        
+                        <li><a href="{{ url('home') }}">Belanja</a></li>
                     </ul>
                 </div>
             </div>

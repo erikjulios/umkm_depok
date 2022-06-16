@@ -25,9 +25,9 @@
                     <div class="row">
                         <div class="col-md-6">
                         @if(empty($produk->foto_produk))
-                            <img src="http://via.placeholder.com/100x100" width="100%" >
+                            <img src="http://via.placeholder.com/100x100" width="50%" >
                         @else
-                            <img src="{{url($produk->foto_produk)}}" width="100%" alt="{{ $produk -> nama_barang}}">
+                            <img src="{{url($produk->foto_produk)}}" width="50%" alt="{{ $produk -> nama_barang}}">
                         @endif
                         </div>
                         <div class="col-md-6 mt-4   ">

@@ -99,4 +99,18 @@ class PaymentController extends Controller
       
 
     }
+
+    public function dikirim(){
+      $transaksi = Transaksi::where('user_id', Auth::user()->id)->get();
+      if ($transaksi == "[]") {
+          return view('tracking.404');
+      } 
+      else{
+        $dikirim = Transaksi::where('status', 'dikirim')->where('user_id',Auth::user()->id)->get();
+
+        return view('tracking.dikirim', compact('dikirim'));
+      }
+      
+
+    }
 }

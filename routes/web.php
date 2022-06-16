@@ -24,7 +24,7 @@ Route::get('/tracking-pesanan', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/kategori/{kategori:id}', 'HomeController@produks');
 Route::get('/pesan/{id}', 'PesanController@index')->name('home');
 Route::post('/pesan/{id}', 'PesanController@pesan');
@@ -54,6 +54,7 @@ Route::post('biayaongkir/', 'konfirmasi_co@payment');
 Route::get('biayaongkir/', 'konfirmasi_co@payment');
 Route::get('tracking_pending', 'paymentController@pending');
 Route::get('tracking_dikemas', 'paymentController@dikemas');
+Route::get('tracking_dikirim', 'paymentController@dikirim');
 
 //admin
 Route::resource('/dashboard','Admin\AdminController');
