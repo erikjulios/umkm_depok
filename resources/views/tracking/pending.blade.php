@@ -31,10 +31,10 @@
                                     <div class="col">
                                         <hr>
                                         <ul>
-                                           	<li>order id : {{$x->order_id}}</li>
+                                           	<li>Order id : {{$x->order_id}}</li>
             							    <li>Nominal : Rp.{{number_format($x-> nominal_transaksi)}}</li>
             							    <li>Status : {{$x->status}}</li>
-            							    <li>Payment : {{$x->payment_type}}</li>
+            							    <li>Metode Pembayaran : {{$x->payment_type}}</li>
                                             <br>
             							    <li><a href="{{$x->pdf_link}}" class="btn btn-primary"><b>Cara bayar<b></a></li>             
                                         </ul>
