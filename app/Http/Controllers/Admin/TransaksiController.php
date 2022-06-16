@@ -99,7 +99,7 @@ class TransaksiController extends Controller
         $transaksi = Transaksi::findorfail($transaksi->id);
        
 
-        $transaksi->status = 'settlement';
+        $transaksi->status = 'dikirim';
         $transaksi->save();
         return redirect()->route('transaksi.index')->with('success','Pesanan akan dikemas');
 

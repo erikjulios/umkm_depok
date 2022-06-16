@@ -83,7 +83,7 @@
                                             @csrf
                                             @method('put')
                                             <button class="btn btn-warning btn-sm">
-                                                Konfirmasi Pembayaran
+                                                Konfirmasi Pengiriman
                                             </button>
                                         </form> 
                                     </td>
