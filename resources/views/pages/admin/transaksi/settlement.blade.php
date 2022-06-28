@@ -11,7 +11,7 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-2">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item active" aria-current="page">Section transaksi</li>
@@ -19,7 +19,6 @@
         </nav>
 
     </div>
-    
     <div class="row">
         <div class="col-xl-12">
             <div class="card">
@@ -38,7 +37,17 @@
                         <strong>{{session('delete')}}</strong>
                     </div>
                     @endif
-                    
+                    {{-- @if (count($transaksi) == 1) --}}
+                    {{-- <a href="{{ route('transaksi.create')}}" class="btn btn-primary mb-3">
+                    <i class="fas fa-plus text-white-100"></i>
+                    Tambah Data
+                    </a> --}}
+                    {{-- @else --}}
+                    {{-- <a href="{{ route('transaksi.create')}}" class="btn btn-primary mb-3">
+                        <i class="fas fa-plus text-white-100"></i>
+                        Tambah Data
+                    </a> --}}
+                    {{-- @endif --}}
                     <div class="table-responsive">
                         <table class="table table-bordered" width="100%" cellspacing="0" cellpadding="0">
                             <thead>
@@ -50,7 +59,8 @@
                                     <th>Waktu Pembayaran</th>
                                     <th>Status Validasi</th>
                                     <th>Tanggal Pesanan Dibuat</th>
-                                    <th>Tanggal Pesanan Dikirim</th>                                  
+                                    <th>Tanggal Pesanan Dikirim</th>
+                                    <th>Aksi</th>
 
                                 </tr>
                             </thead>
@@ -65,7 +75,17 @@
                                     <td style="vertical-align: middle;">{{$transaksis->status}}</td>
                                     <td style="vertical-align: middle;">{{ $transaksis->created_at }}</td>
                                     <td style="vertical-align: middle;">{{ $transaksis->updated_at }}</td>
-                                    
+                                    <td class="text-center" style="vertical-align: middle;">
+                                       
+                                       
+                                         <form action="{{ route('transaksi.update', $transaksis->id) }}" method="post" class="d-inline">
+                                            @csrf
+                                            @method('put')
+                                            <button class="btn btn-warning btn-sm">
+                                                Konfirmasi Pengiriman
+                                            </button>
+                                        </form> 
+                                    </td>
                                 </tr>
                                 @empty
                                 <tr>

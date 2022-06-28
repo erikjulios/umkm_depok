@@ -20,58 +20,9 @@ class TransaksiController extends Controller
         $transaksi = Transaksi::all();
         return view('pages.admin.transaksi.view', compact('transaksi'));
     }
+    
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('pages.admin.transaksi.create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request )
-    {
-
-        $this->validate($request, [
-
-            'nominal_transaksi'=>'Required',
-            'kode_VA'=>'Required',
-            'no_rekening'=>'Required',
-            'waktu_pembayaran'=>'Required',
-            'status_validasi'=>'Required',
-         ],
-            [
-
-            'nominal_transaksi'=>'Nominal Transaksi Harus diisi',
-            'kode_VA'=>' Kode VA Harus diisi',
-            'no_rekening'=>'Nomor Rekening Harus diisi',
-            'waktu_pembayaran'=>'Waktu Pembayaran Harus diisi',
-            'status_validasi'=>'Status Harus diisi',
-
-        ]);
-
-
-
-        $transaksi = new Transaksi();
-        // $transaksi->id = Uuid::uuid4()->getHex();
-        $transaksi->nominal_transaksi=$request->nominal_transaksi;
-        
-        $transaksi->kode_VA=$request->kode_VA;
-        $transaksi->no_rekening=$request->no_rekening;
-        $transaksi->waktu_pembayaran=$request->waktu_pembayaran;
-        $transaksi->status_validasi=$request->status_validasi;
-
-        $transaksi->save();
-        return redirect()->route('transaksi.index')->with('success','Berhasil input data!');
-    }
+   
 
     /**
      * Show the form for editing the specified resource.
@@ -79,12 +30,7 @@ class TransaksiController extends Controller
      * @param  \App\transaksi  $transaksi
      * @return \Illuminate\Http\Response
      */
-    public function edit(Transaksi $transaksi)
-    {
-
-        return view('pages.admin.transaksi.edit', compact('transaksi'));
-
-    }
+   
 
     /**
      * Update the specified resource in storage.
@@ -101,7 +47,7 @@ class TransaksiController extends Controller
 
         $transaksi->status = 'dikirim';
         $transaksi->save();
-        return redirect()->route('transaksi.index')->with('success','Pesanan akan dikemas');
+        return redirect()->route('transaksi.index')->with('success','Pesanan dikirim');
 
         
     }

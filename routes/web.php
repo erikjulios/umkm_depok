@@ -61,6 +61,7 @@ Route::resource('/dashboard','Admin\AdminController');
 Route::resource('/produk', 'Admin\ProdukController');
 Route::resource('/umkm', 'Admin\UmkmController');
 Route::resource('/transaksi', 'Admin\TransaksiController');
+Route::resource('/dikemas', 'Admin\SettlementController');
 
 //kota berdasar prov error
 // Route::post('/provdankota/', 'konfirmasi_co@halaman_tambah_alamat')->name('provdankota');

@@ -44,6 +44,7 @@
                         <a class="collapse-item" href="{{ route('produk.index') }}">Data Produk</a>
                         <a class="collapse-item" href="{{route('umkm.index')}}">Data UMKM</a>
                         <a class="collapse-item" href="{{route('transaksi.index')}}">Data Transaksi</a>
+                        <a class="collapse-item" href="{{route('dikemas.index')}}">Konfirmasi Pengiriman</a>
                         <p class="collapse-item" >Data User (Maintance)</p>
                         <p class="collapse-item" >Report (Maintance) </p>
                     </div>
