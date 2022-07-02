@@ -18,7 +18,7 @@ class UmkmController extends Controller
 
     public function index()
     {
-        $umkm = Umkm::all();
+        $umkm = Umkm::paginate(10);
         return view('pages.admin.umkm.view', compact('umkm'));
     }
 

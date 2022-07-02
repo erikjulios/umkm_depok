@@ -19,7 +19,7 @@ class ProdukController extends Controller
 
     public function index()
     {
-        $produk = Produk::all();
+        $produk = Produk::paginate(3);
             
         return view('pages.admin.produk.view', compact('produk'));
     }

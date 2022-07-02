@@ -25,6 +25,7 @@
             <div class="card">
                 <div class="card-header">
                     Section umkm
+                    {{ $umkm->links() }}
                 </div>
                 <div class="card-body">
                     @if (session('success'))
@@ -59,9 +60,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @forelse ($umkm as $umkms)
+                            @forelse ($umkm as $row => $umkms)
                                 <tr>
-                                    <td style="vertical-align: middle;"></td>
+                                    <td style="vertical-align: middle;">{{ $row + 1 }}</td>
                                     <td style="vertical-align: middle;">{{ $umkms->nama_UMKM}}</td>
                                     <td style="vertical-align: middle;">{{ $umkms->nama_pemilik }}</td>
                                     <td style="vertical-align: middle;">{{$umkms->no_hp}}</td>

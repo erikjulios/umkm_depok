@@ -25,6 +25,7 @@
             <div class="card">
                 <div class="card-header">
                     Section Transaksi
+                    {{ $transaksi->links() }}
                 </div>
                 <div class="card-body">
                     @if (session('success'))

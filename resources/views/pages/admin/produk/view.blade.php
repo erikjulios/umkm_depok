@@ -24,6 +24,7 @@
             <div class="card">
                 <div class="card-header">
                     Section Produk
+                    {{ $produk->links() }}
                 </div>
                 <div class="card-body">
                     @if (session('success'))
@@ -49,6 +50,7 @@
                         <table class="table table-bordered" width="100%" cellspacing="0" cellpadding="0">
                             <thead>
                                 <tr>
+                                    <th>No.</th>
                                     <th>Foto Produk</th>
                                     <th>Nama Produk</th>
                                     <th>UMKM</th>  
@@ -69,8 +71,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @forelse ($produk as $produk)
+                            @forelse ($produk as $row => $produk)
                                 <tr>
+                                    <td>{{ $row + 1 }}</td>
                                     <td class="w-25">
                                         @if(empty($produk->foto_produk))
                                             <img src="http://via.placeholder.com/100x100" width="100%" >
@@ -122,5 +125,6 @@
             </div>
         </div>
     </div>
+   
 </div>
 @endsection
