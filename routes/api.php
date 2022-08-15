@@ -18,4 +18,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/payment-handler','tangkap_request_sandbox@payment_handler');
+Route::post('/payment-handler','Payment_handler@handler_payment');

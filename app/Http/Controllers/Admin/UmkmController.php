@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 // use Ramsey\Uuid\Uuid;
 use App\Umkm;
+use App\Cabang;
 
 class UmkmController extends Controller
 
@@ -29,7 +30,9 @@ class UmkmController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.umkm.create');
+        return view('pages.admin.umkm.create', [
+            
+            "cabang" => Cabang::all()        ]);
     }
 
     /**
@@ -48,6 +51,7 @@ class UmkmController extends Controller
         'nama_pemilik'=>'required',
         'no_hp'=>'required',
        'alamat_umkm'=>'required',
+       'cabang'=>'required',
         ],
         [
 
@@ -56,6 +60,7 @@ class UmkmController extends Controller
         'nama_pemilik'=>'Nama Pemilik harus diisi',
         'no_hp'=>'Nomor Telepon harus diisi',
         'alamat_umkm'=>'Alamat harus diisi',
+        'cabang'=>'Cabang harus diisi',
 
         ]);
 
@@ -68,6 +73,7 @@ class UmkmController extends Controller
         $umkm->nama_pemilik=$request->nama_pemilik;
         $umkm->no_hp=$request->no_hp;
         $umkm->alamat_umkm=$request->alamat_umkm;
+        $umkm->cabang_id=$request->cabang;
 
         $umkm->save();
         return redirect()->route('umkm.index')->with('success','Berhasil input data!');

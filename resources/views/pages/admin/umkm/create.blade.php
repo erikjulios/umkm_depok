@@ -56,6 +56,16 @@
                     <label>Alamat Umkm<span class="text-danger">*</span></label>
                     <input type="text" class="form-control" name="alamat_umkm" placeholder="Masukkan Alamat Umkm" value="{{old('alamat_umkm')}}" required>
                 </div>
+                <div class="form-group">
+                    <label for="namaumkm">Cabang<span class="text-danger">*</span></label>
+                    <select class="form-select" name="cabang">
+                        
+                        @foreach($cabang as $x)
+                        <option value="{{$x->id}}">{{ $x->nama }}</option>
+                        @endforeach
+                    </select>
+
+                </div>
 
                 <button class="btn btn-primary btn-block">
                     Simpan

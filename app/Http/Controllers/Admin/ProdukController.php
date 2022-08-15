@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Produk;
 use App\UMKM;
 use App\Kategori;
+use App\Cabang;
 
 class ProdukController extends Controller
 {
@@ -20,8 +21,9 @@ class ProdukController extends Controller
     public function index()
     {
         $produk = Produk::paginate(3);
+        $cabang = Cabang::all();
             
-        return view('pages.admin.produk.view', compact('produk'));
+        return view('pages.admin.produk.view', compact('produk','cabang'));
     }
 
     /**
@@ -55,7 +57,7 @@ class ProdukController extends Controller
             'nama_barang'=>'required',
             'umkm_id' => 'required',
             'kategori_id' => 'required',
-            'foto_produk'=>'required|max:2048',
+            'foto_produk'=>'required|max:5048',
             'berat_unit'=>'required',
             'harga'=>'required',
             'komposisi'=>'required',
@@ -143,7 +145,7 @@ class ProdukController extends Controller
         $this->validate($request, [
 
             'nama_barang'=>'required',            
-            'foto_produk'=>'max:2048',
+            'foto_produk'=>'max:5048',
             'berat_unit'=>'required',
             'harga'=>'required',
             'komposisi'=>'required',

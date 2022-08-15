@@ -19,6 +19,7 @@ class CreateUmkmTable extends Migration
             $table->string('nama_pemilik', 100);
             $table->string('no_hp')->unique();
             $table->string('alamat_umkm');
+            $table->bigInteger('cabang_id');
             $table->timestamps();
         });
     }

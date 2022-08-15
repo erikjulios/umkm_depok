@@ -141,7 +141,7 @@
     
                 <div class="check-out">
                         <button onclick="send_data()" class="btn btn-primary mt-4" value="submit"> 
-                            bayar
+                            Bayar
                         </button>
 
                         <form id="total_biaya" action="{{url('payment_totalharga')}}" method="POST" style="border: solid; margin-right: 75px; margin-top: 25px">

@@ -63,6 +63,8 @@ Route::resource('/umkm', 'Admin\UmkmController');
 Route::resource('/transaksi', 'Admin\TransaksiController');
 Route::resource('/dikemas', 'Admin\SettlementController');
 
+Route::post('/pilihcabang/', 'CabangController@pilihcabang')->name('pilihcabang');
+
 //kota berdasar prov error
 // Route::post('/provdankota/', 'konfirmasi_co@halaman_tambah_alamat')->name('provdankota');
 

@@ -8,6 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 @endprepend
 @section('content')
+     <meta name="csrf-token" content="{{ csrf_token() }}">
+
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <!-- Page Heading -->
@@ -23,8 +25,23 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    Section Produk
-                    {{ $produk->links() }}
+                <form method="post" action="{{url('pilihcabang')}}">
+                    @csrf
+                    Cabang :   
+                    <select name="cabang" id="cabang" class="form-select" aria-label="Default select example">
+                        <option value="0">Semua Cabang</option>
+                      @foreach ($cabang as $x)
+                      @if (!empty($cabang1) && $cabang1 == $x->id)
+                        <option value="{{$x->id}}" selected>{{$x->nama}}</option>
+                        @else
+                        <option value="{{$x->id}}">{{$x->nama}}</option>
+                        @endif
+                      @endforeach
+                    </select>
+                   
+                        <input type="submit" class="btn btn-primary" name="">
+                    </form>
+               
                 </div>
                 <div class="card-body">
                     @if (session('success'))
@@ -38,10 +55,7 @@
                             <strong>{{session('delete')}}</strong>
                         </div>
                     @endif
-                        {{-- <a href="{{ route('produk.create')}}" class="btn btn-primary mb-3">
-                            <i class="fas fa-plus text-white-100"></i>
-                            Tambah Data
-                        </a> --}}
+
                         <a href="{{ route('produk.create')}}" class="btn btn-primary mb-3">
                             <i class="fas fa-plus text-white-100"></i>
                             Tambah Data
@@ -71,7 +85,8 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @forelse ($produk as $row => $produk)
+                            @if (empty($produk))
+                            @forelse ($produk1 as $row => $produk)
                                 <tr>
                                     <td>{{ $row + 1 }}</td>
                                     <td class="w-25">
@@ -118,6 +133,55 @@
                                     </td>
                                 </tr>
                             @endforelse
+                            @else
+                                 @forelse ($produk as $row => $produk)
+                                <tr>
+                                    <td>{{ $row + 1 }}</td>
+                                    <td class="w-25">
+                                        @if(empty($produk->foto_produk))
+                                            <img src="http://via.placeholder.com/100x100" width="100%" >
+                                        @else
+                                            <img src="{{url($produk->foto_produk)}}" width="100%">
+                                        @endif
+                                    </td>
+                                    <td style="vertical-align: middle;">{{ $produk->nama_barang}}</td>
+                                    <td style="vertical-align: middle;">{{ optional($produk->umkms)->nama_UMKM }}</td>
+                                    <td style="vertical-align: middle;">{{ optional($produk->kategoris)->nama_kategori }}</td>
+                                    <td style="vertical-align: middle;">{{ $produk->berat_unit }} gram</td>
+                                    <td style="vertical-align: middle;">Rp.{{ number_format($produk->harga) }}</td>
+                                    <td style="vertical-align: middle;">{{ $produk->komposisi }}</td>
+                                    <td style="vertical-align: middle;">{{ $produk->stok}}</td>
+                                    <td style="vertical-align: middle;">{{ $produk->produk_terjual }}</td>
+                                    <td style="vertical-align: middle;">{{ $produk->deskripsi }}</td>
+                                    <td style="vertical-align: middle;">{{ $produk->varian }}</td>
+                                    <td style="vertical-align: middle;">{{ $produk->varian_tersedia }}</td>
+                                    <td style="vertical-align: middle;">{{ $produk->no_BPOM }}</td>
+                                    <td style="vertical-align: middle;">{{ $produk->rating }}</td>
+                                    <td style="vertical-align: middle;">{{ $produk->diskon }}</td>
+                                    
+                                    
+                                    <td class="text-center" style="vertical-align: middle;">
+                                        <a href="{{ route('produk.edit', $produk->id) }}" class="btn btn-warning btn-sm">
+                                            <i class="fa fa-pencil-alt"></i>
+                                        </a>
+                                        <form action="{{ route('produk.destroy', $produk->id) }}" method="post"
+                                              class="d-inline">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="btn btn-danger btn-sm">
+                                                <i class="fa fa-trash"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="20" class="text-center">
+                                        Data Kosong
+                                    </td>
+                                </tr>
+                            @endforelse
+                            @endif
                             </tbody>
                         </table>
                     </div>
@@ -127,4 +191,5 @@
     </div>
    
 </div>
+        
 @endsection
