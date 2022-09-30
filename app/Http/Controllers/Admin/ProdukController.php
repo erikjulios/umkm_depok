@@ -20,10 +20,10 @@ class ProdukController extends Controller
 
     public function index()
     {
-        $produk = Produk::paginate(3);
+        $produks = Produk::paginate(5);
         $cabang = Cabang::all();
             
-        return view('pages.admin.produk.view', compact('produk','cabang'));
+        return view('pages.admin.produk.view', compact('produks','cabang'));
     }
 
     /**

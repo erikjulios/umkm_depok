@@ -85,7 +85,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @if (empty($produk))
+                            @if (empty($produks))
                             @forelse ($produk1 as $row => $produk)
                                 <tr>
                                     <td>{{ $row + 1 }}</td>
@@ -134,7 +134,7 @@
                                 </tr>
                             @endforelse
                             @else
-                                 @forelse ($produk as $row => $produk)
+                                 @forelse ($produks as $row => $produk)
                                 <tr>
                                     <td>{{ $row + 1 }}</td>
                                     <td class="w-25">
@@ -185,6 +185,7 @@
                             </tbody>
                         </table>
                     </div>
+                    {{ $produks->links() }}
                 </div>
             </div>
         </div>

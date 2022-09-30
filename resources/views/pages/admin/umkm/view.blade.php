@@ -54,8 +54,7 @@
                                     <th>Nama Pemilik</th>
                                     <th>No Telpon</th>
                                     <th>Alamat</th>
-                                    <th>Tanggal Upload</th>
-                                    <th>Tanggal Update</th>
+                                    <th>Ranting</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -67,8 +66,7 @@
                                     <td style="vertical-align: middle;">{{ $umkms->nama_pemilik }}</td>
                                     <td style="vertical-align: middle;">{{$umkms->no_hp}}</td>
                                     <td style="vertical-align: middle;">{{$umkms->alamat_umkm}}</td>
-                                    <td style="vertical-align: middle;">{{ $umkms->created_at }}</td>
-                                    <td style="vertical-align: middle;">{{ $umkms->updated_at }}</td>
+                                    <td style="vertical-align: middle;">{{ optional($umkms->cabang)->nama }}</td>
                                     <td class="text-center" style="vertical-align: middle;">
                                         <a href="{{ route('umkm.edit', $umkms->id) }}" class="btn btn-warning btn-sm">
                                             <i class="fa fa-pencil-alt"></i>

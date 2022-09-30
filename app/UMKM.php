@@ -20,4 +20,10 @@ class Umkm extends Model
     {
         return $this->hasMany('App\Produk', 'umkm_id', 'id');
     }
+
+    public function cabang()
+    {
+        return $this->belongsTo('App\Cabang', 'cabang_id', 'id');
+    }
+
 }
