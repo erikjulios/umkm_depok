@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 // use Ramsey\Uuid\Uuid;
-use App\Umkm;
+use App\UMKM;
 use App\Cabang;
 
 class UmkmController extends Controller
@@ -19,7 +19,7 @@ class UmkmController extends Controller
 
     public function index()
     {
-        $umkm = Umkm::paginate(10);
+        $umkm = UMKM::paginate(10);
         return view('pages.admin.umkm.view', compact('umkm'));
     }
 
@@ -66,7 +66,7 @@ class UmkmController extends Controller
 
 
 
-        $umkm = new Umkm();
+        $umkm = new UMKMUMKM();
         // $umkm->id = Uuid::uuid4()->getHex();
         $umkm->nama_UMKM=$request->nama_UMKM;
         // // $umkm->slug=$request->slug;
@@ -82,10 +82,10 @@ class UmkmController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Umkm  $umkm
+     * @param  \App\UMKMUMKM  $umkm
      * @return \Illuminate\Http\Response
      */
-    public function edit(Umkm $umkm)
+    public function edit(UMKMUMKM $umkm)
     {
 
         return view('pages.admin.umkm.edit', compact('umkm'));
@@ -96,10 +96,10 @@ class UmkmController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Umkm  $umkm
+     * @param  \App\UMKMUMKM  $umkm
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Umkm $umkm)
+    public function update(Request $request, UMKMUMKM $umkm)
     {
 
         $this->validate($request, [
@@ -119,7 +119,7 @@ class UmkmController extends Controller
 
         ]);
 
-        $umkm = Umkm::findorfail($umkm->id);
+        $umkm = UMKMUMKM::findorfail($umkm->id);
         $umkm->nama_UMKM=$request->nama_UMKM;
         // // $umkm->slug=$request->slug;
         $umkm->nama_pemilik=$request->nama_pemilik;
@@ -134,13 +134,13 @@ class UmkmController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Umkm  $umkm
+     * @param  \App\UMKM  $umkm
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Umkm $umkm)
+    public function destroy(UMKM $umkm)
     {
 
-        $umkm = Umkm::findOrfail($umkm->id);
+        $umkm = UMKM::findOrfail($umkm->id);
 
         // Delete from directory
         // unlink($umkm->image);
@@ -154,7 +154,7 @@ class UmkmController extends Controller
     public function makePublish($id)
     {
 
-        $umkm = Umkm::findorfail($id);
+        $umkm = UMKM::findorfail($id);
 
         if ($umkm->is_publish == 0)
         {
